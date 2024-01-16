@@ -11,8 +11,15 @@
 //       })
 //     }
 //   }
-//   navigation()
-  
+  // navigation()
+function menu(){
+  const menu = document.querySelector('.menu')
+  const openClose = document.querySelector('.menu-burger__line')
+ menu.addEventListener('click', ()=>{
+  menu.classList.toggle('menu-active')
+  openClose.classList.toggle
+ })
+}
+menu()
   const a = document.querySelectorAll('a')
   a.forEach((item) => item.addEventListener('click', (e) => e.preventDefault()))
-  console.log(123);

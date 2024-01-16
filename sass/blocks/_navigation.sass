@@ -32,6 +32,7 @@
     text-align: center
     border-bottom-right-radius: 40px
     border-bottom-left-radius: 40px
+    z-index: 9
     display: none
     &-item
       position: relative
@@ -40,6 +41,7 @@
       color: $grey
       border-top: 1px solid transparent
       border-bottom: 1px solid transparent
+      transition: border .2s
       &:hover
         border-top: 1px solid $black
         border-bottom: 1px solid $black
@@ -63,6 +65,7 @@
         color: $black
       &__link
         color: $grey
+        transition: color .2s
 .navigation-button-active .navigation-list
   display: block
 .rotate

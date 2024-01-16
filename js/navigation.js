@@ -1,17 +1,14 @@
-// import data from '../json/navigation.json'
-
 fetch('../json/navigation.json')
 .then((response)=> response.json())
 .then((data) => appendData(data))
 
 function appendData(data) {
-
   const container = document.querySelector('.navigation'); // Получаем контейнер
 
     data.navigation.forEach(item => {
+      console.log(item);
       const name = item.name;
       const list = item.list;
-
       // Создаем элементы HTML
       const divElement = document.createElement('div');
       divElement.className = 'navigation-button noselect';
@@ -61,9 +58,7 @@ function appendData(data) {
       container.appendChild(divElement);
     });
     function navigation(){
-  console.log(3213);
   const navigationButtons = document.querySelectorAll('.navigation-button-wrapper')
-  console.log(navigationButtons);
     for(let i = 0; i < navigationButtons.length; i++){
       let item = navigationButtons[i]
       item.addEventListener('click', function(){

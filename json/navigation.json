@@ -33,5 +33,22 @@
       "name": "Пластика для мужчин",
       "list": ["q", "w", "e", "rect", "t"]
     }
+  ],
+  "menu": [{
+      "name": "Главная",
+      "link": "asdasdadad"
+    },
+    {
+      "name": "О клинике",
+      "link": "asdasdadad"
+    },
+    {
+      "name": "Стандарты",
+      "link": "asdasdadad"
+    },
+    {
+      "name": "Хирурги",
+      "link": "asdasdadad"
+    }
   ]
 }
