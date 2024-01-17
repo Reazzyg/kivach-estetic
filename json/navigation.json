@@ -1,39 +1,90 @@
 {
   "navigation": [{
-      "name": "Пластические операции",
-      "list": [
-        "Абдоминопластика",
-        "Блефаропластика",
-        "Глютеопластика",
-        "Кантопексия",
-        "Коррекция шрамов и рубцов"
+      "listName": "Пластические операции",
+      "listItems": [{
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "12312",
+          "link": "asdasda"
+        },
+        {
+          "name": "333",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
       ]
     },
-
-
     {
-      "name": "Общая хирургия",
-      "list": ["q", "w", "e", "rect", "t"]
+      "listName": "Общая хирургия",
+      "listItems": [{
+        "name": "Глютеопластика",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }, {
+        "name": "zzc",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }]
     },
-
-
     {
-      "name": "Эндоскопия",
-      "list": ["q", "w", "e", "rect", "t"]
+      "listName": "Эндоскопия",
+      "listItems": [{
+        "name": "Кантопексия",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }, {
+        "name": "asd",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }]
     },
-
-
     {
-      "name": "Интимная пластика",
-      "list": ["q", "w", "e", "rect", "t"]
+      "listName": "Интимная пластика",
+      "listItems": [{
+        "name": "Коррекция шрамов и рубцов",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }, {
+        "name": "ewqeq",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }]
     },
-
-
     {
-      "name": "Пластика для мужчин",
-      "list": ["q", "w", "e", "rect", "t"]
+      "listName": "Пластика для мужчин",
+      "listItems": [{
+        "name": "Коррекция шрамов и рубцов",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }, {
+        "name": "gegf",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }]
     }
   ],
+
   "menu": [{
       "name": "Главная",
       "link": "asdasdadad"

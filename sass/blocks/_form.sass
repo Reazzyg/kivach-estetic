@@ -1,0 +1,81 @@
+.form
+  padding: 30px
+  background-color: $white
+  border-radius: 30px
+  max-width: 603px
+  &-title
+    font-family: $bold
+    font-size: 34px
+    color: $black
+    text-align: start
+    margin-bottom: 5px
+  &-subtitle
+    &-top
+      margin-bottom: 20px
+  &-wrapper
+    display: flex
+    justify-content: space-between
+  &-comment
+    border: 1px solid $grey-light
+    padding: 13px 50px 10px 10px
+    width: 100%
+  &-button
+    border-radius: 58px
+    padding: 10px 30px
+    font-size: 18px
+    margin-right: 20px
+
+input, textarea
+  padding: 13px
+  outline: none
+  border: none
+  border-bottom: 1px solid $grey-light
+  font-size: 18px
+  color: $black
+  width: 100%
+  margin-bottom: 20px
+  resize: none
+
+.form-wrapper input
+  width: 45%
+
+.form-wrapper a
+  color: $blue-dark
+
+.file-drop-area
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100%
+  padding: 25px
+  border: 1px dashed $grey-light
+  background-color: $light
+  border-radius: 3px
+  transition: 0.2s
+  color: $grey
+  margin-bottom: 30px
+  margin-top: 5px
+  &.is-active
+    background-color: rgba(32, 25, 25, 0.05)
+.fake-btn
+  flex-shrink: 0
+  padding: 8px 3px
+  text-decoration: underline
+.file-msg
+  padding: 8px 0px
+  font-weight: 300
+  line-height: 1.4
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+.file-input
+  position: absolute
+  left: 0
+  top: 0
+  height: 100%
+  width: 100%
+  cursor: pointer
+  opacity: 0
+  &:focus
+    outline: none

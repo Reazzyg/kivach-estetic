@@ -1,14 +1,15 @@
+export {createNavigation};
+function createNavigation(){
 fetch('../json/navigation.json')
 .then((response)=> response.json())
 .then((data) => appendData(data))
 
 function appendData(data) {
-  const container = document.querySelector('.navigation'); // Получаем контейнер
+  const container = document.querySelector('navigation'); // Получаем контейнер
 
     data.navigation.forEach(item => {
-      console.log(item);
-      const name = item.name;
-      const list = item.list;
+      const listName = item.listName;
+      const listItems = item.listItems;
       // Создаем элементы HTML
       const divElement = document.createElement('div');
       divElement.className = 'navigation-button noselect';
@@ -18,7 +19,7 @@ function appendData(data) {
 
       const nameElement = document.createElement('p');
       nameElement.className = 'navigation-button__name';
-      nameElement.textContent = name;
+      nameElement.textContent = listName;
 
       const arrowElement = document.createElement('img');
       arrowElement.src = 'img/arrow-down-dark.svg';
@@ -38,14 +39,14 @@ function appendData(data) {
       divElement.appendChild(wrapperElement);
 
       // Проходим по каждому элементу массива list и добавляем их внутрь тегов a
-      list.forEach(listItem => {
+      listItems.forEach(listItem => {
         const liElement = document.createElement('li');
         liElement.className = 'navigation-list-item';
 
         const aElement = document.createElement('a');
-        aElement.href = '#'; // Установите соответствующий URL
+        aElement.href = listItem.link; // Установите соответствующий URL
         aElement.className = 'navigation-list-item__link';
-        aElement.textContent = listItem;
+        aElement.textContent = listItem.name;
 
         liElement.appendChild(aElement);
         ulElement.appendChild(liElement);
@@ -70,5 +71,4 @@ function appendData(data) {
   }
   navigation()
 }
-
-  
+}
