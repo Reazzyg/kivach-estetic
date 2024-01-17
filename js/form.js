@@ -3,7 +3,11 @@ function createForm(){
 fetch('./components/sendForm.html')
 .then(response => response.text())
 .then(data =>{
-  document.querySelector('sendForm').innerHTML = data
+  let formContainers = document.querySelectorAll('sendForm')
+    formContainers.forEach(container =>{
+    container.innerHTML = data
+  })
+ 
   formAction()
 })
 
@@ -39,6 +43,10 @@ fileInput.addEventListener('change', function(){
     textContainer.textContent = filesCount + ' файлов (-а) выбрано'
   }
 })
+
+  // vaildate()
+  preventSending()
+
 }
 
 }

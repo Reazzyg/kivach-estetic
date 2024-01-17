@@ -1,10 +1,29 @@
  <form action="" class="form">
    <h3 class="title form-title">Напишите нам</h3>
    <p class="subtitle form-subtitle form-subtitle-top">Сотрудник клиники свяжется с вами в течение рабочего дня</p>
-   <input type="text" name="name" class="form-input" placeholder="ФИО">
+
+   <label>
+     <input type="text" name="name" class="form-input" placeholder="ФИО*">
+     <div class="form-img"></div>
+     <span class="error"></span>
+   </label>
+
+
    <div class="form-wrapper">
-     <input type="tel" name="phone" class="form-input" placeholder="+7 (999) 999-99-99">
-     <input type="email" name="email" class="form-input" placeholder="Email">
+     <label>
+       <input type="tel" name="phone" class="form-input" placeholder="+7 (999) 999-99-99*">
+       <div class="form-img"></div>
+       <div class="error"></div>
+       <span class="error"></span>
+     </label>
+
+     <label>
+       <input type="email" name="email" class="form-input form-email" placeholder="Email*">
+       <div class="form-img"></div>
+       <span class="error"></span>
+     </label>
+
+
    </div>
 
    <textarea class="form-input form-comment"
@@ -20,7 +39,7 @@
    </div>
 
    <div class="form-wrapper">
-     <button class="button form-button">Отправить</button>
+     <button type="submit" class="button form-button">Отправить</button>
      <p class="subtitle form-subtitle">Нажимая «Отправить», вы даете согласие на обработку <a class=""
          href="">персональных данных</a>
      </p>

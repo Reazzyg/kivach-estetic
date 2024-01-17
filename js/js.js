@@ -6,13 +6,15 @@ import {createForm} from './form.js'
       .then(() => {
         // После успешной загрузки header запускаем функцию createMenu
         createMenu();
-        createNavigation()
-        createForm()
       })
       .catch(error => {
         console.error('Error:', error);
       });
   };
+        createNavigation()
+        createForm()
+
+
 
   function loadHeader() {
     return new Promise((resolve, reject) => {

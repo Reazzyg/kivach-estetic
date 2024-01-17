@@ -18,6 +18,7 @@ body {
   font-family: "Philosopher-Regular", sans-serif;
   font-size: 18px;
   color: #474747;
+  background-color: #EAF2F8;
 }
 
 a {
@@ -180,12 +181,24 @@ button {
   border: 1px solid #DEDEDA;
   padding: 13px 50px 10px 10px;
   width: 100%;
+  border-radius: 3px;
+}
+.form-comment:focus {
+  border-color: #474747;
 }
 .form-button {
   border-radius: 58px;
   padding: 10px 30px;
   font-size: 18px;
   margin-right: 20px;
+}
+.form-img {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  transition: opacity 0.3s;
 }
 
 input, textarea {
@@ -196,11 +209,27 @@ input, textarea {
   font-size: 18px;
   color: #474747;
   width: 100%;
-  margin-bottom: 20px;
   resize: none;
 }
+input:focus-visible, textarea:focus-visible {
+  border-bottom: 1px solid #474747;
+}
 
-.form-wrapper input {
+.error {
+  position: absolute;
+  bottom: -15px;
+  left: 10px;
+  font-size: 12px;
+  color: #C74545;
+}
+
+.form label {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.form-wrapper label {
   width: 45%;
 }
 
@@ -371,4 +400,42 @@ input, textarea {
   background-image: url("../../img/hero-bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hero-contact {
+  display: flex;
+}
+
+.contact {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  position: relative;
+  padding: 50px 70px;
+  background-color: #fff;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  right: 50%;
+  bottom: 50px;
+  width: 1px;
+  background-color: #DCE4EF;
+}
+.contact-wrapper {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  width: 45%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.map-container {
+  width: 100%;
 }
