@@ -16,7 +16,7 @@ import {createForm} from './form.js'
 
   function loadHeader() {
     return new Promise((resolve, reject) => {
-      fetch('./components/header.html') // Замените на путь к вашему файлу header.html
+      fetch('./components/header.html') 
         .then(response => response.text())
         .then(data => {
           let header = document.querySelector('header')
