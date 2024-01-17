@@ -43,7 +43,7 @@ function deleteMessage(elem){
 
 
 
-function vaildate(inputItem){
+function validate(inputItem){
 
   inputItem.forEach(input =>{
     input.onblur = function(){
@@ -66,7 +66,7 @@ function vaildate(inputItem){
 
 function preventSending(){
   const emailInputs = document.querySelectorAll('.form-email')
-  
+    validate(emailInputs)
   const forms = document.querySelectorAll('.form')
     forms.forEach(form =>{
       form.onsubmit = function(event)
@@ -74,7 +74,7 @@ function preventSending(){
         let isValid = true; // Изначально считаем, что форма валидна
 
       emailInputs.forEach(input => {
-        if (!validate(input)) {
+        if ( !validate(input)) {
           isValid = false; // Если хотя бы одно поле не валидно, считаем форму не валидной
         }
       })
