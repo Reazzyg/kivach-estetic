@@ -79,6 +79,7 @@ button {
   background-color: #fff;
   border-radius: 40px;
   height: fit-content;
+  box-shadow: 0px 4px 11px 0px rgba(20, 52, 32, 0.12);
   cursor: pointer;
 }
 .navigation-button-wrapper {
@@ -108,6 +109,7 @@ button {
   border-bottom-right-radius: 40px;
   border-bottom-left-radius: 40px;
   z-index: 9;
+  box-shadow: 0px 4px 11px 0px rgba(20, 52, 32, 0.12);
   display: none;
 }
 .navigation-list-item {
@@ -453,6 +455,10 @@ input:focus-visible, textarea:focus-visible {
   display: flex;
   flex-direction: column;
 }
+.footer-wrap {
+  display: flex;
+  align-items: center;
+}
 .footer__title {
   width: 100%;
   margin-bottom: 15px;
@@ -472,7 +478,14 @@ input:focus-visible, textarea:focus-visible {
   font-size: 12px;
 }
 .footer__img {
+  padding: 10px;
   width: 80px;
+  height: 56px;
+  margin-right: 15px;
+  background-color: #fff;
+  border-radius: 3px;
+  object-fit: contain;
+  margin-bottom: 10px;
 }
 .footer__text {
   max-width: 350px;

@@ -28,7 +28,7 @@
         "name": "Абдоминопластика",
         "link": "asdasda"
       }, {
-        "name": "zzc",
+        "name": "Общая хирургия",
         "link": "asdasda"
       }, {
         "name": "Абдоминопластика",
@@ -100,6 +100,91 @@
     {
       "name": "Хирурги",
       "link": "asdasdadad"
+    }
+  ],
+  "footerNavigation": [{
+      "listName": "Пластические операции",
+      "listItems": [{
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "link",
+          "link": "asdasda"
+        },
+        {
+          "name": "555",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
+    },
+    {
+      "listName": "Общая хирургия",
+      "listItems": [{
+        "name": "Глютеопластика",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }, {
+        "name": "Общая хирургия",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }]
+    },
+    {
+      "listName": "Хирургия",
+      "listItems": [{
+        "name": "Кантопексия",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }, {
+        "name": "asd",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }]
+    },
+    {
+      "listName": "Интимная пластика",
+      "listItems": [{
+        "name": "Коррекция шрамов и рубцов",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }, {
+        "name": "ewqeq",
+        "link": "asdasda"
+      }, {
+        "name": "Абдоминопластика",
+        "link": "asdasda"
+      }]
+    },
+    {
+      "listName": "Информация",
+      "listItems": [{
+        "name": "Главная",
+        "link": "asdasda"
+      }, {
+        "name": "О клинике",
+        "link": "asdasda"
+      }, {
+        "name": "Стандарты",
+        "link": "asdasda"
+      }, {
+        "name": "Хирурги",
+        "link": "asdasda"
+      }]
     }
   ]
 }
