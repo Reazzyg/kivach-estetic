@@ -16,13 +16,6 @@ function appendData(data) {
         const listName = item.listName;
         const listItems = item.listItems;
 
-
-        // контейнеры в подвале 
-        const footerSurg = document.querySelector('.footer-surgery')
-        const footerPlastic = document.querySelector('.footer-plastic')
-        const footerIntim = document.querySelector('.footer-intim')
-        const footerAllSurg = document.querySelector('.footer-all-surg')
-        
         // Создаем элементы HTML
 
         const divElement = document.createElement('div');
@@ -51,13 +44,7 @@ function appendData(data) {
 
         ulElement.className = 'navigation-list';
 
-        //создаем элементы для футера
-
-        const footerTitle = document.createElement('h3')
-        
-        footerTitle.className = 'title footer__title'
-
-        // Добавляем name внутрь тега p
+              // Добавляем name внутрь тега p
         wrapperElement.appendChild(nameElement);
 
         // Добавляем arrow внутрь wrapper

@@ -1,17 +1,66 @@
+<?php 
+include "db_con.php"; 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $rating = isset($_POST['rating']) ? intval($_POST['rating']) : null;
+    $comment = $_POST['comment'];
+
+    // Здесь можно добавить валидацию данных, если это необходимо
+
+    // Ваш SQL-запрос для вставки данных в базу данных
+    $sql = "INSERT INTO comments (name, rating, message) VALUES ('$name', '$rating', '$comment')";
+
+    if ($link->query($sql) === TRUE) {
+        echo "Данные успешно добавлены в базу данных";
+    } else {
+        echo "Ошибка: " . $sql . "<br>" . $link->error;
+    }
+
+    $link->close();
+}
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Write to JSON</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <div id="data-container"></div>
-  <button onclick="editAndSaveJson()">Edit and Save JSON</button>
 
-  <script>
+
+  <form action="" method="POST" class="form">
+    <h3 class="title form-title">Создать отзыв</h3>
+
+    <label>
+      <input type="text" name="name" class="form-input" placeholder="ФИО*">
+    </label>
+
+    <label>
+      <input type="text" name="rating" class="form-input" placeholder="Рейтинг">
+    </label>
+
+    <textarea class="form-input form-comment" placeholder="Отзыв" name="comment" id="" cols="30" rows="5"></textarea>
+
+    <button type="submit" class="button form-button">Отправить</button>
+
+  </form>
+  <!-- /.form -->
+
+
+  <!-- <button onclick="editAndSaveJson()">Edit and Save JSON</button> -->
+
+
+
+  <!-- <script>
   // Загрузка данных из JSON-файла
   fetch('json/navigation.json') // Путь к вашему JSON-файлу
     .then(response => response.json())
@@ -123,7 +172,7 @@
       .then(savedData => console.log('Data saved:', savedData))
       .catch(error => console.error('Error saving data:', error));
   }
-  </script>
+  </script> -->
 
 
 
