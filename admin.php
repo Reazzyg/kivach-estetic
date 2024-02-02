@@ -1,27 +1,3 @@
-<?php 
-include "db_con.php"; 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
-    $rating = isset($_POST['rating']) ? intval($_POST['rating']) : null;
-    $comment = $_POST['comment'];
-
-    // Здесь можно добавить валидацию данных, если это необходимо
-
-    // Ваш SQL-запрос для вставки данных в базу данных
-    $sql = "INSERT INTO comments (name, rating, message) VALUES ('$name', '$rating', '$comment')";
-
-    if ($link->query($sql) === TRUE) {
-        echo "Данные успешно добавлены в базу данных";
-    } else {
-        echo "Ошибка: " . $sql . "<br>" . $link->error;
-    }
-
-    $link->close();
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -34,10 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-  <div id="data-container"></div>
 
-
-  <form action="" method="POST" class="form">
+  <div class="form">
     <h3 class="title form-title">Создать отзыв</h3>
 
     <label>
@@ -50,10 +24,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <textarea class="form-input form-comment" placeholder="Отзыв" name="comment" id="" cols="30" rows="5"></textarea>
 
-    <button type="submit" class="button form-button">Отправить</button>
+    <button class="button form-button">Отправить</button>
 
-  </form>
+  </div>
   <!-- /.form -->
+  <script>
+  function valid() {
+    let button = document.querySelector('.form-button')
+    let inputs = document.querySelectorAll('input')
+    let warn = document.createElement('p')
+    warn.textContent = 'заполните это поле'
+    console.log(warn);
+    button.addEventListener('click', function() {
+      inputs.forEach(input => {
+        if (input.value.length == 0) {
+          console.log(input);
+          input.insertAdjacentElement('afterend', warn)
+        } else {
+          console.log('fill');
+        }
+      })
+    })
+
+  }
+  valid()
+  </script>
 
 
   <!-- <button onclick="editAndSaveJson()">Edit and Save JSON</button> -->

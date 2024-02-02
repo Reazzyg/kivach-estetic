@@ -404,6 +404,9 @@ input:focus-visible, textarea:focus-visible {
   background-repeat: no-repeat;
   background-position-y: -150px;
 }
+.hero-comments {
+  background-size: contain;
+}
 
 .hero-contact {
   display: flex;
@@ -447,6 +450,7 @@ input:focus-visible, textarea:focus-visible {
   margin-right: 30px;
 }
 .comments-container {
+  padding-top: 100px;
   padding-bottom: 30px;
   width: 100%;
   display: flex;

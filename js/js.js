@@ -4,16 +4,16 @@ import {createForm} from './form.js'
 
  window.onload = function () {
 
-    loadHeader().then(() => {
+    // loadHeader().then(() => {
 
         // После успешной загрузки header запускаем функцию createMenu
         createMenu();
 
-      }).catch(error => {
+      // }).catch(error => {
 
-        console.error('Error:', error);
+      //   console.error('Error:', error);
 
-      });
+      // });
   };
 
 createNavigation()

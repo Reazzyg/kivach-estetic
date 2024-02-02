@@ -1,53 +1,3 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Кивач Эстетик +</title>
-</head>
-
-<body>
-  <header class="header">
-
-  </header>
-  <!-- /.header -->
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1 class="title hero-title">Контакты</h1>
-        <navigation class="navigation"></navigation>
-
-        <div class="contact hero-contact">
-          <div class="contact-wrapper">
-            <h2 class="contact__title">Клиника «Кивач Эстетик Плюс»</h2>
-            <p class="contact__text">Российская Федерация, Республика Карелия, Кондопожский муниципальный район,
-              Кончезерское поселение, с. Кончезеро, ул. Советов, д. 64</p>
-            <a href="tel:+7 (8142) 599-880" class="contact__link">+7 (8142) 599-880</a>
-            <a href="mailto:admin@кивачэстетик.рф" class="contact__link">admin@кивачэстетик.рф</a>
-          </div>
-          <!-- /.contact-wrapper -->
-          <sendForm></sendForm>
-        </div>
-        <!-- /.hero-warpper -->
-
-      </div>
-      <!-- /.container -->
-    </section>
-    <!-- /.hero -->
-
-    <section class="map">
-      <div class="container map-container">
-
-      </div>
-      <!-- /.container map-container -->
-    </section>
-    <!-- /.map -->
-
-
   </main>
   <footer class="footer">
     <div class="container footer-container">
@@ -124,6 +74,6 @@
   <script type="module" src="js/footer.js"></script>
   <script type="module" src="js/form.js"></script>
   <script type="module" src="js/js.js"></script>
-</body>
+  </body>
 
-</html>
+  </html>
