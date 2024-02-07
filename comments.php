@@ -1,12 +1,14 @@
 <?php
 
-include "db_con.php";
-
-$result = mysqli_query($con, "SELECT * FROM `comments` ORDER BY id DESC");
+// include "system/functions.php";
+// $result = mysqli_query($con, "SELECT * FROM `comments` ORDER BY id DESC");
 
 
 $title = 'Отзывы';
 include("components/header.php");
+
+$result = sqlQuery("SELECT * FROM `comments` ORDER BY id DESC");
+
 
 ?>
 
@@ -27,7 +29,7 @@ include("components/header.php");
           <div class="comment-rating">
             <?php 
             
-              $img = '<img src="img/Star-filled.svg" alt="" class="comment-rating__star">';
+              $img = '<img src="assets/img/Star-filled.svg" alt="" class="comment-rating__star">';
               $final_str = "";
               $rate = intval($comments['rating']);
               $final_str = str_repeat($img, $rate);
@@ -39,7 +41,7 @@ include("components/header.php");
           <div class="comment-profile">
             <img class="comment-profile__img" alt="" src="<?php
                  if ($comments['image'] == NULL){
-                    echo 'img/profile.svg';
+                    echo 'assets/img/profile.svg';
                  }
                  else{
                     echo $comments['image'];

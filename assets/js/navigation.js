@@ -34,7 +34,7 @@ function appendData(data) {
 
         const arrowElement = document.createElement('img');
 
-        arrowElement.src = 'img/arrow-down-dark.svg';
+        arrowElement.src = 'assets/img/arrow-down-dark.svg';
 
         arrowElement.alt = 'стрелка вниз для развертывания меню';
 

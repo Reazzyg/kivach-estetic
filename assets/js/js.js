@@ -1,6 +1,7 @@
 import {createMenu} from './menu.js'
 import {createNavigation} from './navigation.js'
 import {createForm} from './form.js'
+import {createFooter} from './footer.js'
 
  window.onload = function () {
 
@@ -20,7 +21,7 @@ createNavigation()
 
 createForm()
 
-
+createFooter()
 function loadHeader() {
 
     return new Promise((resolve, reject) => {

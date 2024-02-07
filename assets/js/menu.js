@@ -32,20 +32,22 @@ function appendMenu(data) {
 
   });
 }
-  function menuAction(){
 
-  const menu = document.querySelector('.menu')
-  
-  const openClose = document.querySelector('.menu-burger__line')
-
-  menu.addEventListener('click', ()=>{
-
-  menu.classList.toggle('menu-active')
-
-  openClose.classList.toggle
-  
- })
-}
 menuAction()
 
+}
+
+function menuAction(){
+
+const menu = document.querySelector('.menu')
+
+const openClose = document.querySelector('.menu-burger__line')
+
+menu.addEventListener('click', ()=>{
+
+menu.classList.toggle('menu-active')
+
+openClose.classList.toggle
+
+})
 }

@@ -1,13 +1,129 @@
 @media screen and ( min-width: 992px)
-.header:hover
+.header
+  width: 100%
+
+@media  ( max-width: 1500px  )
+  .container
+    max-width: 1140px
+  .navigation
+    flex-wrap: wrap
+    &-button
+      margin-bottom: 40px
+      &:nth-last-child(1)
+        display: flex
+        justify-content: center
+        flex-basis: 47%
+      &:nth-last-child(2)
+        display: flex
+        justify-content: center
+        flex-basis: 47%
 
 @media  ( max-width: 1200px  )
   .container
     max-width: 960px
-
+  .desktop
+    display: none
+  .mobile
+    display: block
+  .footer
+    &-wrapper
+      &-mobile
+        display: flex
+        flex-direction: row
+        justify-content: space-between
 @media  ( max-width: 992px  )
+
+  body
+    font-size: 14px
+  h1
+    font-size: 29px
+  h2
+    font-size: 21px
   .container
     max-width: 760px
+  .logo
+    height: 40px
+    width: 93px
+  .header
+    position: relative
+    padding-bottom: 15px
+    &-social
+      &__link
+        font-size: 14px
+        margin-left: 5px
+      &__icon
+        width: 12px
+    &-menu
+      order: 1
+      position: static
+      &__text
+        display: none
+  .menu
+    padding: 15px
+    &-burger
+      margin: 0
+    &-list
+      display: block
+      position: fixed
+      right: 0
+      top: 55px
+      bottom: 0
+      left: 100%
+      border: none
+      box-shadow: none
+      border-radius: 0
+      transform: unset
+      transform: translateY(34px)
+      transition: left .8s
+      &-item
+        &__link
+          color: $grey
+          font-size: 14px
+    &-active .menu-list
+      left: 0
+      display: flex
+      flex-direction: column
+      text-align: start
+  .menu-active .menu-burger__line:after
+    transform: translate(0%, 0%) rotate(45deg)
+  .menu-active .menu-burger__line:before
+    transform: translate(0%, -200%) rotate(135deg)
+  .navigation
+    flex-wrap: wrap
+    &-button
+      width: 100%
+      justify-content: space-between
+      &:nth-last-child(1)
+        flex-basis: unset
+      &:nth-last-child(2)
+        flex-basis: unset
+      &-wrapper
+        width: 100%
+        justify-content: space-between
+      &__name
+        width: unset
+  .footer
+    &-wrap
+      flex-direction: column
+    &-wrapper
+      &-mobile
+        flex-direction: column
+      &-mobile .footer-wrap .footer__text
+        max-width: 100%
+        width: 100%
+        margin: 0
+      &-mobile .footer-wrap
+        flex-direction: row
+        align-items: center
+      &:nth-last-child(1)
+        flex-basis: min-content
+    &-list
+      &-item
+        display: none
+      &-item.active
+        display: block
+      &__arrow
+        display: block
 
 @media  ( max-width: 768px  )
   .container

@@ -1,5 +1,5 @@
 export {createFooter}
-createFooter()
+
 function createFooter(){
 
 fetch('../json/navigation.json')
@@ -46,12 +46,25 @@ function  footerSurg(data){
 
                     const elementToAppent = document.querySelector(`[title="${name}"]`)
 
+                    const footerArrow = document.createElement('img')
+
+                    footerArrow.className = 'footer-list__arrow'
+
+                    footerArrow.src = 'assets/img/arrow-down.svg'
+
+                    const titleWrap = document.createElement('div')
+
+                    titleWrap.className = 'footer-list-wrap'
+                    
                     //устанавливаем заголовок 
                     const footerTitle = document.createElement('h3')
 
                     footerTitle.className = 'title footer__title'
 
                     footerTitle.textContent = name
+
+                    titleWrap.appendChild(footerTitle)
+                    titleWrap.appendChild(footerArrow)
 
                     //получаем пункуты раздела
                     const menuItems = item.listItems
@@ -81,7 +94,7 @@ function  footerSurg(data){
 
                         elementToAppent.appendChild(liElement);
 
-                        elementToAppent.prepend(footerTitle);
+                        elementToAppent.prepend(titleWrap);
 
                     })
 
@@ -89,5 +102,31 @@ function  footerSurg(data){
             }
 
         })
+        footerAction()
     }
+}
+
+function footerAction(){
+
+    const menus = document.querySelectorAll('.footer-list-wrap')
+
+        menus.forEach(menu =>{
+
+            menu.addEventListener('click', function(e){
+
+            const target  = e.target
+            
+            const menu = target.closest('.footer-list')
+
+            menu.querySelector('.footer-list__arrow').classList.toggle('rotate')
+
+                const menuElements = menu.querySelectorAll('li')
+
+                menuElements.forEach(li=>{
+
+                    li.classList.toggle('active')
+                    
+                })
+            })
+        })
 }
