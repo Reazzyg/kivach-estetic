@@ -23,26 +23,28 @@ function removeClassFromInput(){
 
 }
 
-fileInput.addEventListener('dragenter', addClassToInput)
-fileInput.addEventListener('focus', addClassToInput)
-fileInput.addEventListener('click', addClassToInput)
-fileInput.addEventListener('dragleave', removeClassFromInput)
-fileInput.addEventListener('blur', removeClassFromInput)
-fileInput.addEventListener('drop', removeClassFromInput)
+if(fileInput){
+  fileInput.addEventListener('dragenter', addClassToInput)
+  fileInput.addEventListener('focus', addClassToInput)
+  fileInput.addEventListener('click', addClassToInput)
+  fileInput.addEventListener('dragleave', removeClassFromInput)
+  fileInput.addEventListener('blur', removeClassFromInput)
+  fileInput.addEventListener('drop', removeClassFromInput)
 
-fileInput.addEventListener('change', function(){
-  console.log(this);
-  let filesCount = this.files.length
-  let textContainer = this.previousElementSibling
+  fileInput.addEventListener('change', function(){
+    console.log(this);
+    let filesCount = this.files.length
+    let textContainer = this.previousElementSibling
 
-  if(filesCount === 1){
-    let fileName= this.value.split('\\').pop()
-    textContainer.textContent = fileName
-  }
-  else{
-    textContainer.textContent = filesCount + ' файлов (-а) выбрано'
-  }
-})
+    if(filesCount === 1){
+      let fileName= this.value.split('\\').pop()
+      textContainer.textContent = fileName
+    }
+    else{
+      textContainer.textContent = filesCount + ' файлов (-а) выбрано'
+    }
+  })
+}
 
   // vaildate()
   preventSending()

@@ -17,14 +17,44 @@
         display: flex
         justify-content: center
         flex-basis: 47%
-
+  .hero
+    padding-top: 70px
+    &-subtitle
+      margin-bottom: 50px
+    &-main
+      &-list
+        margin-bottom: 120px
+      &__bg
+        max-width: 560px
+        top: -50px
+  .advantages
+    &-card
+      &__text
+        width: 300px
 @media  ( max-width: 1200px  )
+  body
+    background-position-y: 85px
   .container
     max-width: 960px
   .desktop
     display: none
   .mobile
     display: block
+  .hero
+    padding-top: 50px
+    &-main
+      &-list
+        margin-bottom: 60px
+      &__bg
+        max-width: 410px
+        top: 25px
+  .advantages
+    &-card
+      padding: 20px
+      &__text
+        width: 260px
+      .subtitle
+        font-size: 24px
   .footer
     &-wrapper
       &-mobile
@@ -32,7 +62,6 @@
         flex-direction: row
         justify-content: space-between
 @media  ( max-width: 992px  )
-
   body
     font-size: 14px
   h1
@@ -90,6 +119,8 @@
     transform: translate(0%, -200%) rotate(135deg)
   .navigation
     flex-wrap: wrap
+    &-list
+      position: static
     &-button
       width: 100%
       justify-content: space-between
@@ -102,7 +133,38 @@
         justify-content: space-between
       &__name
         width: unset
+  .hero
+    padding-top: 50px
+    &-title
+      font-size: 29px
+      margin-bottom: 5px
+    &-subtitle
+      font-size: 14px
+      margin-bottom: 25px
+    &-main
+      &-list
+        margin-bottom: 100px
+        &__item
+          margin-bottom: 10px
+      &__bg
+        max-width: 390px
+        top: -50px
+  .year
+    & .subtitle
+      font-size: 29px
+  .advantages
+    &-container
+      flex-direction: column
+      align-items: center
+    &-card
+      width: 500px
+      margin-bottom: 20px
+      &:nth-last-child(1)
+        margin-bottom: 0
+
   .footer
+    &-devider
+      display: block
     &-wrap
       flex-direction: column
     &-wrapper
@@ -128,7 +190,42 @@
 @media  ( max-width: 768px  )
   .container
     max-width: 576px
-
+  .hero
+    padding-top: 50px
+    &-wrapper
+      max-width: 60%
+    &-main
+      &-list
+        max-width: 68%
+        margin-bottom: 30px
+        &__item
+          margin-bottom: 10px
+      &__bg
+        max-width: 300px
+        top: -53px
 @media  ( max-width: 576px  )
   .container
     max-width: 92%
+  .hero
+    padding-top: 50px
+    &-wrapper
+      max-width: 100%
+    &-main
+      &-container
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+      &-list
+        max-width: 100%
+        margin-bottom: 0
+        &__item
+          margin-bottom: 10px
+      &__bg
+        position: static
+  .year
+    & .subtitle
+      font-size: 21px
+  .advantages
+    &-card
+      width: 100%

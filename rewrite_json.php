@@ -7,5 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($decodedData) {
         $jsonFilePath = 'json/new.json'; // Укажите путь к вашему JSON-файлу
+    }
+}
 
-       
+
+    
