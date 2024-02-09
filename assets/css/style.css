@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
   padding: 0;
 }
 
-h1 {
+h1, .title {
   font-size: 44px;
 }
 
@@ -526,11 +526,15 @@ input:focus-visible, textarea:focus-visible {
   background-image: url("../img/form-heart.svg");
   background-repeat: no-repeat;
   background-position: left bottom;
+  overflow: hidden;
 }
 .feedback__img {
   position: absolute;
   left: 10px;
   bottom: 0;
+}
+.feedback p.title, .feedback .text {
+  display: none;
 }
 
 .hero-contact {
@@ -745,6 +749,14 @@ input:focus-visible, textarea:focus-visible {
   .advantages-card__text {
     width: 300px;
   }
+  .feedback-container {
+    padding-right: 55px;
+    background-size: 550px;
+  }
+  .feedback__img {
+    width: 600px;
+    left: -50px;
+  }
 }
 @media (max-width: 1200px) {
   body {
@@ -778,6 +790,12 @@ input:focus-visible, textarea:focus-visible {
   .advantages-card .subtitle {
     font-size: 24px;
   }
+  .feedback-container {
+    justify-content: center;
+  }
+  .feedback__img {
+    display: none;
+  }
   .footer-wrapper-mobile {
     display: flex;
     flex-direction: row;
@@ -788,10 +806,10 @@ input:focus-visible, textarea:focus-visible {
   body {
     font-size: 14px;
   }
-  h1 {
+  h1, .title {
     font-size: 29px;
   }
-  h2 {
+  h2, .subtitle {
     font-size: 21px;
   }
   .container {
@@ -837,7 +855,7 @@ input:focus-visible, textarea:focus-visible {
     border-radius: 0;
     transform: unset;
     transform: translateY(34px);
-    transition: left 0.8s;
+    transition: left 0.5s;
   }
   .menu-list-item__link {
     color: #71716B;
@@ -913,6 +931,43 @@ input:focus-visible, textarea:focus-visible {
   .advantages-card:nth-last-child(1) {
     margin-bottom: 0;
   }
+  .feedback-container {
+    padding: 50px 0;
+    max-width: 100%;
+    border-radius: 0;
+    flex-direction: column;
+  }
+  .feedback p.title, .feedback .text {
+    display: block;
+  }
+  .feedback .text {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  sendform {
+    max-width: 95%;
+  }
+  sendform .form {
+    width: 100%;
+  }
+  sendform .form-title, sendform .form .form-subtitle {
+    display: none;
+  }
+  sendform .form-subtitle:nth-last-child(1) {
+    display: block;
+  }
+  sendform .form-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  sendform .form-wrapper label {
+    width: 100%;
+  }
+  sendform .form-button {
+    padding: 10px 90px;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
   .footer-devider {
     display: block;
   }
@@ -965,6 +1020,9 @@ input:focus-visible, textarea:focus-visible {
     max-width: 300px;
     top: -53px;
   }
+  .feedback-container {
+    max-width: 100%;
+  }
 }
 @media (max-width: 576px) {
   .container {
@@ -997,5 +1055,12 @@ input:focus-visible, textarea:focus-visible {
   }
   .advantages-card {
     width: 100%;
+  }
+  .feedback-container {
+    max-width: 100%;
+  }
+  sendForm .form-button {
+    width: 100%;
+    margin-right: 0;
   }
 }

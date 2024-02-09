@@ -29,7 +29,7 @@
         <hr class="footer-devider" />
         <div class="footer-wrapper">
           <div class="footer-wrapper">
-            <h3 class="title footer__title">Клиника «Кивач Эстетик Плюс»</h3>
+            <h3 class="footer__title">Клиника «Кивач Эстетик Плюс»</h3>
             <p class="footer__text">Российская Федерация, Республика Карелия, Кондопожский муниципальный район,
               Кончезерское
               поселение, с. Кончезеро, ул. Советов, д. 64</p>
@@ -38,7 +38,7 @@
           </div>
           <!-- /.footer-wrapper -->
           <div class="footer-wrapper">
-            <h3 class="title footer__title">Режим работы:</h3>
+            <h3 class="footer__title">Режим работы:</h3>
             <p class="footer__text">Пн - Пт: 09:00-21:00</p>
             <p class="footer__text">Сб, против: выходные</p>
             <p class="footer__text">График приёма руководителя гражданской клиники:</p>

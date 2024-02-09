@@ -58,6 +58,8 @@ include('components/header.php');
 <section class="feedback">
   <div class="container feedback-container">
     <img class="feedback__img" src="<?get_img_path()?>form-doc.png" alt="">
+    <p class="title">Напишите нам</p>
+    <p class="text">Сотрудник клиники свяжется с вами в течение рабочего дня</p>
     <sendForm></sendForm>
   </div>
   <!-- /.container feedback-container -->

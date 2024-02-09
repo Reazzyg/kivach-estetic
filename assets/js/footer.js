@@ -59,7 +59,7 @@ function  footerSurg(data){
                     //устанавливаем заголовок 
                     const footerTitle = document.createElement('h3')
 
-                    footerTitle.className = 'title footer__title'
+                    footerTitle.className = 'footer__title'
 
                     footerTitle.textContent = name
 
