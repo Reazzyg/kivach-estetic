@@ -66,6 +66,61 @@ include('components/header.php');
 </section>
 <!-- /.feedback -->
 
+
+<section class="devider">
+  <!-- 5 вариантов картинок на каждое разрешение???? -->
+  <img src="<?get_img_path()?>body-bg.svg" alt="" class="devider-bg devider-bg-left">
+  <img src="<?get_img_path()?>body-bg.svg" alt="" class="devider-bg devider-bg-right">
+  <!--  -->
+  <div class="container devider-container">
+    <h2 class="title">Пластические операции <b>премиум-класса</b> с соблюдением международных стандартов</h2>
+  </div>
+  <!-- /.container devider-container -->
+</section>
+<!-- /.devider -->
+
+
+<section class="about">
+  <div class="container about-container">
+    <img src="<?get_img_path()?>clinic.png" alt="" class="about__img">
+    <div class="about-wrapper">
+      <div class="about-card">
+        <h3 class="about-card__title">Premium-класс</h3>
+        <!-- /.about-card__title -->
+        <p class="about-card__text text">Premium-класс – это не привилегия. Это естественное желание профессионалов
+          делать свою работу блестяще. Нам нравится много трудиться, чтобы обеспечить вам лечение и обслуживание
+          исключительного качества. Лучшее всегда создаётся на базе лучшего, поэтому только премиальный класс делает
+          медицину по-настоящему эффективной.</p>
+        <!-- /.about-card__text text -->
+      </div>
+      <!-- /.about-card -->
+      <div class="about-card">
+        <h3 class="about-card__title">Перфекционизм во всём</h3>
+        <!-- /.about-card__title -->
+        <p class="about-card__text text">Следуя четвертьвековому опыту нашего головного бренда «Кивач», мы вывели
+          хирургические операции на новый уровень технологичности, безопасности и эффективности. Мастерство нашего
+          персонала плюс диагностика, оборудование, препараты, расходные материалы, пост-операционный уход – абсолютно
+          всё подчинено идее предоставить вам бескомпромиссный результат</p>
+        <!-- /.about-card__text text -->
+      </div>
+      <!-- /.about-card -->
+      <div class="about-card">
+        <h3 class="about-card__title">Перемены к лучшему</h3>
+        <!-- /.about-card__title -->
+        <p class="about-card__text text">Проводя операции с ювелирной точностью, мы одновременно создаём для вас
+          улучшенную версию будущего. Восстановление здоровья и преображение внешности расширяет горизонт ваших
+          возможностей. Становится доступным то, в чём вы себе отказывали. Это новое качество жизни, которого вы
+          достойны в полной мере</p>
+        <!-- /.about-card__text text -->
+      </div>
+      <!-- /.about-card -->
+    </div>
+    <!-- /.about-wrapper -->
+  </div>
+  <!-- /.container about-container -->
+</section>
+<!-- /.about -->
+
 <?php
 include('components/footer.php');
 

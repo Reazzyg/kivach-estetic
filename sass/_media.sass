@@ -2,7 +2,9 @@
 .header
   width: 100%
 
-@media  ( max-width: 1500px  )
+@media  ( max-width: 1500px)
+  body
+    overflow-x: hidden
   .container
     max-width: 1140px
   .navigation
@@ -38,6 +40,28 @@
     &__img
       width: 600px
       left: -50px
+  .devider
+    &-bg
+      &-left
+        left: -150px
+      &-right
+        right: -150px
+  .about
+    &-container
+      flex-direction: column
+    &__img
+      max-width: 100%
+      max-height: 770px
+      flex-basis: unset
+      margin-bottom: 20px
+    &-wrapper
+      flex-basis: unset
+      flex-direction: row
+    &-card
+      margin-right: 20px
+      margin-bottom: 0
+      &:nth-last-child(1)
+        margin-right: 0
 @media  ( max-width: 1200px  )
   body
     background-position-y: 85px
@@ -67,6 +91,18 @@
       justify-content: center
     &__img
       display: none
+  .devider
+    &-bg
+      &-left
+        left: -280px
+      &-right
+        right: -280px
+    &-container
+      & .title
+        max-width: 670px
+  .about
+    &__img
+      max-height: 650px
   .footer
     &-wrapper
       &-mobile
@@ -137,8 +173,10 @@
       width: 100%
       justify-content: space-between
       &:nth-last-child(1)
+        display: block
         flex-basis: unset
       &:nth-last-child(2)
+        display: block
         flex-basis: unset
       &-wrapper
         width: 100%
@@ -202,7 +240,26 @@
         padding: 10px 90px
         margin-bottom: 10px
         margin-right: 0
-
+  .devider
+    &-bg
+      &-left
+        left: -210px
+      &-right
+        right: -210px
+    &-container
+      & .title
+        max-width: 370px
+        font-size: 21px
+  .about
+    &__img
+      max-height: 650px
+    &-card
+      &__title
+        font-size: 21px
+        text-align: center
+      &__text
+        font-size: 14px
+        text-align: center
   .footer
     &-devider
       display: block
@@ -247,6 +304,22 @@
   .feedback
     &-container
       max-width: 100%
+  .devider
+    padding: 50px 0
+    &-bg
+      display: none
+  .about
+    &__img
+      max-height: 400px
+    &-wrapper
+      flex-direction: column
+    &-card
+      width: 100%
+      margin-bottom: 20px
+      margin-right: 0
+      &:nth-last-child(1)
+        margin-bottom: 0
+
 @media  ( max-width: 576px  )
   .container
     max-width: 92%
@@ -280,3 +353,6 @@
     & .form-button
       width: 100%
       margin-right: 0
+  .about
+    &__img
+      max-height: 250px

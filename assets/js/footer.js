@@ -1,132 +1,62 @@
-export {createFooter}
+import { createDOMElement } from './utils.js';
+export { createFooter };
 
-function createFooter(){
-
-fetch('../json/navigation.json')
-.then((response)=> response.json())
-.then((data) => appendData(data))
-
-function appendData(data) {
-footerSurg(data)
+function createFooter() {
+    fetch('../json/navigation.json')
+        .then(response => response.json())
+        .then(data => footerSurg(data));
 }
 
-function  footerSurg(data){
+// Функция footerSurg создает футер на основе данных из файла navigation.json
+function footerSurg(data) {
+    data.footerNavigation.forEach(item => {
+        // Получаем название раздела меню
+        const menuNames = item.listName;
+        // Находим элемент, куда будем добавлять раздел меню
+        const elementToAppent = document.querySelector(`[title="${menuNames}"]`);
+        // Создаем стрелку для раздела меню
+        const footerArrow = createDOMElement('img', 'footer-list__arrow');
+        footerArrow.src = 'assets/img/arrow-down.svg'; // Устанавливаем путь к изображению стрелки
+        // Создаем контейнер для названия раздела меню и стрелки
+        const titleWrap = createDOMElement('div', 'footer-list-wrap');
+        // Создаем элемент для названия раздела меню и добавляем его в контейнер
+        titleWrap.appendChild(createDOMElement('h3', 'footer__title', menuNames));
+        // Добавляем стрелку в контейнер
+        titleWrap.appendChild(footerArrow);
+        
+        // Для каждого пункта в разделе меню создаем элемент списка и добавляем его в раздел меню
+        item.listItems.forEach(menuItem => {
+            const { name, link } = menuItem;
+            const liElement = createDOMElement('li', 'footer-list-item');
+            const aElement = createDOMElement('a', 'footer-list-item__link', name);
+            aElement.href = link; // Устанавливаем ссылку для пункта меню
+            liElement.appendChild(aElement);
+            elementToAppent.appendChild(liElement);
+        });
 
-    const info = 'Информация'
-    const surg = 'Хирургия'
-    const plastic = 'Пластические операции'
-    const intim = 'Интимная пластика'
-    const allSurg = 'Общая хирургия'
+        // Добавляем контейнер с названием раздела и списком пунктов меню в DOM
+        elementToAppent.prepend(titleWrap);
+    });
 
-        data.footerNavigation.forEach(item =>{
-
-            const menuNames = item.listName
-
-            switch(menuNames){
-                case info:
-                    check(info)
-                    break;
-                case surg:
-                    check(surg)
-                    break;
-                case plastic:
-                    check(plastic)
-                    break;
-                case intim:
-                    check(intim)
-                    break;
-                case allSurg:
-                    check(allSurg)
-                    break;
-            }
-
-
-            function check(name){
-                if (menuNames === name){
-
-                    const elementToAppent = document.querySelector(`[title="${name}"]`)
-
-                    const footerArrow = document.createElement('img')
-
-                    footerArrow.className = 'footer-list__arrow'
-
-                    footerArrow.src = 'assets/img/arrow-down.svg'
-
-                    const titleWrap = document.createElement('div')
-
-                    titleWrap.className = 'footer-list-wrap'
-                    
-                    //устанавливаем заголовок 
-                    const footerTitle = document.createElement('h3')
-
-                    footerTitle.className = 'footer__title'
-
-                    footerTitle.textContent = name
-
-                    titleWrap.appendChild(footerTitle)
-                    titleWrap.appendChild(footerArrow)
-
-                    //получаем пункуты раздела
-                    const menuItems = item.listItems
-
-                    //перебираем пункты раздела
-                    menuItems.forEach(item =>{
-
-                        //получаем название пункта
-                        const menuName = item.name
-                        
-                        //получаем ссылку пункта
-                        const menuLink = item.link
-
-                        const liElement = document.createElement('li');
-
-                        liElement.className = 'footer-list-item';
-
-                        const aElement = document.createElement('a');
-
-                        aElement.className = 'footer-list-item__link'
-
-                        aElement.href = menuLink; // Устанавливаем атрибут href для ссылки
-
-                        aElement.textContent = menuName;
-
-                        liElement.appendChild(aElement);
-
-                        elementToAppent.appendChild(liElement);
-
-                        elementToAppent.prepend(titleWrap);
-
-                    })
-
-                }
-            }
-
-        })
-        footerAction()
-    }
+    // Добавляем обработчики событий для плавного раскрытия и закрытия разделов меню
+    footerAction();
 }
 
-function footerAction(){
-
-    const menus = document.querySelectorAll('.footer-list-wrap')
-
-        menus.forEach(menu =>{
-
-            menu.addEventListener('click', function(e){
-
-            const target  = e.target
-            
-            const menu = target.closest('.footer-list')
-
-            menu.querySelector('.footer-list__arrow').classList.toggle('rotate')
-
-                const menuElements = menu.querySelectorAll('li')
-
-                menuElements.forEach(li=>{
-
-                    li.classList.toggle('active')
-                    
-                })
-            })
-        })
+// Функция footerAction добавляет обработчики событий для разделов меню, позволяя плавно раскрывать и закрывать их
+function footerAction() {
+    const menus = document.querySelectorAll('.footer-list-wrap');
+    menus.forEach(menu => {
+        menu.addEventListener('click', function (e) {
+            const target = e.target;
+            // Находим ближайший родительский элемент с классом 'footer-list', который является разделом меню
+            const menu = target.closest('.footer-list');
+            // Переключаем класс 'rotate' для стрелки, чтобы показать или скрыть ее
+            menu.querySelector('.footer-list__arrow').classList.toggle('rotate');
+            // Плавно показываем или скрываем пункты меню
+            const menuElements = menu.querySelectorAll('li');
+            menuElements.forEach(li => {
+                li.classList.toggle('active');
+            });
+        });
+    });
 }

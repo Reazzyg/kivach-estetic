@@ -1,0 +1,22 @@
+.devider
+  padding: 200px 0
+  position: relative
+  &-bg
+    position: absolute
+    top: -150px
+    z-index: -1
+
+    &-left
+      left: 0
+    &-right
+      right: 0
+      transform: scale(-1,1)
+  &-container
+    & .title
+      max-width: 900px
+      margin: auto
+      text-align: center
+      font-family: $regular
+      font-weight: 100
+      & b
+        font-family: $bold
