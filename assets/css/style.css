@@ -86,7 +86,7 @@ button {
 }
 
 .text {
-  font-size: 14px;
+  font-size: 18px;
   color: #71716B;
 }
 
@@ -628,6 +628,9 @@ input:focus-visible, textarea:focus-visible {
 .devider {
   padding: 200px 0;
   position: relative;
+  background-image: url("../img/body-bg.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
 }
 .devider-bg {
   position: absolute;
@@ -689,6 +692,71 @@ input:focus-visible, textarea:focus-visible {
 }
 .about-card__text {
   font-size: 18px;
+}
+
+.standart {
+  padding: 100px 0;
+  position: relative;
+  background-image: url("../img/standarts-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: center;
+}
+.standart-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.6509803922);
+  z-index: 1;
+}
+.standart-container {
+  width: 960px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+.standart__title {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.standart-wrapper {
+  padding: 30px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 30px;
+  max-width: 920px;
+  gap: 30px;
+}
+.standart-wrapper:after {
+  content: "";
+  position: absolute;
+  height: 80%;
+  width: 2px;
+  background-color: #DCE4EF;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.standart-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 50%;
+}
+.standart-card__img {
+  width: 200px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+.standart-card__text {
+  text-align: center;
 }
 
 .footer {
@@ -919,6 +987,9 @@ input:focus-visible, textarea:focus-visible {
   h2, .subtitle {
     font-size: 21px;
   }
+  .text {
+    font-size: 14px;
+  }
   .container {
     max-width: 760px;
   }
@@ -1098,6 +1169,13 @@ input:focus-visible, textarea:focus-visible {
     font-size: 14px;
     text-align: center;
   }
+  .standart {
+    padding: 50px 0;
+    background-image: none;
+  }
+  .standart-overlay {
+    display: none;
+  }
   .footer-devider {
     display: block;
   }
@@ -1172,6 +1250,16 @@ input:focus-visible, textarea:focus-visible {
   }
   .about-card:nth-last-child(1) {
     margin-bottom: 0;
+  }
+  .standart-wrapper {
+    flex-direction: column;
+  }
+  .standart-wrapper:after {
+    height: 2px;
+    width: 90%;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
   }
 }
 @media (max-width: 576px) {

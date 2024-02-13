@@ -116,6 +116,8 @@
     font-size: 29px
   h2, .subtitle
     font-size: 21px
+  .text
+    font-size: 14px
   .container
     max-width: 760px
   .logo
@@ -260,6 +262,11 @@
       &__text
         font-size: 14px
         text-align: center
+  .standart
+    padding: 50px 0
+    background-image: none
+    &-overlay
+      display: none
   .footer
     &-devider
       display: block
@@ -319,7 +326,15 @@
       margin-right: 0
       &:nth-last-child(1)
         margin-bottom: 0
-
+  .standart
+    &-wrapper
+      flex-direction: column
+      &:after
+        height: 2px
+        width: 90%
+        left: 50%
+        top: 50%
+        transform: translateX(-50%)
 @media  ( max-width: 576px  )
   .container
     max-width: 92%

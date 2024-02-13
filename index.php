@@ -69,8 +69,8 @@ include('components/header.php');
 
 <section class="devider">
   <!-- 5 вариантов картинок на каждое разрешение???? -->
-  <img src="<?get_img_path()?>body-bg.svg" alt="" class="devider-bg devider-bg-left">
-  <img src="<?get_img_path()?>body-bg.svg" alt="" class="devider-bg devider-bg-right">
+  <!-- <img src="<?get_img_path()?>body-bg.svg" alt="" class="devider-bg devider-bg-left">
+  <img src="<?get_img_path()?>body-bg.svg" alt="" class="devider-bg devider-bg-right"> -->
   <!--  -->
   <div class="container devider-container">
     <h2 class="title">Пластические операции <b>премиум-класса</b> с соблюдением международных стандартов</h2>
@@ -120,6 +120,38 @@ include('components/header.php');
   <!-- /.container about-container -->
 </section>
 <!-- /.about -->
+
+
+<section class="standart">
+  <div class="standart-overlay"></div>
+  <!-- /.standart-overlay -->
+  <div class="container standart-container">
+    <h2 class="title standart__title">Международные стандарты, которые соблюдаются в клинике</h2>
+    <div class="standart-wrapper">
+      <div class="standart-card">
+        <img src="<?get_img_path()?>efqm.png" alt="" class="standart-card__img">
+        <p class="text standart-card__text">Этому стандарту следуют более 50 000 организаций по всему миру. Наличие
+          сертификата EFQM означает, что процессы обслуживания, лечения, развития, планирования и управления инновациями
+          в клинике организованы совершенно и соответствуют образу идеальной модели Европейского фонда управления
+          качеством</p>
+        <!-- /.text standart-card__text -->
+      </div>
+      <!-- /.standart-card -->
+      <div class="standart-card">
+        <img src="<?get_img_path()?>coin.png" alt="" class="standart-card__img">
+        <p class="text standart-card__text">Cерия универсальных стандартов, разработанных американской компанией Joint
+          Commission International, которая стандартизировала качество услуг, оказываемых в медицинской отрасли, по
+          всему миру. Аккредитация по этим стандартам указывает на высший уровень здравоохранения, принятый в данном
+          медицинском учреждении</p>
+        <!-- /.text standart-card__text -->
+      </div>
+      <!-- /.standart-card -->
+    </div>
+    <!-- /.standart-wrapper -->
+  </div>
+  <!-- /.container standart-container -->
+</section>
+<!-- /.standart -->
 
 <?php
 include('components/footer.php');
