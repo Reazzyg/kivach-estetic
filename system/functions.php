@@ -2,6 +2,13 @@
 
 include('system/db_con.php');
 
+function sqlNumRows($result) {
+    if ($result instanceof mysqli_result) {
+        return $result->num_rows;
+    } else {
+        return 0;
+    }
+}
 
 function get_img_path(){
    echo 'assets/img/';
@@ -19,7 +26,13 @@ function sqlQuery($q){
 
   $res = mysqli_query($connect, $q);
   
-  if(mysqli_error($connect)) msg('error');
+  if(mysqli_error($connect)) msg($q,'error');
      
   return $res;
 }
+ function msg($text,$css)//Вывод системных сообщений
+ {
+  
+  if($text!='') echo "<div class='msg $css'>$text</div>";
+ 
+ }

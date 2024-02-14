@@ -1,77 +1,95 @@
 <?php
-
-// include "system/functions.php";
-// $result = mysqli_query($con, "SELECT * FROM `comments` ORDER BY id DESC");
-
-
 $title = 'Отзывы';
 include("components/header.php");
+$table_name = "comments";
 
-$result = sqlQuery("SELECT * FROM `comments` ORDER BY id DESC");
+// Определение текущей страницы
+$current_page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$comments_per_page = 6;
 
+// Получение общего количества комментариев
+$count_query = sqlQuery("SELECT COUNT(*) AS total FROM `$table_name`");
+$total_comments = mysqli_fetch_assoc($count_query)['total'];
 
+// Вычисление общего количества страниц
+$total_pages = ceil($total_comments / $comments_per_page);
+
+// Определение смещения для выборки комментариев
+$offset = ($current_page - 1) * $comments_per_page;
+
+// Получение комментариев для текущей страницы
+$query = "SELECT * FROM `$table_name` ORDER BY id LIMIT $offset, $comments_per_page";
+$result = sqlQuery($query);
 ?>
 
 <section class="hero hero-comments">
   <div class="container">
-    <h1 class="title hero-title">Отзывы</h1>
-    <navigation class="navigation"></navigation>
+    <h1 class="title">Отзывы</h1>
 
     <div class="comments-container">
-
       <div class="comments">
-        <?php 
-
-              while($comments = mysqli_fetch_assoc($result)){
-                ?>
-
+        <?php if ($result && sqlNumRows($result) > 0) : ?>
+        <?php while ($comment = mysqli_fetch_assoc($result)) : ?>
         <div class="comment">
           <div class="comment-rating">
-            <?php 
-            
-              $img = '<img src="assets/img/Star-filled.svg" alt="" class="comment-rating__star">';
-              $final_str = "";
-              $rate = intval($comments['rating']);
-              $final_str = str_repeat($img, $rate);
-              echo $final_str;
-            ?>
+            <?php
+                $img = '<img src="assets/img/Star-filled.svg" alt="" class="comment-rating__star">';
+                $final_str = str_repeat($img, intval($comment['rating']));
+                echo $final_str;
+                ?>
           </div>
-          <!-- /.star-rating -->
-          <p class="comment__text"> <?php echo $comments['message'] ;?> </p>
+          <p class="comment__text"><?php echo $comment['message'] ?></p>
           <div class="comment-profile">
-            <img class="comment-profile__img" alt="" src="<?php
-                 if ($comments['image'] == NULL){
-                    echo 'assets/img/profile.svg';
-                 }
-                 else{
-                    echo $comments['image'];
-                 }
-                
-                 ?>">
-
-            <p class="comment-profile__name"><?php echo $comments['name'] ?></p>
+            <p class="comment-profile__name"><?php 
+            echo $comment['name'];
+            echo $comment['id'];
+            
+            ?></p>
           </div>
-          <!-- /.comment-profile -->
-
-
         </div>
-        <!-- /.comment -->
-        <?php
-              }
-              ?>
-
+        <?php endwhile; ?>
+        <?php else : ?>
+        <p>Нет комментариев для отображения.</p>
+        <?php endif; ?>
       </div>
       <!-- /.comments -->
-      <sendForm></sendForm>
 
+      <!-- Отправка комментария -->
+      <sendForm></sendForm>
     </div>
     <!-- /.comments-container -->
+
+    <!-- Пагинация -->
+    <section class="pagination">
+      <div class="pagination-prev">
+        <a href="?page=<?php echo $current_page - 1 ?>">
+          <img src="<?php get_img_path() ?>arrow-prev.svg" alt="" class="pagination__img">
+        </a>
+      </div>
+
+      <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+      <div class="pagination-page <?php echo ($i == $current_page) ? 'pagination-page-active' : ''; ?>">
+        <a href="?page=<?php echo $i ?>"><?php echo $i ?></a>
+      </div>
+      <?php endfor; ?>
+
+      <?php if ($current_page < $total_pages) : ?>
+      <div class="pagination-next">
+        <a href="?page=<?php echo $current_page + 1 ?>">
+          <img src="<?php get_img_path() ?>arrow-next.svg" alt="" class="pagination__img">
+        </a>
+      </div>
+      <?php endif; ?>
+    </section>
+    <!-- /.pagination -->
+
 
 
   </div>
 </section>
 
-
 <!-- /.hero -->
 </main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/assets/js/pagination.js"></script>
 <?php include("components/footer.php") ?>

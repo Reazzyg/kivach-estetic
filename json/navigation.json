@@ -107,7 +107,7 @@
     },
     {
       "name": "Админ",
-      "link": "/admin.php"
+      "link": "/admin/admin.php"
     }
   ],
   "footerNavigation": [{
