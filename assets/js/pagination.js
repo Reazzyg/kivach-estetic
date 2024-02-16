@@ -47,27 +47,37 @@ $(document).ready(function() {
     }
   });
 
-  // Функция для обновления состояния кнопок навигации
-  function updateNavigationButtons(page) {
-    var totalPages = parseInt($('.pagination-page').last().text());
-      console.log($('.pagination-next'));
+// Функция для обновления состояния кнопок навигации и скрытия ненужных страниц
+function updateNavigationButtons(page) {
+  var totalPages = parseInt($('.pagination-page').last().text());
+  var visiblePages = 4;
+  var startPage = Math.max(1, Math.min(page - Math.floor(visiblePages / 2), totalPages - visiblePages + 1));
+  var endPage = Math.min(startPage + visiblePages - 1, totalPages);
 
-    if (page === 1) {
-      $('.pagination-prev').hide();
-      console.log(111);
+  // Скрытие ненужных страниц и показ видимых страниц
+  $('.pagination-page').each(function(index) {
+    if (index + 1 >= startPage && index + 1 <= endPage) {
+      $(this).show();
     } else {
-      $('.pagination-prev').show();
-      console.log(222);
-      console.log($('.pagination-prev'));
+      $(this).hide();
     }
-    if (page === totalPages) {
-      $('.pagination-next').hide();
-      console.log(333);
-    } else {
-      $('.pagination-next').show();
-      console.log(444);
-    }
+  });
+
+  // Показ или скрытие кнопки "Назад"
+  if (page === 1) {
+    $('.pagination-prev').hide();
+  } else {
+    $('.pagination-prev').show();
   }
+
+  // Показ или скрытие кнопки "Вперед"
+  if (page === totalPages) {
+    $('.pagination-next').hide();
+  } else {
+    $('.pagination-next').show();
+  }
+}
+
 
   // Загрузка комментариев для текущей страницы при загрузке страницы
   var currentPage = parseInt($('.pagination-page-active').text());

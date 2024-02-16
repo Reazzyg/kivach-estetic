@@ -594,6 +594,7 @@ input:focus-visible, textarea:focus-visible {
 }
 
 .comment {
+  position: relative;
   padding: 30px;
   background-color: #fff;
   border-radius: 0px 14px;
@@ -623,6 +624,11 @@ input:focus-visible, textarea:focus-visible {
 }
 .comment:nth-last-child(1) {
   margin-bottom: 0;
+}
+.comment__quote {
+  position: absolute;
+  right: 30px;
+  bottom: 40px;
 }
 
 .devider {

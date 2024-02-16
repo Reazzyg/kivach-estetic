@@ -27,6 +27,7 @@ if ($result && sqlNumRows($result) > 0) {
   <div class="comment-profile">
     <p class="comment-profile__name"><?php echo $comment['name'] ?></p>
   </div>
+  <img src="<?get_img_path()?>quote.svg" alt="" class="comment__quote">
 </div>
 <?php
   }

@@ -46,6 +46,7 @@ $result = sqlQuery($query);
             
             ?></p>
           </div>
+          <img src="<?get_img_path()?>quote.svg" alt="" class="comment__quote">
         </div>
         <?php endwhile; ?>
         <?php else : ?>
