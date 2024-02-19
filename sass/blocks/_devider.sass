@@ -1,19 +1,17 @@
 .devider
   padding: 200px 0
   position: relative
-  background-image: url('../img/body-bg.svg')
-  background-repeat: no-repeat
-  background-position: left center
   &-bg
     position: absolute
     top: -150px
     z-index: -1
-
+    display: none
     &-left
       left: 0
     &-right
       right: 0
-      transform: scale(-1,1)
+    &-max
+      display: block
   &-container
     & .title
       max-width: 900px
@@ -21,5 +19,19 @@
       text-align: center
       font-family: $regular
       font-weight: 100
+      margin-bottom: 20px
       & b
         font-family: $bold
+    & .text
+      max-width: 650px
+      margin: auto
+      margin-bottom: 20px
+      &:nth-last-child(1)
+        margin-bottom: 0
+  &-big
+    padding-bottom: 50px
+    & .devider
+      &-bg
+        top: 75px
+    & .title
+      font-family: $bold

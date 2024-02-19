@@ -42,10 +42,15 @@
       left: -50px
   .devider
     &-bg
-      &-left
-        left: -150px
-      &-right
-        right: -150px
+      top: -70px
+      &-max
+        display: none
+      &-1500
+        display: block
+    &-big
+      & .devider
+        &-bg
+          top: 160px
   .about
     &-container
       flex-direction: column
@@ -62,6 +67,10 @@
       margin-bottom: 0
       &:nth-last-child(1)
         margin-right: 0
+  .rooms
+    &-wrapper
+      &>img
+        max-height: 460px
 @media  ( max-width: 1200px  )
   body
     background-position-y: 85px
@@ -93,16 +102,21 @@
       display: none
   .devider
     &-bg
-      &-left
-        left: -280px
-      &-right
-        right: -280px
+      top: 0
+      &-1500
+        display: none
+      &-1200
+        display: block
     &-container
       & .title
         max-width: 670px
   .about
     &__img
       max-height: 650px
+  .rooms
+    &-wrapper
+      &>img
+        max-height: 380px
   .footer
     &-wrapper
       &-mobile
@@ -244,14 +258,19 @@
         margin-right: 0
   .devider
     &-bg
-      &-left
-        left: -210px
-      &-right
-        right: -210px
+      &-1200
+        display: none
+      &-992
+        display: block
     &-container
       & .title
         max-width: 370px
         font-size: 21px
+    &-big
+      padding-top: 100px
+      & .devider
+        &-bg
+          top: 110px
   .about
     &__img
       max-height: 650px
@@ -263,10 +282,53 @@
         font-size: 14px
         text-align: center
   .standart
-    padding: 50px 0
+    padding: 50px 0 100px 0
     background-image: none
     &-overlay
       display: none
+  .aftercare
+    background-image: none
+    background-color: $white
+    &-container
+      padding: 20px 0
+    &-wrapper
+      display: block
+    &-description
+      position: relative
+      width: 100%
+      border-radius: 30px
+      overflow: hidden
+      &__img
+        display: block
+        max-height: 330px
+        width: 100%
+        object-fit: cover
+      &__text
+        padding: 10px 20px
+        border-top-right-radius: 0
+        border-top-left-radius: 0
+        border: 1px solid #DCE4EF
+        text-align: center
+    &-card
+      padding: 0
+      max-width: 100%
+      margin-bottom: 0
+      &__text
+        text-align: center
+  .rooms
+    &-wrapper
+      flex-direction: column
+      &>img
+        max-height: 300px
+        flex-basis: unset
+    &__img
+      max-height: 300px
+      margin-bottom: 10px
+      &:nth-last-child(1)
+        margin-bottom: 0
+    &-wrap
+      flex-basis: unset
+
   .footer
     &-devider
       display: block
@@ -312,9 +374,12 @@
     &-container
       max-width: 100%
   .devider
-    padding: 50px 0
+    padding: 200px 0
     &-bg
-      display: none
+      &-992
+        display: none
+      &-768
+        display: block
   .about
     &__img
       max-height: 400px
@@ -371,3 +436,8 @@
   .about
     &__img
       max-height: 250px
+  .devider
+    padding: 50px 0
+    &-bg
+      &-768
+        display: none

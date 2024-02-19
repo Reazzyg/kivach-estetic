@@ -14,6 +14,23 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+  background-color: rgba(241, 241, 241, 0);
+  box-shadow: inset 1px 1px 5px #b9c8e3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #DCE4EF;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(199, 214, 243);
+  border-radius: 10px;
+  box-shadow: inset 0px 1px 6px #9db1d7;
+}
+
 body {
   font-family: "Philosopher-Regular", sans-serif;
   font-size: 18px;
@@ -54,8 +71,17 @@ button {
   background-color: #83C9B6;
   color: #fff;
   font-family: "Philosopher-Bold", sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   cursor: pointer;
+}
+
+.button {
+  background-color: #83C9B6;
+  color: #fff;
+  font-family: "Philosopher-Bold", sans-serif;
+  font-size: 18px;
+  padding: 10px 30px;
+  border-radius: 30px;
 }
 
 .container {
@@ -88,6 +114,10 @@ button {
 .text {
   font-size: 18px;
   color: #71716B;
+}
+
+.brs30 {
+  border-radius: 30px;
 }
 
 .navigation {
@@ -631,24 +661,60 @@ input:focus-visible, textarea:focus-visible {
   bottom: 40px;
 }
 
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #71716B;
+}
+.pagination-prev {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.pagination-prev a {
+  display: flex;
+}
+.pagination-next {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.pagination-next a {
+  display: flex;
+}
+.pagination-page {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: 3px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: border 0.4s;
+}
+.pagination-page-active {
+  border-radius: 4px;
+  border: 1px solid #71716B;
+}
+
 .devider {
   padding: 200px 0;
   position: relative;
-  background-image: url("../img/body-bg.svg");
-  background-repeat: no-repeat;
-  background-position: left center;
 }
 .devider-bg {
   position: absolute;
   top: -150px;
   z-index: -1;
+  display: none;
 }
 .devider-bg-left {
   left: 0;
 }
 .devider-bg-right {
   right: 0;
-  transform: scale(-1, 1);
+}
+.devider-bg-max {
+  display: block;
 }
 .devider-container .title {
   max-width: 900px;
@@ -656,8 +722,26 @@ input:focus-visible, textarea:focus-visible {
   text-align: center;
   font-family: "Philosopher-Regular", sans-serif;
   font-weight: 100;
+  margin-bottom: 20px;
 }
 .devider-container .title b {
+  font-family: "Philosopher-Bold", sans-serif;
+}
+.devider-container .text {
+  max-width: 650px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.devider-container .text:nth-last-child(1) {
+  margin-bottom: 0;
+}
+.devider-big {
+  padding-bottom: 50px;
+}
+.devider-big .devider-bg {
+  top: 75px;
+}
+.devider-big .title {
   font-family: "Philosopher-Bold", sans-serif;
 }
 
@@ -671,9 +755,9 @@ input:focus-visible, textarea:focus-visible {
 .about__img {
   max-width: 940px;
   max-height: 840px;
-  border-radius: 30px;
   overflow: hidden;
   object-fit: cover;
+  object-position: bottom;
   flex-basis: 70%;
 }
 .about-wrapper {
@@ -735,7 +819,6 @@ input:focus-visible, textarea:focus-visible {
   display: flex;
   justify-content: space-between;
   background-color: #fff;
-  border-radius: 30px;
   max-width: 920px;
   gap: 30px;
 }
@@ -765,40 +848,94 @@ input:focus-visible, textarea:focus-visible {
   text-align: center;
 }
 
-.pagination {
+.aftercare {
+  background-image: url("../img/tech-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.aftercare-container {
+  padding: 200px 0 20px 0;
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: #71716B;
 }
-.pagination-prev {
-  margin-right: 10px;
-  cursor: pointer;
-}
-.pagination-prev a {
+.aftercare-wrapper {
   display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
-.pagination-next {
-  margin-left: 10px;
-  cursor: pointer;
-}
-.pagination-next a {
+.aftercare-card {
+  padding: 30px;
+  max-width: 550px;
   display: flex;
-}
-.pagination-page {
-  height: 30px;
-  width: 30px;
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-inline: 3px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: border 0.4s;
+  background-color: #fff;
+  margin-bottom: 150px;
 }
-.pagination-page-active {
-  border-radius: 4px;
-  border: 1px solid #71716B;
+.aftercare-card__title {
+  font-family: "Philosopher-Regular", sans-serif;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+.aftercare-card__title b {
+  font-weight: bold;
+}
+.aftercare-card__text {
+  margin-bottom: 20px;
+}
+.aftercare-description {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+}
+.aftercare-description__img {
+  display: none;
+}
+.aftercare-description__text {
+  padding: 5px 10px;
+  background-color: #fff;
+}
+
+.rooms {
+  padding: 50px 0;
+}
+.rooms h2 {
+  text-align: center;
+}
+.rooms .subtitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.rooms .title {
+  margin-bottom: 40px;
+}
+.rooms-wrapper {
+  display: flex;
+}
+.rooms-wrapper > img {
+  flex-basis: 70%;
+  margin-right: 20px;
+  max-height: 570px;
+}
+.rooms__img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  overflow: hidden;
+  object-position: center;
+}
+.rooms-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 30%;
+}
+.rooms-wrap img:nth-last-child(1) {
+  margin-bottom: 0;
 }
 
 .footer {
@@ -936,11 +1073,17 @@ input:focus-visible, textarea:focus-visible {
     width: 600px;
     left: -50px;
   }
-  .devider-bg-left {
-    left: -150px;
+  .devider-bg {
+    top: -70px;
   }
-  .devider-bg-right {
-    right: -150px;
+  .devider-bg-max {
+    display: none;
+  }
+  .devider-bg-1500 {
+    display: block;
+  }
+  .devider-big .devider-bg {
+    top: 160px;
   }
   .about-container {
     flex-direction: column;
@@ -961,6 +1104,9 @@ input:focus-visible, textarea:focus-visible {
   }
   .about-card:nth-last-child(1) {
     margin-right: 0;
+  }
+  .rooms-wrapper > img {
+    max-height: 460px;
   }
 }
 @media (max-width: 1200px) {
@@ -1001,17 +1147,23 @@ input:focus-visible, textarea:focus-visible {
   .feedback__img {
     display: none;
   }
-  .devider-bg-left {
-    left: -280px;
+  .devider-bg {
+    top: 0;
   }
-  .devider-bg-right {
-    right: -280px;
+  .devider-bg-1500 {
+    display: none;
+  }
+  .devider-bg-1200 {
+    display: block;
   }
   .devider-container .title {
     max-width: 670px;
   }
   .about__img {
     max-height: 650px;
+  }
+  .rooms-wrapper > img {
+    max-height: 380px;
   }
   .footer-wrapper-mobile {
     display: flex;
@@ -1190,15 +1342,21 @@ input:focus-visible, textarea:focus-visible {
     margin-bottom: 10px;
     margin-right: 0;
   }
-  .devider-bg-left {
-    left: -210px;
+  .devider-bg-1200 {
+    display: none;
   }
-  .devider-bg-right {
-    right: -210px;
+  .devider-bg-992 {
+    display: block;
   }
   .devider-container .title {
     max-width: 370px;
     font-size: 21px;
+  }
+  .devider-big {
+    padding-top: 100px;
+  }
+  .devider-big .devider-bg {
+    top: 110px;
   }
   .about__img {
     max-height: 650px;
@@ -1212,11 +1370,65 @@ input:focus-visible, textarea:focus-visible {
     text-align: center;
   }
   .standart {
-    padding: 50px 0;
+    padding: 50px 0 100px 0;
     background-image: none;
   }
   .standart-overlay {
     display: none;
+  }
+  .aftercare {
+    background-image: none;
+    background-color: #fff;
+  }
+  .aftercare-container {
+    padding: 20px 0;
+  }
+  .aftercare-wrapper {
+    display: block;
+  }
+  .aftercare-description {
+    position: relative;
+    width: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  .aftercare-description__img {
+    display: block;
+    max-height: 330px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .aftercare-description__text {
+    padding: 10px 20px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border: 1px solid #DCE4EF;
+    text-align: center;
+  }
+  .aftercare-card {
+    padding: 0;
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+  .aftercare-card__text {
+    text-align: center;
+  }
+  .rooms-wrapper {
+    flex-direction: column;
+  }
+  .rooms-wrapper > img {
+    max-height: 300px;
+    flex-basis: unset;
+  }
+  .rooms__img {
+    max-height: 300px;
+    margin-bottom: 10px;
+  }
+  .rooms__img:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+  .rooms-wrap {
+    flex-basis: unset;
   }
   .footer-devider {
     display: block;
@@ -1274,10 +1486,13 @@ input:focus-visible, textarea:focus-visible {
     max-width: 100%;
   }
   .devider {
-    padding: 50px 0;
+    padding: 200px 0;
   }
-  .devider-bg {
+  .devider-bg-992 {
     display: none;
+  }
+  .devider-bg-768 {
+    display: block;
   }
   .about__img {
     max-height: 400px;
@@ -1345,5 +1560,11 @@ input:focus-visible, textarea:focus-visible {
   }
   .about__img {
     max-height: 250px;
+  }
+  .devider {
+    padding: 50px 0;
+  }
+  .devider-bg-768 {
+    display: none;
   }
 }

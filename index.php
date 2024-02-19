@@ -69,8 +69,25 @@ include('components/header.php');
 
 <section class="devider">
   <!-- 5 вариантов картинок на каждое разрешение???? -->
-  <!-- <img src="<?get_img_path()?>body-bg.svg" alt="" class="devider-bg devider-bg-left">
-  <img src="<?get_img_path()?>body-bg.svg" alt="" class="devider-bg devider-bg-right"> -->
+
+  <img src="<?get_img_path()?>body-bg-left.svg" alt="" class="devider-bg devider-bg-left devider-bg-max">
+  <img src="<?get_img_path()?>body-bg-right.svg" alt="" class="devider-bg devider-bg-right devider-bg-max">
+  <!--  -->
+
+  <img src="<?get_img_path()?>body-bg-left-1500.svg" alt="" class="devider-bg devider-bg-left devider-bg-1500">
+  <img src="<?get_img_path()?>body-bg-right-1500.svg" alt="" class="devider-bg devider-bg-right devider-bg-1500">
+  <!--  -->
+
+  <img src="<?get_img_path()?>body-bg-left-1200.svg" alt="" class="devider-bg devider-bg-left devider-bg-1200">
+  <img src="<?get_img_path()?>body-bg-right-1200.svg" alt="" class="devider-bg devider-bg-right devider-bg-1200">
+  <!--  -->
+
+  <img src="<?get_img_path()?>body-bg-left-992.svg" alt="" class="devider-bg devider-bg-left devider-bg-992">
+  <img src="<?get_img_path()?>body-bg-right-992.svg" alt="" class="devider-bg devider-bg-right devider-bg-992">
+  <!--  -->
+
+  <img src="<?get_img_path()?>body-bg-left-768.svg" alt="" class="devider-bg devider-bg-left devider-bg-768">
+  <img src="<?get_img_path()?>body-bg-right-768.svg" alt="" class="devider-bg devider-bg-right devider-bg-768">
   <!--  -->
   <div class="container devider-container">
     <h2 class="title">Пластические операции <b>премиум-класса</b> с соблюдением международных стандартов</h2>
@@ -82,7 +99,7 @@ include('components/header.php');
 
 <section class="about">
   <div class="container about-container">
-    <img src="<?get_img_path()?>clinic.png" alt="" class="about__img">
+    <img src="<?get_img_path()?>clinic.png" alt="" class="about__img brs30">
     <div class="about-wrapper">
       <div class="about-card">
         <h3 class="about-card__title">Premium-класс</h3>
@@ -127,7 +144,7 @@ include('components/header.php');
   <!-- /.standart-overlay -->
   <div class="container standart-container">
     <h2 class="title standart__title">Международные стандарты, которые соблюдаются в клинике</h2>
-    <div class="standart-wrapper">
+    <div class="standart-wrapper brs30">
       <div class="standart-card">
         <img src="<?get_img_path()?>efqm.png" alt="" class="standart-card__img">
         <p class="text standart-card__text">Этому стандарту следуют более 50 000 организаций по всему миру. Наличие
@@ -152,6 +169,104 @@ include('components/header.php');
   <!-- /.container standart-container -->
 </section>
 <!-- /.standart -->
+
+
+<section class="aftercare">
+  <div class="container aftercare-container">
+    <div class="aftercare-wrapper">
+      <div class="aftercare-card brs30">
+        <h2 class="title aftercare-card__title">Пост-операционная реабилитация на основе <b>anti-age технологий</b></h2>
+        <p class="text aftercare-card__text">Это завершающий этап хирургического вмешательства. Для его успешного
+          прохождения вы можете руководствоваться нашими рекомендациями по восстановлению или воспользоваться
+          специальной программой.
+        </p>
+        <p class="text aftercare-card__text ">Эта программа разработана на основе многолетних исследований
+          в области
+          реабилитологии и anti-age медицины. Используя эти знания, мы подобрали курс процедур, ускоряющих заживление
+          тканей и снижающих риск осложнений</p>
+
+        <div class="aftercare-description">
+          <img src="<?get_img_path()?>tech-bg.jpg" alt="" class="aftercare-description__img">
+          <p class="text aftercare-description__text brs30">Хирург А.В.Иванов, хирург В.А.Петров, медсестра
+            А.А.Васильева в
+            операционной клиники</p>
+        </div>
+        <!-- /.aftercare-description -->
+        <a href="" class="button aftercare-card__button">Подробнее</a>
+      </div>
+      <!-- /.aftercare-card -->
+    </div>
+    <!-- /.aftercare-wrapper -->
+  </div>
+  <!-- /.container aftercare-container -->
+</section>
+<!-- /.aftercare -->
+
+
+<section class="devider devider-big">
+  <!-- 5 вариантов картинок на каждое разрешение???? -->
+
+  <img src="<?get_img_path()?>body-bg-left.svg" alt="" class="devider-bg devider-bg-left devider-bg-max">
+  <img src="<?get_img_path()?>body-bg-right.svg" alt="" class="devider-bg devider-bg-right devider-bg-max">
+  <!--  -->
+
+  <img src="<?get_img_path()?>body-bg-left-1500.svg" alt="" class="devider-bg devider-bg-left devider-bg-1500">
+  <img src="<?get_img_path()?>body-bg-right-1500.svg" alt="" class="devider-bg devider-bg-right devider-bg-1500">
+  <!--  -->
+
+  <img src="<?get_img_path()?>body-bg-left-1200.svg" alt="" class="devider-bg devider-bg-left devider-bg-1200">
+  <img src="<?get_img_path()?>body-bg-right-1200.svg" alt="" class="devider-bg devider-bg-right devider-bg-1200">
+  <!--  -->
+
+  <img src="<?get_img_path()?>body-bg-left-992.svg" alt="" class="devider-bg devider-bg-left devider-bg-992">
+  <img src="<?get_img_path()?>body-bg-right-992.svg" alt="" class="devider-bg devider-bg-right devider-bg-992">
+  <!--  -->
+
+  <img src="<?get_img_path()?>body-bg-left-768.svg" alt="" class="devider-bg devider-bg-left devider-bg-768">
+  <img src="<?get_img_path()?>body-bg-right-768.svg" alt="" class="devider-bg devider-bg-right devider-bg-768">
+  <!--  -->
+  <div class="container devider-container">
+    <h2 class="title">Новое качество жизни вместе с «Кивач Эстетик»</h2>
+    <p class="text">1. При обращении в клинику вы получите консультацию хирурга. Если необходимы дополнительные
+      исследования, сможете воспользоваться нашим диагностическим комплексом.
+    </p>
+    <p class="text">2. При наличии показаний будет проведена операция. Наш персонал непрерывно работает над тем,
+      чтобы обеспечить вам лечение и обслуживание премиального класса, а также безопасность и конфиденциальность.
+    </p>
+    <p class="text">3. После операции вы получите рекомендации хирурга. В некоторых случаях требуется особый уход,
+      поэтому к вашим услугам комфортный номер и питание из меню нашего ресторана, а также тактичное наблюдение
+      со стороны медперсонала.
+    </p>
+    <p class="text">4. При соблюдении рекомендаций хирурга реабилитационный период пройдёт без осложнений. Возможен
+      ряд ограничений, но все они носят временный характер. По мере восстановления тканей ограничения снимаются.
+    </p>
+    <p class="text">5. По истечении реабилитационного периода начнётся новый этап вашей жизни. Состояние вашего
+      здоровья, преобразившаяся внешность, изменившееся самоощущение вдохновят вас на достижение целей, которые раньше
+      казались недоступными. Вы станете более активны, привлекательны и уверены в себе. Вы подниметесь на следующую
+      ступень, чтобы смело приступить к реализации своих планов.</p>
+  </div>
+  <!-- /.container devider-container -->
+</section>
+<!-- /.devider -->
+
+
+<section class="rooms">
+  <div class="container rooms-container">
+    <h2 class="subtitle">Пациентам клиники, проходящим программу реабилитации, предоставляются </h2>
+    <h2 class="title">комфортабельные номера категории «5 звёзд»</h2>
+    <div class="rooms-wrapper">
+      <img src="<?get_img_path()?>room1.jpg" alt="" class="rooms__img">
+      <div class="rooms-wrap">
+        <img src="<?get_img_path()?>room2.jpg" alt="" class="rooms__img">
+        <img src="<?get_img_path()?>room3.jpg" alt="" class="rooms__img">
+      </div>
+      <!-- /.rooms-wrap -->
+    </div>
+    <!-- /.rooms-wrapper -->
+  </div>
+  <!-- /.container rooms-container -->
+</section>
+<!-- /.rooms -->
 
 <?php
 include('components/footer.php');
