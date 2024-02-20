@@ -88,6 +88,7 @@ button {
   font-size: 18px;
   padding: 10px 30px;
   border-radius: 30px;
+  transition: background-color 0.3s;
 }
 
 figure {
@@ -976,9 +977,11 @@ input:focus-visible, textarea:focus-visible {
   font-size: 24px;
   max-width: 270px;
   margin-bottom: 15px;
+  text-align: center;
 }
 .specialists-card__profession {
   max-width: 270px;
+  text-align: center;
 }
 .specialists .title {
   margin-bottom: 20px;
@@ -1068,8 +1071,8 @@ input:focus-visible, textarea:focus-visible {
   margin-bottom: 0;
 }
 
-.header {
-  width: 100%;
+.button:hover {
+  background-color: #33957a;
 }
 
 @media (max-width: 1500px) {

@@ -268,7 +268,9 @@ include('components/header.php');
 </section>
 <!-- /.rooms -->
 
+<!--  -->
 <? include('components/specialists.php') ?>
+<!-- ./specialists -->
 
 
 
