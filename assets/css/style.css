@@ -25,6 +25,10 @@
   background-color: #DCE4EF;
 }
 
+::-webkit-scrollbar:hover {
+  width: 15px;
+}
+
 ::-webkit-scrollbar-thumb {
   background-color: rgb(199, 214, 243);
   border-radius: 10px;
@@ -58,11 +62,13 @@ h1, h2, h3, h4, h5, h6, p, ul {
 
 h1, .title {
   font-size: 44px;
+  text-align: center;
 }
 
 h2, .subtitle {
   font-size: 34px;
   font-weight: bold;
+  text-align: center;
 }
 
 button {
@@ -82,6 +88,10 @@ button {
   font-size: 18px;
   padding: 10px 30px;
   border-radius: 30px;
+}
+
+figure {
+  margin: 0;
 }
 
 .container {
@@ -478,6 +488,7 @@ input:focus-visible, textarea:focus-visible {
 }
 .hero-subtitle {
   margin-bottom: 90px;
+  text-align: left;
 }
 .hero-main-list {
   margin-bottom: 185px;
@@ -938,6 +949,41 @@ input:focus-visible, textarea:focus-visible {
   margin-bottom: 0;
 }
 
+.specialists {
+  padding: 50px 0;
+}
+.specialists-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-items: center;
+}
+.specialists-card {
+  padding: 20px 20px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+}
+.specialists-card__img {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  margin-bottom: 35px;
+}
+.specialists-card__name {
+  font-size: 24px;
+  max-width: 270px;
+  margin-bottom: 15px;
+}
+.specialists-card__profession {
+  max-width: 270px;
+}
+.specialists .title {
+  margin-bottom: 20px;
+}
+
 .footer {
   background-color: #474747;
   color: #fff;
@@ -1108,6 +1154,9 @@ input:focus-visible, textarea:focus-visible {
   .rooms-wrapper > img {
     max-height: 460px;
   }
+  .specialists-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (max-width: 1200px) {
   body {
@@ -1164,6 +1213,9 @@ input:focus-visible, textarea:focus-visible {
   }
   .rooms-wrapper > img {
     max-height: 380px;
+  }
+  .specialists-card {
+    padding: 0;
   }
   .footer-wrapper-mobile {
     display: flex;
@@ -1430,6 +1482,28 @@ input:focus-visible, textarea:focus-visible {
   .rooms-wrap {
     flex-basis: unset;
   }
+  .specialists-container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+  .specialists-card {
+    width: 170px;
+  }
+  .specialists-card__img {
+    width: 170px;
+    height: 170px;
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+  .specialists-card__name {
+    margin-bottom: 5px;
+    max-width: 100%;
+    font-size: 14px;
+  }
+  .specialists-card__profession {
+    font-size: 12px;
+  }
   .footer-devider {
     display: block;
   }
@@ -1518,6 +1592,9 @@ input:focus-visible, textarea:focus-visible {
     top: 50%;
     transform: translateX(-50%);
   }
+  .specialists-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (max-width: 576px) {
   .container {
@@ -1566,5 +1643,8 @@ input:focus-visible, textarea:focus-visible {
   }
   .devider-bg-768 {
     display: none;
+  }
+  .specialists-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

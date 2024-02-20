@@ -7,7 +7,7 @@ $current_page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $comments_per_page = 6;
 $offset = ($current_page - 1) * $comments_per_page;
 
-$query = "SELECT * FROM `$table_name` ORDER BY id LIMIT $offset, $comments_per_page";
+$query = "SELECT * FROM `$table_name` ORDER BY id DESC LIMIT $offset, $comments_per_page";
 $result = sqlQuery($query);
 
 ob_start();

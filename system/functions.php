@@ -1,6 +1,6 @@
 <?php
 
-include('system/db_con.php');
+include('db_con.php');
 
 function sqlNumRows($result) {
     if ($result instanceof mysqli_result) {
@@ -36,3 +36,9 @@ function sqlQuery($q){
   if($text!='') echo "<div class='msg $css'>$text</div>";
  
  }
+
+ function customSqlQuery($connect, $q) {
+    $res = mysqli_query($connect, $q);
+    if (mysqli_error($connect)) msg($q, 'error');
+    return $res;
+}

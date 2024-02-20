@@ -268,8 +268,8 @@ include('components/header.php');
 </section>
 <!-- /.rooms -->
 
-<?php
-include('components/footer.php');
+<? include('components/specialists.php') ?>
 
-// get_footer();
-?>
+
+
+<? include('components/footer.php') ?>
