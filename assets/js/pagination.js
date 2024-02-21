@@ -1,5 +1,4 @@
 $(document).ready(function() {
-      console.log($('.pagination-prev'));
 
   // Функция для загрузки комментариев и обновления состояния пагинации
   function loadPage(page) {

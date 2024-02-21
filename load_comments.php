@@ -19,7 +19,9 @@ if ($result && sqlNumRows($result) > 0) {
   <div class="comment-rating">
     <?php
         $img = '<img src="assets/img/Star-filled.svg" alt="" class="comment-rating__star">';
-        $final_str = str_repeat($img, intval($comment['rating']));
+          $rating = intval($comment['rating']);
+          $rating = min($rating, 5); // Ограничение рейтинга до 5 звезд
+          $final_str = str_repeat($img, $rating);
         echo $final_str;
         ?>
   </div>

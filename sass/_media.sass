@@ -73,7 +73,12 @@
   .specialists
     &-container
       grid-template-columns: repeat(3, 1fr)
-
+  .response
+    & .comments
+      grid-template-columns: repeat(3,1fr)
+      & .comment
+        &:nth-last-child(2)
+          display: none
 @media  ( max-width: 1200px  )
   body
     background-position-y: 85px
@@ -123,6 +128,22 @@
   .specialists
     &-card
       padding: 0
+  .slider
+    &-container
+      flex-direction: column
+      &>.slider-button
+        display: inline-block
+        margin-top: 15px
+    &-wrap
+      max-width: 100%
+      &>.slider-button
+        display: none
+
+    &__title
+      text-align: center
+    &__text
+      text-align: center
+
   .footer
     &-wrapper
       &-mobile
@@ -340,7 +361,7 @@
       grid-column-gap: 10px
       grid-row-gap: 10px
     &-card
-      width: 170px
+      max-width: 170px
       &__img
         width: 170px
         height: 170px
@@ -352,6 +373,20 @@
         font-size: 14px
       &__profession
         font-size: 12px
+  .mySwiper2
+    height: 250px
+  .mySwiper
+    height: 80px
+  .mySwiper .swiper-slide
+    height: 40px
+  .slogan
+    &-wrapper
+      background-image: url('../img/slogan-bg-mobile.svg')
+
+      max-width: 400px
+      height: 390px
+    &__title
+      max-width: 300px
   .footer
     &-devider
       display: block
@@ -426,6 +461,16 @@
   .specialists
     &-container
       grid-template-columns: repeat(3, 1fr)
+  .swiper
+    max-width: 350px
+    &-button
+      &-prev
+        left: 25%
+      &-next
+        right: 25%
+  .response
+    & .comments
+      grid-template-columns: repeat(1,1fr)
 @media  ( max-width: 576px  )
   .container
     max-width: 92%

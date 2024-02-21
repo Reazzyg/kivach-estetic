@@ -273,5 +273,102 @@ include('components/header.php');
 <!-- ./specialists -->
 
 
+<section class="slider">
+  <div class="container slider-container">
+
+    <div class="slider-wrap">
+      <h2 class="title slider__title">Общественное признание</h2>
+      <p class="text slider__text">Полученные нами награды – это не самоцель, а лишь констатация этапов пути, на котором
+        мы находимся, непрерывно двигаясь вперёд. Инвестируя в развитие клиники и постоянно обучаясь, мы получаем
+        возможность применять новые медицинские технологии и прогрессивные методы лечения, чтобы осуществить мечту людей
+        о здоровье и физической красоте.
+      </p>
+      <p class="text slider__text">Наша цель – изменить жизнь каждого пациента к лучшему. Для нас хирургические операции
+        – это нечто большее, чем просто медицинские манипуляции; это то, что позволяет пациентам приблизиться к
+        идеальному восприятию самих себя.
+      </p>
+      <a href="" class="button slider-button">Смотреть все награды</a>
+    </div>
+    <!-- /.slider-wrap -->
+
+    <div class="slider-wrapper">
+      <div class="swiper mySwiper2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="<?get_img_path()?>diplom1.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="<?get_img_path()?>diplom2.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="<?get_img_path()?>diplom3.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="<?get_img_path()?>diplom4.png" />
+          </div>
+        </div>
+      </div>
+      <!--  -->
+
+      <div thumbsSlider="" class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="<?get_img_path()?>diplom1.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="<?get_img_path()?>diplom2.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="<?get_img_path()?>diplom3.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="<?get_img_path()?>diplom4.png" />
+          </div>
+        </div>
+        <div class="swiper-button-next swiper-button-custom"></div>
+        <div class="swiper-button-prev swiper-button-custom"></div>
+
+        <div class="swiper-pagination"></div>
+      </div>
+      <!--  -->
+    </div>
+    <!-- /.slider-wrapper -->
+    <a href="" class="button slider-button">Смотреть все награды</a>
+  </div>
+  <!-- /.container slider-container -->
+</section>
+<!-- /.slider -->
+
+<section class="slogan">
+  <div class="container slogan-container">
+    <div class="slogan-wrapper">
+      <h2 class="title slogan__title">Преображая внешность пациентов, меняем их жизнь к лучшему</h2>
+    </div>
+    <!-- /.slogan-wrapper -->
+
+  </div>
+  <!-- /.container slogan-container -->
+</section>
+<!-- /.slogan -->
+
+<!-- comments -->
+
+<? include('components/comments_main_page.php') ?>
+
+<!-- ./comments -->
+<div class="container">
+  <navigation class="navigation"></navigation>
+</div>
+
+
+<section class="feedback feedback-full">
+  <div class="container feedback-container">
+    <p class="title">Напишите нам</p>
+    <p class="text">Сотрудник клиники свяжется с вами в течение рабочего дня</p>
+    <sendForm></sendForm>
+  </div>
+  <!-- /.container feedback-container -->
+</section>
+<!-- /.feedback -->
 
 <? include('components/footer.php') ?>

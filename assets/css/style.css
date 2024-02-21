@@ -82,6 +82,7 @@ button {
 }
 
 .button {
+  display: inline-block;
   background-color: #83C9B6;
   color: #fff;
   font-family: "Philosopher-Bold", sans-serif;
@@ -578,6 +579,12 @@ input:focus-visible, textarea:focus-visible {
 .feedback p.title, .feedback .text {
   display: none;
 }
+.feedback-full .container {
+  padding: 65px 0;
+  max-width: 100%;
+  border-radius: 0;
+  justify-content: center;
+}
 
 .hero-contact {
   display: flex;
@@ -667,8 +674,14 @@ input:focus-visible, textarea:focus-visible {
 .comment:nth-last-child(1) {
   margin-bottom: 0;
 }
-.comment__quote {
+.comment:before {
+  content: "";
+  background-image: url("../img/quote.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
   position: absolute;
+  width: 40px;
+  height: 35px;
   right: 30px;
   bottom: 40px;
 }
@@ -951,7 +964,7 @@ input:focus-visible, textarea:focus-visible {
 }
 
 .specialists {
-  padding: 50px 0;
+  padding: 50px 0 100px 0;
 }
 .specialists-container {
   display: grid;
@@ -985,6 +998,197 @@ input:focus-visible, textarea:focus-visible {
 }
 .specialists .title {
   margin-bottom: 20px;
+}
+
+:root {
+  --swiper-navigation-color: #71716B;
+  --swiper-pagination-color: #71716B;
+}
+
+.slider {
+  padding: 40px 0 70px 0;
+  background-image: url("../img/slider-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slider-container {
+  display: flex;
+  align-items: center;
+}
+.slider-container > .slider-button {
+  display: none;
+}
+.slider-wrap {
+  max-width: 600px;
+}
+.slider__title {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.slider__text {
+  margin-bottom: 20px;
+}
+
+.swiper {
+  max-width: 630px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: unset;
+  background-size: cover;
+  background-position: center;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.swiper-button-next {
+  right: 35%;
+}
+.swiper-button-next:after {
+  content: "";
+  background-image: url("../img/arrow-next.svg");
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+.swiper-button-prev {
+  left: 35%;
+}
+.swiper-button-prev:after {
+  content: "";
+  background-image: url("../img/arrow-prev.svg");
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+.swiper-pagination-bullet {
+  background: transparent;
+  border: 1px solid var(--swiper-pagination-color);
+}
+.swiper-pagination-bullet-active {
+  background: var(--swiper-navigation-color);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  height: 30px;
+  width: 30px;
+  top: unset;
+  bottom: 0;
+  z-index: 11;
+}
+
+.mySwiper2 {
+  height: 80%;
+  width: 310px;
+}
+
+.mySwiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0 40px 0;
+}
+.mySwiper .swiper-slide {
+  width: 25%;
+  height: 106px;
+  opacity: 0.4;
+}
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.slogan {
+  padding: 50px 0;
+}
+.slogan-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 855px;
+  height: 530px;
+  margin: auto;
+  background-image: url("../img/slogan-bg.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.slogan__title {
+  max-width: 600px;
+  font-family: "Philosopher-Regular", sans-serif;
+  font-weight: 100;
+  text-align: center;
+}
+
+.response {
+  padding: 50px 0;
+}
+.response-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.response .title {
+  margin-bottom: 50px;
+}
+.response .comments {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  width: 100%;
+  margin-right: 0;
+}
+.response .comments .comment {
+  margin-bottom: 35px;
+}
+.response .comments .comment-more {
+  cursor: pointer;
+  color: #1F25AB;
+}
+
+.modal {
+  padding: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 70vw;
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0px 6px 9px 3px rgba(0, 0, 0, 0.24);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.modal p {
+  word-break: break-all;
+}
+.modal-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.336);
+  z-index: 0;
+  cursor: pointer;
+}
+
+.comment.modal {
+  position: fixed;
+  padding: 50px;
 }
 
 .footer {
@@ -1160,6 +1364,12 @@ input:focus-visible, textarea:focus-visible {
   .specialists-container {
     grid-template-columns: repeat(3, 1fr);
   }
+  .response .comments {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .response .comments .comment:nth-last-child(2) {
+    display: none;
+  }
 }
 @media (max-width: 1200px) {
   body {
@@ -1219,6 +1429,25 @@ input:focus-visible, textarea:focus-visible {
   }
   .specialists-card {
     padding: 0;
+  }
+  .slider-container {
+    flex-direction: column;
+  }
+  .slider-container > .slider-button {
+    display: inline-block;
+    margin-top: 15px;
+  }
+  .slider-wrap {
+    max-width: 100%;
+  }
+  .slider-wrap > .slider-button {
+    display: none;
+  }
+  .slider__title {
+    text-align: center;
+  }
+  .slider__text {
+    text-align: center;
   }
   .footer-wrapper-mobile {
     display: flex;
@@ -1491,7 +1720,7 @@ input:focus-visible, textarea:focus-visible {
     grid-row-gap: 10px;
   }
   .specialists-card {
-    width: 170px;
+    max-width: 170px;
   }
   .specialists-card__img {
     width: 170px;
@@ -1506,6 +1735,23 @@ input:focus-visible, textarea:focus-visible {
   }
   .specialists-card__profession {
     font-size: 12px;
+  }
+  .mySwiper2 {
+    height: 250px;
+  }
+  .mySwiper {
+    height: 80px;
+  }
+  .mySwiper .swiper-slide {
+    height: 40px;
+  }
+  .slogan-wrapper {
+    background-image: url("../img/slogan-bg-mobile.svg");
+    max-width: 400px;
+    height: 390px;
+  }
+  .slogan__title {
+    max-width: 300px;
   }
   .footer-devider {
     display: block;
@@ -1597,6 +1843,18 @@ input:focus-visible, textarea:focus-visible {
   }
   .specialists-container {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .swiper {
+    max-width: 350px;
+  }
+  .swiper-button-prev {
+    left: 25%;
+  }
+  .swiper-button-next {
+    right: 25%;
+  }
+  .response .comments {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 @media (max-width: 576px) {

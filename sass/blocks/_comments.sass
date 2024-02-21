@@ -37,7 +37,13 @@
       font-family: $bold
   &:nth-last-child(1)
     margin-bottom: 0
-  &__quote
+  &:before
+    content: ''
+    background-image: url('../img/quote.svg')
+    background-repeat: no-repeat
+    background-size: contain
     position: absolute
+    width: 40px
+    height: 35px
     right: 30px
     bottom: 40px
