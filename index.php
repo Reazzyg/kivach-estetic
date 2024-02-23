@@ -1,9 +1,9 @@
 <?php
 // include('system/functions.php');
 $title = 'Главная';
-include('components/header.php');
+include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 // get_header();
-
+// echo $_SERVER['DOCUMENT_ROOT'];
 ?>
 <section class="hero hero-main">
   <div class="container hero-container hero-main-container">

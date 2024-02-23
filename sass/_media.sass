@@ -79,6 +79,23 @@
       & .comment
         &:nth-last-child(2)
           display: none
+  .rino
+    & .swiper
+      &-slide
+        & img
+          max-width: 350px
+          max-height: 300px
+    &.slider-big
+      background-color: #fff
+      & .container
+        // max-width: 100%
+        &.advantages-container
+          padding: 0
+
+  .video
+    & iframe
+      height: 630px
+
 @media  ( max-width: 1200px  )
   body
     background-position-y: 85px
@@ -143,7 +160,16 @@
       text-align: center
     &__text
       text-align: center
+  .rino
+    & .swiper
+      &-slide
+        & img
+          max-width: 300px
+          max-height: 250px
 
+  .video
+    & iframe
+      height: 530px
   .footer
     &-wrapper
       &-mobile
@@ -379,6 +405,29 @@
     height: 80px
   .mySwiper .swiper-slide
     height: 40px
+  .rino
+    & .swiper
+      &-slide
+        & img
+          max-width: 230px
+          max-height: 200px
+      &.rinoSwiperBig
+        &.swiper
+          & .swiper
+            &-slide
+              height: 180px
+    &.slider-big
+      & .advantages
+        &-container
+          flex-direction: row
+        &-card
+          flex-basis: 30%
+          margin-bottom: 0
+          &__text
+            width: unset
+          & .subtitle
+            font-size: 20px
+
   .slogan
     &-wrapper
       background-image: url('../img/slogan-bg-mobile.svg')
@@ -387,6 +436,9 @@
       height: 390px
     &__title
       max-width: 300px
+  .video
+    & iframe
+      height: 430px
   .footer
     &-devider
       display: block
@@ -471,6 +523,44 @@
   .response
     & .comments
       grid-template-columns: repeat(1,1fr)
+  .rino
+    & .swiper
+      &-slide
+        &-wrapper
+          flex-direction: column
+        & img
+          max-width: 100%
+          max-height: 200px
+          margin-right: 0
+          margin-bottom: 20px
+          &:nth-last-child(1)
+            margin-bottom: 0
+            height: 180px
+    &.slider-big
+      background-color: unset
+      & .advantages
+        &-card
+          flex-basis: 50%
+          &:nth-last-child(1)
+            display: none
+    &__img
+      max-width: 100%
+      max-height: 280px
+      &:nth-child(2n+1)
+        display: none
+
+  .info
+    &__img
+      display: none
+    &-wrapper
+      flex-basis: 100%
+    &.grid
+      & .container
+        grid-template-columns: repeat(1,1fr)
+        justify-items: start
+  .video
+    & iframe
+      height: 300px
 @media  ( max-width: 576px  )
   .container
     max-width: 92%
@@ -515,3 +605,10 @@
   .specialists
     &-container
       grid-template-columns: repeat(2, 1fr)
+  .rino
+    &.slider-big
+      & .advantages
+        &-card
+          flex-basis: 100%
+          &:nth-last-child(2)
+            display: none

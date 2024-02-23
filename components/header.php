@@ -1,5 +1,5 @@
  <?php
-include("system/functions.php");
+include $_SERVER['DOCUMENT_ROOT'] . '/system/functions.php';
 ?>
 
  <!DOCTYPE html>
@@ -9,9 +9,9 @@ include("system/functions.php");
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="assets/css/swiper.min.css">
-   <link rel="stylesheet" href="assets/css/normalize.css">
-   <link rel="stylesheet" href="assets/css/style.css">
+   <link rel="stylesheet" href="/assets/css/swiper.min.css">
+   <link rel="stylesheet" href="/assets/css/normalize.css">
+   <link rel="stylesheet" href="/assets/css/style.css">
    <title>
      <? !isset($title) ? $title='' :  $title;
       echo $title ?>
@@ -29,6 +29,7 @@ include("system/functions.php");
            <span class="menu-burger__line"></span>
          </div>
          <span class="header-menu__text">меню</span>
+         <!-- menu.js -->
          <ul class="menu-list ">
 
          </ul>

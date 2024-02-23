@@ -1,12 +1,12 @@
 <?php 
 $title = 'Контакты';
-include("components/header.php");
+include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 
 ?>
 
 <section class="hero">
   <div class="container">
-    <h1 class="title hero-title">Контакты</h1>
+    <h1 class="title">Контакты</h1>
     <navigation class="navigation"></navigation>
 
     <div class="contact hero-contact">
@@ -38,4 +38,4 @@ include("components/header.php");
 
 
 
-<?php get_footer() ?>
+<? include $_SERVER['DOCUMENT_ROOT'] . '/components/footer.php' ?>

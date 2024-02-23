@@ -11,7 +11,7 @@ function sqlNumRows($result) {
 }
 
 function get_img_path(){
-   echo 'assets/img/';
+   echo '/assets/img/';
 }
 $img_path = 'assets/img/';
 $js_path = 'assets/js/';

@@ -1,6 +1,6 @@
 export {createForm}
 function createForm(){
-fetch('./components/sendForm.html')
+fetch('/components/sendForm.html')
 .then(response => response.text())
 .then(data =>{
   let formContainers = document.querySelectorAll('sendForm')

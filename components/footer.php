@@ -92,9 +92,9 @@
 
   </footer>
   <!-- /.footer -->
-  <script src="assets/js/swiper.min.js"></script>
-  <script src="assets/js/validation.js"></script>
-  <script type="module" src="assets/js/js.js"></script>
+  <script src="/assets/js/swiper.min.js"></script>
+  <script src="/assets/js/validation.js"></script>
+  <script type="module" src="/assets/js/js.js"></script>
   <!-- <script type="module" src="assets/js/menu.js"></script> -->
   <!-- <script type="module" src="assets/js/navigation.js"></script> -->
   <!-- <script type="module" src="assets/js/footer.js"></script> -->

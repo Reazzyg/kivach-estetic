@@ -16,7 +16,7 @@ function footerSurg(data) {
         const elementToAppent = document.querySelector(`[title="${menuNames}"]`);
         // Создаем стрелку для раздела меню
         const footerArrow = createDOMElement('img', 'footer-list__arrow');
-        footerArrow.src = 'assets/img/arrow-down.svg'; // Устанавливаем путь к изображению стрелки
+        footerArrow.src = '/assets/img/arrow-down.svg'; // Устанавливаем путь к изображению стрелки
         // Создаем контейнер для названия раздела меню и стрелки
         const titleWrap = createDOMElement('div', 'footer-list-wrap');
         // Создаем элемент для названия раздела меню и добавляем его в контейнер
