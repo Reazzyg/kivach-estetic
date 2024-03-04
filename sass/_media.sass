@@ -1,0 +1,614 @@
+@media screen and ( min-width: 992px)
+.button:hover
+  background-color: darken($button,30% )
+@media  ( max-width: 1500px)
+  body
+    overflow-x: hidden
+  .container
+    max-width: 1140px
+  .navigation
+    flex-wrap: wrap
+    &-button
+      margin-bottom: 40px
+      &:nth-last-child(1)
+        display: flex
+        justify-content: center
+        flex-basis: 47%
+      &:nth-last-child(2)
+        display: flex
+        justify-content: center
+        flex-basis: 47%
+  .hero
+    padding-top: 70px
+    &-subtitle
+      margin-bottom: 50px
+    &-main
+      &-list
+        margin-bottom: 120px
+      &__bg
+        max-width: 560px
+        top: -50px
+  .advantages
+    &-card
+      &__text
+        width: 300px
+  .feedback
+    &-container
+      padding-right: 55px
+      background-size: 550px
+    &__img
+      width: 600px
+      left: -50px
+  .devider
+    &-bg
+      top: -70px
+      &-max
+        display: none
+      &-1500
+        display: block
+    &-big
+      & .devider
+        &-bg
+          top: 160px
+  .about
+    &-container
+      flex-direction: column
+    &__img
+      max-width: 100%
+      max-height: 770px
+      flex-basis: unset
+      margin-bottom: 20px
+    &-wrapper
+      flex-basis: unset
+      flex-direction: row
+    &-card
+      margin-right: 20px
+      margin-bottom: 0
+      &:nth-last-child(1)
+        margin-right: 0
+  .rooms
+    &-wrapper
+      &>img
+        max-height: 460px
+  .specialists
+    &-container
+      grid-template-columns: repeat(3, 1fr)
+  .response
+    & .comments
+      grid-template-columns: repeat(3,1fr)
+      & .comment
+        &:nth-last-child(2)
+          display: none
+  .rino
+    & .swiper
+      &-slide
+        & img
+          max-width: 350px
+          max-height: 300px
+    &.slider-big
+      background-color: #fff
+      & .container
+        // max-width: 100%
+        &.advantages-container
+          padding: 0
+
+  .video
+    & iframe
+      height: 630px
+
+@media  ( max-width: 1200px  )
+  body
+    background-position-y: 85px
+  .container
+    max-width: 960px
+  .desktop
+    display: none
+  .mobile
+    display: block
+  .hero
+    padding-top: 50px
+    &-main
+      &-list
+        margin-bottom: 60px
+      &__bg
+        max-width: 410px
+        top: 25px
+  .advantages
+    &-card
+      padding: 20px
+      &__text
+        width: 260px
+      .subtitle
+        font-size: 24px
+  .feedback
+    &-container
+      justify-content: center
+    &__img
+      display: none
+  .devider
+    &-bg
+      top: 0
+      &-1500
+        display: none
+      &-1200
+        display: block
+    &-container
+      & .title
+        max-width: 670px
+  .about
+    &__img
+      max-height: 650px
+  .rooms
+    &-wrapper
+      &>img
+        max-height: 380px
+  .specialists
+    &-card
+      padding: 0
+  .slider
+    &-container
+      flex-direction: column
+      &>.slider-button
+        display: inline-block
+        margin-top: 15px
+    &-wrap
+      max-width: 100%
+      &>.slider-button
+        display: none
+
+    &__title
+      text-align: center
+    &__text
+      text-align: center
+  .rino
+    & .swiper
+      &-slide
+        & img
+          max-width: 300px
+          max-height: 250px
+
+  .video
+    & iframe
+      height: 530px
+  .footer
+    &-wrapper
+      &-mobile
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+@media  ( max-width: 992px  )
+  body
+    font-size: 14px
+  h1, .title
+    font-size: 29px
+  h2, .subtitle
+    font-size: 21px
+  .text
+    font-size: 14px
+  .container
+    max-width: 760px
+  .logo
+    height: 40px
+    width: 93px
+  .header
+    position: relative
+    padding-bottom: 15px
+    &-social
+      &__link
+        font-size: 14px
+        margin-left: 5px
+      &__icon
+        width: 12px
+    &-menu
+      order: 1
+      position: static
+      &__text
+        display: none
+  .menu
+    padding: 15px
+    &-burger
+      margin: 0
+    &-list
+      display: block
+      position: fixed
+      right: 0
+      top: 55px
+      bottom: 0
+      left: 100%
+      border: none
+      box-shadow: none
+      border-radius: 0
+      transform: unset
+      transform: translateY(34px)
+      transition: left .5s
+      &-item
+        &__link
+          color: $grey
+          font-size: 14px
+    &-active .menu-list
+      left: 0
+      display: flex
+      flex-direction: column
+      text-align: start
+  .menu-active .menu-burger__line:after
+    transform: translate(0%, 0%) rotate(45deg)
+  .menu-active .menu-burger__line:before
+    transform: translate(0%, -200%) rotate(135deg)
+  .navigation
+    flex-wrap: wrap
+    &-list
+      position: static
+    &-button
+      width: 100%
+      justify-content: space-between
+      &:nth-last-child(1)
+        display: block
+        flex-basis: unset
+      &:nth-last-child(2)
+        display: block
+        flex-basis: unset
+      &-wrapper
+        width: 100%
+        justify-content: space-between
+      &__name
+        width: unset
+  .hero
+    padding-top: 50px
+    &-title
+      font-size: 29px
+      margin-bottom: 5px
+    &-subtitle
+      font-size: 14px
+      margin-bottom: 25px
+    &-main
+      &-list
+        margin-bottom: 100px
+        &__item
+          margin-bottom: 10px
+      &__bg
+        max-width: 390px
+        top: -50px
+  .year
+    & .subtitle
+      font-size: 29px
+  .advantages
+    &-container
+      flex-direction: column
+      align-items: center
+    &-card
+      width: 500px
+      margin-bottom: 20px
+      &:nth-last-child(1)
+        margin-bottom: 0
+  .feedback
+    &-container
+      padding: 50px 0
+      max-width: 100%
+      border-radius: 0
+      flex-direction: column
+    & p.title, .text
+      display: block
+    & .text
+      margin-bottom: 20px
+      text-align: center
+  sendform
+      max-width: 95%
+  sendform 
+    & .form
+      width: 100%
+      &-title, .form-subtitle
+        display: none
+      &-subtitle:nth-last-child(1)
+        display: block
+      &-wrapper
+        flex-direction: column
+        align-items: center
+        & label
+          width: 100%
+      &-button
+        padding: 10px 90px
+        margin-bottom: 10px
+        margin-right: 0
+  .devider
+    &-bg
+      &-1200
+        display: none
+      &-992
+        display: block
+    &-container
+      & .title
+        max-width: 370px
+        font-size: 21px
+    &-big
+      padding-top: 100px
+      & .devider
+        &-bg
+          top: 110px
+  .about
+    &__img
+      max-height: 650px
+    &-card
+      &__title
+        font-size: 21px
+        text-align: center
+      &__text
+        font-size: 14px
+        text-align: center
+  .standart
+    padding: 50px 0 100px 0
+    background-image: none
+    &-overlay
+      display: none
+  .aftercare
+    background-image: none
+    background-color: $white
+    &-container
+      padding: 20px 0
+    &-wrapper
+      display: block
+    &-description
+      position: relative
+      width: 100%
+      border-radius: 30px
+      overflow: hidden
+      &__img
+        display: block
+        max-height: 330px
+        width: 100%
+        object-fit: cover
+      &__text
+        padding: 10px 20px
+        border-top-right-radius: 0
+        border-top-left-radius: 0
+        border: 1px solid #DCE4EF
+        text-align: center
+    &-card
+      padding: 0
+      max-width: 100%
+      margin-bottom: 0
+      &__text
+        text-align: center
+  .rooms
+    &-wrapper
+      flex-direction: column
+      &>img
+        max-height: 300px
+        flex-basis: unset
+    &__img
+      max-height: 300px
+      margin-bottom: 10px
+      &:nth-last-child(1)
+        margin-bottom: 0
+    &-wrap
+      flex-basis: unset
+  .specialists
+    &-container
+      grid-template-columns: repeat(4, 1fr)
+      grid-column-gap: 10px
+      grid-row-gap: 10px
+    &-card
+      max-width: 170px
+      &__img
+        width: 170px
+        height: 170px
+        margin-bottom: 10px
+        max-width: 100%
+      &__name
+        margin-bottom: 5px
+        max-width: 100%
+        font-size: 14px
+      &__profession
+        font-size: 12px
+  .mySwiper2
+    height: 250px
+  .mySwiper
+    height: 80px
+  .mySwiper .swiper-slide
+    height: 40px
+  .rino
+    & .swiper
+      &-slide
+        & img
+          max-width: 230px
+          max-height: 200px
+      &.rinoSwiperBig
+        &.swiper
+          & .swiper
+            &-slide
+              height: 180px
+    &.slider-big
+      & .advantages
+        &-container
+          flex-direction: row
+        &-card
+          flex-basis: 30%
+          margin-bottom: 0
+          &__text
+            width: unset
+          & .subtitle
+            font-size: 20px
+
+  .slogan
+    &-wrapper
+      background-image: url('../img/slogan-bg-mobile.svg')
+
+      max-width: 400px
+      height: 390px
+    &__title
+      max-width: 300px
+  .video
+    & iframe
+      height: 430px
+  .footer
+    &-devider
+      display: block
+    &-wrap
+      flex-direction: column
+    &-wrapper
+      &-mobile
+        flex-direction: column
+      &-mobile .footer-wrap .footer__text
+        max-width: 100%
+        width: 100%
+        margin: 0
+      &-mobile .footer-wrap
+        flex-direction: row
+        align-items: center
+      &:nth-last-child(1)
+        flex-basis: min-content
+    &-list
+      &-item
+        display: none
+      &-item.active
+        display: block
+      &__arrow
+        display: block
+
+@media  ( max-width: 768px  )
+  .container
+    max-width: 576px
+  .hero
+    padding-top: 50px
+    &-wrapper
+      max-width: 60%
+    &-main
+      &-list
+        max-width: 68%
+        margin-bottom: 30px
+        &__item
+          margin-bottom: 10px
+      &__bg
+        max-width: 300px
+        top: -53px
+  .feedback
+    &-container
+      max-width: 100%
+  .devider
+    padding: 200px 0
+    &-bg
+      &-992
+        display: none
+      &-768
+        display: block
+  .about
+    &__img
+      max-height: 400px
+    &-wrapper
+      flex-direction: column
+    &-card
+      width: 100%
+      margin-bottom: 20px
+      margin-right: 0
+      &:nth-last-child(1)
+        margin-bottom: 0
+  .standart
+    &-wrapper
+      flex-direction: column
+      &:after
+        height: 2px
+        width: 90%
+        left: 50%
+        top: 50%
+        transform: translateX(-50%)
+  .specialists
+    &-container
+      grid-template-columns: repeat(3, 1fr)
+  .swiper
+    max-width: 350px
+    &-button
+      &-prev
+        left: 25%
+      &-next
+        right: 25%
+  .response
+    & .comments
+      grid-template-columns: repeat(1,1fr)
+  .rino
+    & .swiper
+      &-slide
+        &-wrapper
+          flex-direction: column
+        & img
+          max-width: 100%
+          max-height: 200px
+          margin-right: 0
+          margin-bottom: 20px
+          &:nth-last-child(1)
+            margin-bottom: 0
+            height: 180px
+    &.slider-big
+      background-color: unset
+      & .advantages
+        &-card
+          flex-basis: 50%
+          &:nth-last-child(1)
+            display: none
+    &__img
+      max-width: 100%
+      max-height: 280px
+      &:nth-child(2n+1)
+        display: none
+
+  .info
+    &__img
+      display: none
+    &-wrapper
+      flex-basis: 100%
+    &.grid
+      & .container
+        grid-template-columns: repeat(1,1fr)
+        justify-items: start
+  .video
+    & iframe
+      height: 300px
+@media  ( max-width: 576px  )
+  .container
+    max-width: 92%
+  .hero
+    padding-top: 50px
+    &-wrapper
+      max-width: 100%
+    &-main
+      &-container
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+      &-list
+        max-width: 100%
+        margin-bottom: 0
+        &__item
+          margin-bottom: 10px
+      &__bg
+        position: static
+  .year
+    & .subtitle
+      font-size: 21px
+  .advantages
+    &-card
+      width: 100%
+  .feedback
+    &-container
+      max-width: 100%
+  sendForm
+    & .form-button
+      width: 100%
+      margin-right: 0
+  .about
+    &__img
+      max-height: 250px
+  .devider
+    padding: 50px 0
+    &-bg
+      &-768
+        display: none
+  .specialists
+    &-container
+      grid-template-columns: repeat(2, 1fr)
+  .rino
+    &.slider-big
+      & .advantages
+        &-card
+          flex-basis: 100%
+          &:nth-last-child(2)
+            display: none

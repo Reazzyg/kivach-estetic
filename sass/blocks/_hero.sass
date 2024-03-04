@@ -1,0 +1,43 @@
+.hero
+  &-comments
+    background-size: contain
+  &-main
+    padding-top: 150px
+    &-container
+      position: relative
+  &-wrapper
+    display: flex
+    flex-direction: column
+  &-title
+    margin-bottom: 15px
+    font-size: 64px
+    text-align: left
+  &-subtitle
+    margin-bottom: 90px
+    text-align: left
+  &-main
+    &-list
+      margin-bottom: 185px
+      &__item
+        position: relative
+        margin-bottom: 20px
+        padding-left: 15px
+
+        &::before
+          content: ''
+          position: absolute
+          left: 0
+          top: 50%
+          transform: translateY(-50%)
+          height: 6px
+          width: 6px
+          border-radius: 50%
+          background-color: $black
+    &__bg
+      position: absolute
+      right: 0
+      top: -140px
+      bottom: 0
+  &.rino
+    & .title
+      margin-bottom: 30px
