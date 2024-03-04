@@ -337,7 +337,48 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 </section>
 <!-- /.schedule -->
 
+<section class="price">
+  <div class="container">
+    <div class="price-card ">
+      <h2 class="subtitle">Эстетический аспект операции</h2>
+      <p>
+        Операция позволяет устранить эстетические дефекты ношения. При закрытой ринопластике в течение
+        восстановительного периода снаружи не остается никакого следа хирургического вмешательства; при открытой
+        ринопластике стоит короткий рубец, который за год практически полностью исчезает.
+      </p>
+      <h3>Результаты</h3>
+      <ul class="info-list">
+        <li class="info-list__item">Нос приобретает красивую форму, оптимальную длину и пропорциональные размеры.</li>
+        <li class="info-list__item">Обычно используется горбинка, в результате чего спинка носа становится ровной.</li>
+        <li class="info-list__item">Крылья носа приобретают аккуратных размеров.</li>
+        <li class="info-list__item">Корректируется не только форма носа, но и улучшается носовое дыхание.</li>
+      </ul>
+    </div>
+    <!-- /.price-card -->
 
+    <div class="price-card-small">
+      <div class="price-card-wrapper">
+        <h3 class="subtitle">РИНОПЛАСТИКА</h3>
+        <p>«ВСЁ ВКЛЮЧЕНО»</p>
+        <p class="price-card__price">
+          <span class="price__new">140 000₽</span>
+          <span class="price__old">150 000₽</span>
+        </p>
+      </div>
+      <!-- /.price-card-wrapper -->
+
+      <img src="<?get_img_path()?>rino-nose.png" alt="" class="price-card__bg">
+    </div>
+    <div class="price-card-small">
+      <h3 class="subtitle ">
+        Ринопластика ЛЮБОЙ степени сложности
+      </h3>
+    </div>
+
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.price -->
 
 <!-- comments -->
 

@@ -127,7 +127,7 @@ figure {
   display: none;
 }
 
-.text {
+.text, p {
   font-size: 18px;
   color: #71716B;
 }
@@ -138,6 +138,10 @@ figure {
 
 .tac {
   text-align: center;
+}
+
+h3.subtitle {
+  font-size: 24px;
 }
 
 .navigation {
@@ -1430,6 +1434,53 @@ input:focus-visible, textarea:focus-visible {
   font-family: "Philosopher-Bold", sans-serif;
   margin-right: 10px;
   color: #474747;
+}
+
+.price .container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+.price-card {
+  padding: 30px;
+  grid-column: span 3;
+  grid-row: span 2;
+  background-color: #fff;
+  border-radius: 30px;
+}
+.price-card-small {
+  padding: 30px;
+  position: relative;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 30px;
+  background-color: rgb(25, 25, 25);
+}
+.price-card-small:nth-last-child(2) {
+  grid-column: 4/6;
+  grid-row: 1/2;
+}
+.price-card-small:nth-last-child(1) {
+  background-image: url("../img/rino-doc.png");
+  grid-column: 4/6;
+  grid-row: 2/3;
+}
+.price-card__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+}
+.price-card-wrapper {
+  position: absolute;
+  padding: 15px 20px 15px 60px;
+  background-color: #fff;
+  border-radius: 30px;
+  left: -35px;
 }
 
 .footer {
