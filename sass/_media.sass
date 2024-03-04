@@ -95,7 +95,9 @@
   .video
     & iframe
       height: 630px
-
+  .schedule
+    & .wrapper
+      max-width: 1140px
 @media  ( max-width: 1200px  )
   body
     background-position-y: 85px
@@ -170,6 +172,11 @@
   .video
     & iframe
       height: 530px
+  .schedule
+    & .container
+      background-color: $white
+    & .wrapper
+      max-width: 960px
   .footer
     &-wrapper
       &-mobile
@@ -439,6 +446,22 @@
   .video
     & iframe
       height: 430px
+  .schedule
+    & .wrapper
+      max-width: 760px
+    & img
+      &:nth-child(1)
+        grid-column: 2/3
+        grid-row: 1/2
+      &:nth-child(2)
+        grid-column: 2/3
+        grid-row: 2/3
+      &:nth-last-child(2)
+        grid-column: 3/4
+        grid-row: 1/2
+      &:nth-last-child(1)
+        grid-column: 3/4
+        grid-row: 2/3
   .footer
     &-devider
       display: block
@@ -561,6 +584,30 @@
   .video
     & iframe
       height: 300px
+  .schedule
+    & .container
+      background-color: unset
+    & .wrapper
+      max-width: 576px
+      justify-items: center
+      grid-template-rows: auto
+      padding: 0
+    & img
+      &:nth-child(1)
+        grid-column: 1/2
+        grid-row: 1/2
+      &:nth-child(2)
+        grid-column: 2/3
+        grid-row: 1/2
+      &:nth-last-child(2)
+        grid-column: 3/4
+        grid-row: 1/2
+      &:nth-last-child(1)
+        display: none
+    &-card
+      margin: 0
+      grid-column: span 3
+      background-color: unset
 @media  ( max-width: 576px  )
   .container
     max-width: 92%
@@ -612,3 +659,15 @@
           flex-basis: 100%
           &:nth-last-child(2)
             display: none
+  .schedule
+    & .wrapper
+      max-width: 92%
+      grid-template-columns: repeat(1, 1fr)
+    & img
+      &:nth-child(n)
+
+        grid-column: 1/2
+        grid-row: unset
+    &-card
+      grid-column: 1/2
+      order: 1

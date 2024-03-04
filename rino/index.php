@@ -213,14 +213,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
   <h2 class="subtitle">Применение Пьезотом</h2>
   <div class="container">
     <div class="info-wrapper">
-      <p class="text info__text">При операциях, затрагивающих целостность костей, специалисты клиники отказывались
-        от использования консервативных инструментов в виде пилки и долота. Такая операция проводится с применением
+      <p class="text info__text">При операциях, затрагивающих целостность костей, специалисты клиники отказывались
+        от использования консервативных инструментов в виде пилки и долота. Такая операция проводится с применением
         Piezotome – пьезохирургического аппарата ультразвуковой хирургии.</p>
-      <p class="text info__text">С помощью такого устройства под воздействием ультразвука производятся точечные надпилы
-        и истончения костей для получения результата, максимально соответствующего, который был запланирован.</p>
-      <p class="text info__text">Аппарат обеспечивает высокоточные разрезы, при этом кости не ломаются и не затрагивают
-        мягкие ткани. Снижение во время проведения физических потоков, направленных на область ношения,
-        в послеоперационный период значительно снижает дискомфортные ощущения.</p>
+      <p class="text info__text">С помощью такого устройства под воздействием ультразвука производятся точечные надпилы
+        и истончения костей для получения результата, максимально соответствующего, который был запланирован.</p>
+      <p class="text info__text">Аппарат обеспечивает высокоточные разрезы, при этом кости не ломаются и не затрагивают
+        мягкие ткани. Снижение во время проведения физических потоков, направленных на область ношения,
+        в послеоперационный период значительно снижает дискомфортные ощущения.</p>
     </div>
     <img src="<?get_img_path()?>rino-text-1.png" alt="" class="info__img brs30 ">
   </div>
@@ -271,6 +271,71 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
   <!-- /.container -->
 </section>
 <!-- /.rino -->
+
+<section class="order">
+  <div class="container">
+    <ul class="info-list info-list-order">
+      <li class="info-list__item">
+        <h3 class="subtitle">Первичная консультация</h3>
+        Пациент проходит первичную консультацию у хирурга клиники. В ходе консультации врач удостоверится в наличии
+        показаний, назначит необходимую проверку и подберет дату операции. Консультация возможна как в электронном виде,
+        так и в формате «онлайн».
+      </li>
+      <li class="info-list__item">
+        <h3 class="subtitle">Перед операцией</h3>
+        Операция проводится в клинике. Пациент может добраться до нее собственным транспортом. По желанию гости могут
+        принять комфортабельный автомобиль с водителем или заказать такси (услуга оплачивается отдельно).
+      </li>
+      <li class="info-list__item">
+        <h3 class="subtitle">Операция</h3>
+        Проводится в день приема пациента. Помимо хирурга и среднего медицинского персонала в операции принимает участие
+        анестезиологическая бригада – как правило, операция проводится под наркозом. При необходимости оставить второго
+        хирурга.
+      </li>
+      <li class="info-list__item">
+        <h3 class="subtitle">После операции</h3>
+        После операции пациент находится в стационаре клиники под наблюдением медицинского персонала. После выхода из
+        наркоза пациента осматривает анестезиолог. На следующий день проводится осмотр хирурга. Пациент получает
+        рекомендации.
+      </li>
+    </ul>
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.order -->
+
+<section class="schedule">
+  <h2 class="subtitle">Расписание пребывания в клинике</h2>
+  <div class="container">
+    <div class="wrapper">
+      <img src="<?get_img_path()?>room1.jpg" alt="" class="schedule__img">
+      <img src="<?get_img_path()?>room1.jpg" alt="" class="schedule__img">
+
+      <div class="schedule-card brs30">
+        <ul class="info-list">
+          <li class="info-list__item"><span>08.00</span>asdasdasds pan</li>
+          <li class="info-list__item"><span>09.00</span>sasd</li>
+          <li class="info-list__item"><span>10.00</span>asdad</li>
+          <li class="info-list__item"><span>11.00</span>asdasdasdasdspan</li>
+          <li class="info-list__item"><span>12.00</span>asdasd</li>
+          <li class="info-list__item"><span>08.00</span>asdasdasds pan</li>
+          <li class="info-list__item"><span>09.00</span>sasd</li>
+          <li class="info-list__item"><span>10.00</span>asdad</li>
+          <li class="info-list__item"><span>11.00</span>asdasdasdasdspan</li>
+          <li class="info-list__item"><span>12.00</span>asdasd</li>
+        </ul>
+
+      </div>
+
+      <img src="<?get_img_path()?>room1.jpg" alt="" class="schedule__img">
+      <img src="<?get_img_path()?>room1.jpg" alt="" class="schedule__img">
+
+    </div>
+    <!-- /.wrapper -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.schedule -->
 
 
 
