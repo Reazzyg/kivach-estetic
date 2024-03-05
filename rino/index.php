@@ -15,18 +15,18 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="swiper-slide-wrapper">
-              <img src="<?get_img_path()?>rino1.png" alt="" loading="lazy" class="swiper-slide__img">
-              <img src="<?get_img_path()?>rino2.png" alt="" loading="lazy" class="swiper-slide__img">
-              <img src="<?get_img_path()?>rino3.png" alt="" loading="lazy" class="swiper-slide__img">
+              <img src="<?get_img_path()?>rino1.png" alt="фото ринопластики" loading="lazy" class="swiper-slide__img">
+              <img src="<?get_img_path()?>rino2.png" alt="фото ринопластики" loading="lazy" class="swiper-slide__img">
+              <img src="<?get_img_path()?>rino3.png" alt="фото ринопластики" loading="lazy" class="swiper-slide__img">
             </div>
             <!-- /.swiper-slide-wrapper -->
           </div>
           <!-- /.swiper-slide -->
           <div class="swiper-slide">
             <div class="swiper-slide-wrapper">
-              <img src="<?get_img_path()?>rino1-1.png" alt="" loading="lazy" class="swiper-slide__img">
-              <img src="<?get_img_path()?>rino1-2.png" alt="" loading="lazy" class="swiper-slide__img">
-              <img src="<?get_img_path()?>rino1-3.png" alt="" loading="lazy" class="swiper-slide__img">
+              <img src="<?get_img_path()?>rino1-1.png" alt="фото ринопластики" loading="lazy" class="swiper-slide__img">
+              <img src="<?get_img_path()?>rino1-2.png" alt="фото ринопластики" loading="lazy" class="swiper-slide__img">
+              <img src="<?get_img_path()?>rino1-3.png" alt="фото ринопластики" loading="lazy" class="swiper-slide__img">
             </div>
             <!-- /.swiper-slide-wrapper -->
           </div>
@@ -70,7 +70,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
         последствия
         для здоровья пациента.</p>
     </div>
-    <img src="<?get_img_path()?>rino-text-1.png" alt="" class="info__img brs30 ">
+    <img src="<?get_img_path()?>rino-text-1.png" alt="фото коррекции формы носа" class="info__img brs30 ">
   </div>
 </section>
 
@@ -87,7 +87,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 
 <section class="feedback">
   <div class="container feedback-container">
-    <img class="feedback__img" src="<?get_img_path()?>form-doc.png" alt="">
+    <img class="feedback__img" src="<?get_img_path()?>form-doc.png" alt="фото врача">
     <p class="title">Напишите нам</p>
     <p class="text">Сотрудник клиники свяжется с вами в течение рабочего дня</p>
     <sendForm></sendForm>
@@ -100,7 +100,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 <section class="info grid">
   <div class="container">
     <ul class="info-list">
-      <p class="subtitle">Виды ринопластики</p>
+      <li class="subtitle">Виды ринопластики</li>
       <li class="info-list__item text">Эстетическая ринопластика</li>
       <li class="info-list__item text">Пластиковый кончик носа</li>
       <li class="info-list__item text">Пластика ноздрей</li>
@@ -110,7 +110,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
       <li class="info-list__item text">Коррекция седловидной деформации</li>
     </ul>
     <ul class="info-list">
-      <p class="subtitle">Виды ринопластики</p>
+      <li class="subtitle">Виды ринопластики</li>
       <li class="info-list__item text">Эстетическая ринопластика</li>
       <li class="info-list__item text">Пластиковый кончик носа</li>
       <li class="info-list__item text">Пластика ноздрей</li>
@@ -120,7 +120,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
       <li class="info-list__item text">Коррекция седловидной деформации</li>
     </ul>
     <ul class="info-list">
-      <p class="subtitle">Виды ринопластики</p>
+      <li class="subtitle">Виды ринопластики</li>
       <li class="info-list__item text">Эстетическая ринопластика</li>
       <li class="info-list__item text">Пластиковый кончик носа</li>
       <li class="info-list__item text">Пластика ноздрей</li>
@@ -130,7 +130,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
       <li class="info-list__item text">Коррекция седловидной деформации</li>
     </ul>
     <ul class="info-list">
-      <p class="subtitle">Виды ринопластики</p>
+      <li class="subtitle">Виды ринопластики</li>
       <li class="info-list__item text">Эстетическая ринопластика</li>
       <li class="info-list__item text">Пластиковый кончик носа</li>
       <li class="info-list__item text">Пластика ноздрей</li>
@@ -140,7 +140,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
       <li class="info-list__item text">Коррекция седловидной деформации</li>
     </ul>
     <ul class="info-list">
-      <p class="subtitle">Виды ринопластики</p>
+      <li class="subtitle">Виды ринопластики</li>
       <li class="info-list__item text">Эстетическая ринопластика</li>
       <li class="info-list__item text">Пластиковый кончик носа</li>
       <li class="info-list__item text">Пластика ноздрей</li>
@@ -161,17 +161,17 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
     <div class="advantages">
       <div class="container advantages-container">
         <div class="advantages-card">
-          <img src="<?get_img_path()?>patients.svg" alt="" class="advantages-card__img">
+          <img src="<?get_img_path()?>patients.svg" alt="иконка пациента" class="advantages-card__img">
           <p class="subtitle">1 000 000 000 000</p>
           <p class="advantages-card__text text">Столько пациентов приняла клиника за всё время своего существования</p>
         </div>
         <div class="advantages-card">
-          <img src="<?get_img_path()?>calendar.svg" alt="" class="advantages-card__img">
+          <img src="<?get_img_path()?>calendar.svg" alt="иконка календаря" class="advantages-card__img">
           <p class="subtitle">300 000</p>
           <p class="advantages-card__text text">Столько операций проводится в клинике ежегодно</p>
         </div>
         <div class="advantages-card">
-          <img src="<?get_img_path()?>body.svg" alt="" class="advantages-card__img">
+          <img src="<?get_img_path()?>body.svg" alt="иконка тела" class="advantages-card__img">
           <p class="subtitle">2 000 000 000 000</p>
           <p class="advantages-card__text text">Столько операций провела клиника,начиная с 2017 года</p>
         </div>
@@ -181,15 +181,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
     <!-- /.advantages -->
     <div class="swiper rinoSwiperBig">
       <div class="swiper-wrapper">
-        <img src="<?get_img_path()?>rino1.png" alt="" class=" swiper-slide swiper-slide__img"> <img
-          src="<?get_img_path()?>rino1.png" alt="" class=" swiper-slide swiper-slide__img"> <img
-          src="<?get_img_path()?>rino2.png" alt="" class=" swiper-slide swiper-slide__img"> <img
-          src="<?get_img_path()?>rino3.png" alt="" class=" swiper-slide swiper-slide__img"> <img
-          src="<?get_img_path()?>rino1-1.png" alt="" class=" swiper-slide swiper-slide__img"> <img
-          src="<?get_img_path()?>rino1-2.png" alt="" class=" swiper-slide swiper-slide__img"> <img
-          src="<?get_img_path()?>rino1-3.png" alt="" class=" swiper-slide swiper-slide__img"> <img
-          src="<?get_img_path()?>rino1.png" alt="" class=" swiper-slide swiper-slide__img"> <img
-          src="<?get_img_path()?>rino1.png" alt="" class=" swiper-slide swiper-slide__img">
+        <img src="<?get_img_path()?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<?get_img_path()?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<?get_img_path()?>rino2.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<?get_img_path()?>rino3.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<?get_img_path()?>rino1-1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<?get_img_path()?>rino1-2.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<?get_img_path()?>rino1-3.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<?get_img_path()?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<?get_img_path()?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img">
       </div>
       <!--/. swiper-wraper  -->
       <div class="swiper-navigation">
@@ -222,7 +222,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
         мягкие ткани. Снижение во время проведения физических потоков, направленных на область ношения,
         в послеоперационный период значительно снижает дискомфортные ощущения.</p>
     </div>
-    <img src="<?get_img_path()?>rino-text-1.png" alt="" class="info__img brs30 ">
+    <img src="<?get_img_path()?>rino-text-1.png" alt="фото пьезот" class="info__img brs30 ">
   </div>
 </section>
 
@@ -262,9 +262,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
       метода, предполагающего использование турунда (тампонов) и препятствовавшего нормальному носовому дыханию, когда
       пациент в течение нескольких дней получал дыхание через рот.</p>
     <div class="rino-wrapper">
-      <img src="<?get_img_path()?>rino-text-1.png" alt="" class="rino__img">
-      <img src="<?get_img_path()?>rino-text-1.png" alt="" class="rino__img">
-      <img src="<?get_img_path()?>rino-text-1.png" alt="" class="rino__img">
+      <img src="<?get_img_path()?>rino-text-1.png" alt="фото сплинтов" class="rino__img">
+      <img src="<?get_img_path()?>rino-text-1.png" alt="фото сплинтов" class="rino__img">
+      <img src="<?get_img_path()?>rino-text-1.png" alt="фото сплинтов" class="rino__img">
     </div>
     <!-- /.rino-wrapper -->
   </div>
@@ -308,8 +308,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
   <h2 class="subtitle">Расписание пребывания в клинике</h2>
   <div class="container">
     <div class="wrapper">
-      <img src="<?get_img_path()?>room1.jpg" alt="" class="schedule__img">
-      <img src="<?get_img_path()?>room1.jpg" alt="" class="schedule__img">
+      <img src="<?get_img_path()?>room1.jpg" alt="фото номеров" class="schedule__img">
+      <img src="<?get_img_path()?>room1.jpg" alt="фото номеров" class="schedule__img">
 
       <div class="schedule-card brs30">
         <ul class="info-list">
@@ -327,8 +327,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 
       </div>
 
-      <img src="<?get_img_path()?>room1.jpg" alt="" class="schedule__img">
-      <img src="<?get_img_path()?>room1.jpg" alt="" class="schedule__img">
+      <img src="<?get_img_path()?>room1.jpg" alt="фото номеров" class="schedule__img">
+      <img src="<?get_img_path()?>room1.jpg" alt="фото номеров" class="schedule__img">
 
     </div>
     <!-- /.wrapper -->
@@ -339,14 +339,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 
 <section class="price">
   <div class="container">
-    <div class="price-card ">
+    <div class="price-card">
       <h2 class="subtitle">Эстетический аспект операции</h2>
-      <p>
+      <p class="text">
         Операция позволяет устранить эстетические дефекты ношения. При закрытой ринопластике в течение
         восстановительного периода снаружи не остается никакого следа хирургического вмешательства; при открытой
         ринопластике стоит короткий рубец, который за год практически полностью исчезает.
       </p>
-      <h3>Результаты</h3>
+      <h3 class="subtitle">Результаты</h3>
       <ul class="info-list">
         <li class="info-list__item">Нос приобретает красивую форму, оптимальную длину и пропорциональные размеры.</li>
         <li class="info-list__item">Обычно используется горбинка, в результате чего спинка носа становится ровной.</li>
@@ -361,13 +361,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
         <h3 class="subtitle">РИНОПЛАСТИКА</h3>
         <p>«ВСЁ ВКЛЮЧЕНО»</p>
         <p class="price-card__price">
-          <span class="price__new">140 000₽</span>
-          <span class="price__old">150 000₽</span>
+          <span class="price__new subtitle">140 000<span class="price__value">₽</span> </span>
+          <span class="price__old">150 000<span class="price__value">₽</span></span>
         </p>
       </div>
       <!-- /.price-card-wrapper -->
 
-      <img src="<?get_img_path()?>rino-nose.png" alt="" class="price-card__bg">
+      <img src="<?get_img_path()?>rino-nose.png" alt="фото ринопластики" class="price-card__bg">
     </div>
     <div class="price-card-small">
       <h3 class="subtitle ">
@@ -379,6 +379,83 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
   <!-- /.container -->
 </section>
 <!-- /.price -->
+
+<section class="question">
+  <div class="container">
+    <h2 class="subtitle">Часто задаваемые вопросы</h2>
+    <ul class="info-list">
+      <li class="info-list__item">
+        <h3 class="subtitle question__title">Сроки лечения? <img src="<?get_img_path()?>arrow-down-dark.svg" alt=""
+            class="question__img"> </h3>
+        <div class="text question__answer">
+          <p> Весь период лечения занимает достаточно времени. Первичный отёк происходит
+            через 1-2 месяца. При полной реабилитации, вероятно, займётся около года.</p>
+        </div>
+      </li>
+      <li class="info-list__item">
+        <h3 class="subtitle question__title">Когда я получу окончательный вид носа? <img
+            src="<?get_img_path()?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
+        <div class="text question__answer">
+          <p>Через 2-3 месяца после операции носить будет достаточно мыслительный вид. Уже
+            вряд ли кто-то догадался о том, что перенесли операцию. Об этом знают только вы и хирург.</p>
+          <p>Окончательный вид носа будет получен по итогам реабилитационного периода,
+            т.е.
+            е. через 12 месяцев. У пациентов с плотной, толстой кожей этот срок может увеличиться до 18 месяцев.</p>
+        </div>
+      </li>
+      <li class="info-list__item">
+        <h3 class="subtitle question__title">Когда после операции можно будет выйти на работу, вернуться к учебе? <img
+            src="<?get_img_path()?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
+        <div class="text question__answer">
+          <p>После операции предпочтение отдается 5-дневному постельному режиму. В эти дни
+            вы можете провести в клинике и воспользоваться лечением, которое позволит в меньшей степени сократить время
+            восстановления.</p>
+        </div>
+        <div class="text question__answer">
+          <p>К работе, учёбе и иной повседневной деятельности можно вернуться через 10
+            дней
+            после операции. Если такая активность не связана с физическими нагрузками (например, офисная работа), то –
+            на
+            5-е сутки.</p>
+        </div>
+      </li>
+      <li class="info-list__item">
+        <h3 class="subtitle question__title">Когда после операции можно будет отправиться на отдых, вернуться к занятиям
+          спортом? <img src="<?get_img_path()?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
+        <div class="text question__answer">
+          <p>Попадание прямых солнечных лучей в прооперированную область рекомендуется
+            наблюдать в течение 6-ти месяцев. К спорту можно перейти через 2 месяца после операции, начиная с
+            минимальных
+            показателей, при этом в течение месяца рекомендуется не выполнять упражнения, прогнозирующие наклоны или
+            головы выше положения ног. Активизировать спортивные занятия можно в течение 3-х месяцев.</p>
+        </div>
+      </li>
+      <li class="info-list__item">
+        <h3 class="subtitle question__title">Получится ли после операции света самостоятельно? <img
+            src="<?get_img_path()?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
+        <div class="text question__answer">
+          <p>Сразу после операции в носке появляются поддерживающие формы полые
+            силиконовые
+            сплиты. Они позволяют свободно дышать, во время сна не беспокоят.</p>
+        </div>
+      </li>
+      <li class="info-list__item">
+        <h3 class="subtitle question__title">Операция болезненная? Нужно ли принимать обезболивающие? <img
+            src="<?get_img_path()?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
+        <div class="text question__answer">
+          <p>Операция проходит под наркозом, боли вы не ощутите. В послеоперационный
+            период
+            в индивидуальном порядке хирург может назначить обезболивающие препараты. В большинстве случаев
+            необходимость
+            их приема наступает в первые сутки после операции.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.questions -->
+
 
 <!-- comments -->
 

@@ -127,9 +127,13 @@ figure {
   display: none;
 }
 
-.text, p {
+.text {
   font-size: 18px;
   color: #71716B;
+}
+
+p {
+  font-size: 18px;
 }
 
 .brs30 {
@@ -390,6 +394,7 @@ input:focus-visible, textarea:focus-visible {
   border-radius: 44px;
   display: flex;
   align-items: baseline;
+  cursor: pointer;
 }
 .menu-mobile {
   display: none;
@@ -446,6 +451,7 @@ input:focus-visible, textarea:focus-visible {
 .menu-list-item {
   padding: 5px 20px;
   transition: background-color 0.1s;
+  text-align: center;
 }
 .menu-list-item:hover {
   background-color: #83C9B6;
@@ -1439,22 +1445,27 @@ input:focus-visible, textarea:focus-visible {
 .price .container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, minmax(145px, 215px));
   grid-gap: 20px;
 }
 .price-card {
   padding: 30px;
   grid-column: span 3;
-  grid-row: span 2;
+  grid-row: span 3;
   background-color: #fff;
   border-radius: 30px;
+}
+.price-card .subtitle {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.price-card p {
+  margin-bottom: 20px;
+  color: #71716B;
 }
 .price-card-small {
   padding: 30px;
   position: relative;
-  display: flex;
-  justify-content: start;
-  flex-direction: column;
   overflow: hidden;
   border-radius: 30px;
   background-color: rgb(25, 25, 25);
@@ -1465,8 +1476,25 @@ input:focus-visible, textarea:focus-visible {
 }
 .price-card-small:nth-last-child(1) {
   background-image: url("../img/rino-doc.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: unset;
   grid-column: 4/6;
   grid-row: 2/3;
+}
+.price-card-small:nth-last-child(1) .subtitle {
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #83C9B6;
+  color: #fff;
+  max-width: 55%;
+}
+.price-card-small .subtitle {
+  text-align: left;
 }
 .price-card__bg {
   position: absolute;
@@ -1474,6 +1502,7 @@ input:focus-visible, textarea:focus-visible {
   right: 0;
   bottom: 0;
   height: 100%;
+  z-index: 0;
 }
 .price-card-wrapper {
   position: absolute;
@@ -1481,6 +1510,52 @@ input:focus-visible, textarea:focus-visible {
   background-color: #fff;
   border-radius: 30px;
   left: -35px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.price-card .subtitle {
+  margin-bottom: 10px;
+}
+.price-card p {
+  margin-bottom: 10px;
+}
+.price__new {
+  color: #C74545;
+  font-size: 24px;
+}
+.price__old {
+  color: #71716B;
+}
+.price__value {
+  font-size: 60%;
+}
+
+.question .info-list {
+  max-width: 940px;
+  margin: auto;
+  margin-top: 30px;
+}
+.question .info-list__item {
+  margin-bottom: 20px;
+}
+.question .info-list__item:nth-last-child(1) {
+  margin-bottom: 0;
+}
+.question .info-list__item .subtitle {
+  color: #474747;
+  margin-bottom: 15px;
+}
+.question .info-list__item:before {
+  top: 9px;
+  transform: none;
+}
+.question__img {
+  display: none;
+  transition: transform 0.3s;
+}
+.question__answer.active {
+  display: block;
 }
 
 .footer {
@@ -1678,6 +1753,18 @@ input:focus-visible, textarea:focus-visible {
   .schedule .wrapper {
     max-width: 1140px;
   }
+  .price .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .price-card {
+    grid-column: span 2;
+  }
+  .price-card-small:nth-last-child(2) {
+    grid-column: 3/5;
+  }
+  .price-card-small:nth-last-child(1) {
+    grid-column: 3/5;
+  }
 }
 @media (max-width: 1200px) {
   body {
@@ -1770,6 +1857,29 @@ input:focus-visible, textarea:focus-visible {
   .schedule .wrapper {
     max-width: 960px;
   }
+  .price .container {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 150px);
+  }
+  .price-card {
+    grid-column: span 3;
+    grid-row: span 3;
+  }
+  .price-card-small:nth-last-child(2) {
+    grid-column: 4/6;
+  }
+  .price-card-small:nth-last-child(1) {
+    grid-column: 4/6;
+  }
+  .price-card-small:nth-last-child(1) .subtitle {
+    font-size: 16px;
+  }
+  .price-card-small .subtitle {
+    font-size: 16px;
+  }
+  .price-card-small p {
+    font-size: 12px;
+  }
   .footer-wrapper-mobile {
     display: flex;
     flex-direction: row;
@@ -1783,7 +1893,7 @@ input:focus-visible, textarea:focus-visible {
   h1, .title {
     font-size: 29px;
   }
-  h2, .subtitle {
+  h2, .subtitle, h3.subtitle {
     font-size: 21px;
   }
   .text {
@@ -2116,6 +2226,63 @@ input:focus-visible, textarea:focus-visible {
     grid-column: 3/4;
     grid-row: 2/3;
   }
+  .price .container {
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: unset;
+  }
+  .price-card {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .price-card-small {
+    height: 200px;
+  }
+  .price-card-small:nth-last-child(1) {
+    grid-row: 2/3;
+    grid-column: 2/3;
+  }
+  .price-card-small:nth-last-child(2) {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+  .price-card-wrapper {
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: unset;
+    border-radius: 0;
+  }
+  .price-card__bg {
+    height: 70%;
+    top: unset;
+  }
+  .question {
+    background: #fff;
+  }
+  .question__answer {
+    display: none;
+  }
+  .question__img {
+    display: block;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  .question .info-list__item {
+    border-radius: 30px;
+    border: 1px solid #83C9B6;
+    padding: 30px 30px 20px 30px;
+  }
+  .question .info-list__item:before {
+    display: none;
+  }
+  .question__title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
   .footer-devider {
     display: block;
   }
@@ -2359,5 +2526,25 @@ input:focus-visible, textarea:focus-visible {
   .schedule-card {
     grid-column: 1/2;
     order: 1;
+  }
+  .price .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: unset;
+  }
+  .price-card {
+    padding: 0;
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .price-card-small {
+    height: 200px;
+  }
+  .price-card-small:nth-last-child(1) {
+    grid-row: 2/3;
+    grid-column: span 1;
+  }
+  .price-card-small:nth-last-child(2) {
+    grid-row: 3/4;
+    grid-column: span 1;
   }
 }

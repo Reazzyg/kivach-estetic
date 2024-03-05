@@ -5,7 +5,7 @@ import {createFooter} from './footer.js'
 import { createDOMElement } from './utils.js';
 import { doModal } from './modal.js';
 import { doSlider } from './slider.js';
-
+import {toggleQuestion} from './utils.js'
 createMenu();
 
 createNavigation()
@@ -18,6 +18,7 @@ doModal()
 
 doSlider()
 
+toggleQuestion()
 
 
 

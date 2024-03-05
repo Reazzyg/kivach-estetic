@@ -24,7 +24,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/system/functions.php';
    <header class="header">
      <div class="container header-container">
        <a href="/"> <img src="<?get_img_path()?>logo.png" alt="лого Кивач Эстетик Плюс" class="logo header-logo"></a>
-       <button class="button menu header-menu">
+       <nav class="button menu header-menu">
          <div class="menu-burger">
            <span class="menu-burger__line"></span>
          </div>
@@ -35,10 +35,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/system/functions.php';
          </ul>
          <!-- /.menu-list -->
 
-       </button>
+       </nav>
        <div class="social header-social">
          <img src="<?get_img_path()?>Phone.svg" alt="phone icon" class="header-social__icon">
-         <a href="tel:+7 (8142) 599-880" class="header-social__link">+7 (8142) 599-880</a>
+         <a href="tel:+7(8142)599-880" class="header-social__link">+7 (8142) 599-880</a>
        </div>
 
      </div>

@@ -16,6 +16,7 @@ function appendData(data) {
             const wrapper = createDOMElement('div', 'navigation-button-wrapper');
             const nameElement = createDOMElement('p', 'navigation-button__name', listName);
             const arrowElement = createDOMElement('img', 'navigation-button__arrow', null, '/assets/img/arrow-down-dark.svg');
+            arrowElement.alt = 'Стелка вниз'
             const list = createNavigationList(listItems);
             wrapper.append(nameElement, arrowElement);
             navigationButton.appendChild(wrapper);
