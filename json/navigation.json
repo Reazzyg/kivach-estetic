@@ -91,23 +91,24 @@
     },
     {
       "name": "О клинике",
-      "link": "asdasdadad"
+      "link": "/about/"
     },
     {
-      "name": "РиноРиноРиноРиноРино",
+      "name": "Ринопластика",
       "link": "/rino/"
     },
-    {
-      "name": "Хирурги",
-      "link": "asdasdadad"
-    },
+
     {
       "name": "Отзывы",
-      "link": "/comments.php"
+      "link": "/comments/"
+    },
+    {
+      "name": "Контакты",
+      "link": "/contacts/"
     },
     {
       "name": "Админ",
-      "link": "/admin/admin.php"
+      "link": "/admin/"
     }
   ],
   "footerNavigation": [{
