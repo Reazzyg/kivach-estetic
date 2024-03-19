@@ -2,6 +2,26 @@
 
 include('db_con.php');
 
+ if(isset($_GET['exit']) && $_GET['exit']==1)// Разлогин пользователя
+ {
+  
+  session_destroy();
+  
+  js("location.replace('/')");
+ 
+ }
+function sid(){
+ 
+ return $_SESSION['site_id'];
+ 
+}
+
+ function js($text)//Вывод javascript
+ {
+  
+  echo "<script>$text</script>";
+ 
+ }
 function sqlNumRows($result) {
     if ($result instanceof mysqli_result) {
         return $result->num_rows;
@@ -13,9 +33,6 @@ function sqlNumRows($result) {
 function get_img_path(){
    echo '/assets/img/';
 }
-$img_path = 'assets/img/';
-$js_path = 'assets/js/';
-$css_path = 'assets/css/';
 
 $connect = mysqli_connect($server, $login, $pass, $db_name);
 

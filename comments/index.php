@@ -8,7 +8,7 @@ $current_page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $comments_per_page = 6;
 
 // Получение общего количества комментариев
-$count_query = sqlQuery("SELECT COUNT(*) AS total FROM `$table_name`");
+$count_query = sqlQuery("SELECT COUNT(*) AS total FROM `$table_name` WHERE active = 'yes'");
 $total_comments = mysqli_fetch_assoc($count_query)['total'];
 
 // Вычисление общего количества страниц
@@ -18,7 +18,7 @@ $total_pages = ceil($total_comments / $comments_per_page);
 $offset = ($current_page - 1) * $comments_per_page;
 
 // Получение комментариев для текущей страницы
-$query = "SELECT * FROM `$table_name` ORDER BY id DESC LIMIT $offset, $comments_per_page";
+$query = "SELECT * FROM `$table_name` WHERE active = 'yes' ORDER BY id DESC LIMIT $offset, $comments_per_page ";
 $result = sqlQuery($query);
 ?>
 

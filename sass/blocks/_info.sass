@@ -1,0 +1,53 @@
+.info
+  &.grid
+    & .container
+      display: grid
+      grid-template-columns: repeat(3,1fr)
+      grid-column-gap: 30px
+      grid-row-gap: 30px
+      justify-items: center
+  & .container
+    display: flex
+    justify-content: space-between
+  & .subtitle
+    margin-bottom: 30px
+  &-wrapper
+    flex-basis: 60%
+  &__text
+    margin-bottom: 20px
+    &:nth-last-child(1)
+      margin-bottom: 0
+  &__img
+    flex-basis: 35%
+    overflow: hidden
+    object-fit: cover
+  &-list
+    & .subtitle
+      text-align: left
+    &__item
+      color: $grey
+      padding-left: 15px
+      margin-bottom: 8px
+      position: relative
+      &:before
+        content: ''
+        position: absolute
+        left: 0
+        top: 50%
+        transform: translateY(-50%)
+        background-color: $black
+        width: 6px
+        height: 6px
+        border-radius: 50%
+  &.reverse
+    & .container
+      flex-direction: row-reverse
+  &.center
+    & .container
+      justify-content: center
+      flex-direction: row
+    & .info
+      &-list
+        &__item
+          &:before
+            top: 10px

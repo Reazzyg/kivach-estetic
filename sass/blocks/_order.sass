@@ -1,0 +1,26 @@
+.order
+  display: block
+  counter-reset: list-order
+  & .info
+    &-list
+      max-width: 940px
+      margin: auto
+      &__item
+        padding-left: 80px
+        margin-bottom: 30px
+        counter-increment: list-order
+        &:before
+          content: counter(list-order)
+          display: flex
+          justify-content: center
+          align-items: center
+          top: 0
+          transform: translateY(0)
+          background-color: $green
+          font-size: 24px
+          color: $white
+          height: 50px
+          width: 50px
+        & .subtitle
+          color: $black
+          margin-bottom: 15px

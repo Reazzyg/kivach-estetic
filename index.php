@@ -1,10 +1,14 @@
 <?php
+session_start();
 // include('system/functions.php');
 $title = 'Главная';
 include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
-// get_header();
-// echo $_SERVER['DOCUMENT_ROOT'];
+
+// var_dump($_SESSION);
+
+
 ?>
+
 <section class="hero hero-main">
   <div class="container hero-container hero-main-container">
     <div class="hero-wrapper">
