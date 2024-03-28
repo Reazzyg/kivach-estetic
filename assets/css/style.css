@@ -258,6 +258,15 @@ h3.subtitle {
 .form-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+}
+.form-rating__wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.form-rating__text {
+  margin-right: 10px;
 }
 .form-comment {
   border: 1px solid #DEDEDA;
@@ -273,6 +282,7 @@ h3.subtitle {
   padding: 10px 30px;
   font-size: 18px;
   margin-right: 20px;
+  margin-top: 20px;
 }
 .form-img {
   position: absolute;
@@ -281,6 +291,13 @@ h3.subtitle {
   transform: translateY(-50%);
   opacity: 1;
   transition: opacity 0.3s;
+}
+.form-rating__star svg {
+  cursor: pointer;
+  transition: fill 0.3s;
+}
+.form-rating__star.selected svg {
+  fill: #F7DB52;
 }
 
 input, textarea {
@@ -331,7 +348,6 @@ input:focus-visible, textarea:focus-visible {
   border-radius: 3px;
   transition: 0.2s;
   color: #71716B;
-  margin-bottom: 30px;
   margin-top: 5px;
 }
 .file-drop-area.is-active {
@@ -645,6 +661,7 @@ input:focus-visible, textarea:focus-visible {
   padding-bottom: 30px;
   width: 100%;
   display: flex;
+  align-items: flex-start;
   position: relative;
 }
 
@@ -1241,7 +1258,7 @@ input:focus-visible, textarea:focus-visible {
   position: fixed;
   top: 50%;
   left: 50%;
-  max-width: 70vw;
+  max-width: 450px;
   background: #fff;
   border-radius: 30px;
   box-shadow: 0px 6px 9px 3px rgba(0, 0, 0, 0.24);
@@ -1269,8 +1286,7 @@ input:focus-visible, textarea:focus-visible {
 }
 
 .comment.modal {
-  position: fixed;
-  padding: 50px;
+  padding: 30px;
 }
 
 .info.grid .container {
@@ -1539,14 +1555,14 @@ input:focus-visible, textarea:focus-visible {
 .question .info-list__item {
   margin-bottom: 20px;
 }
-.question .info-list__item:nth-last-child(1) {
+.question .info-list__item::nth-last-child(1) {
   margin-bottom: 0;
 }
 .question .info-list__item .subtitle {
   color: #474747;
   margin-bottom: 15px;
 }
-.question .info-list__item:before {
+.question .info-list__item::before {
   top: 9px;
   transform: none;
 }

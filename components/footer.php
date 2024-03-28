@@ -48,7 +48,7 @@
           <!-- /.footer-wrapper -->
           <div class="footer-wrapper desktop">
             <div class="footer-wrap">
-              <img src="<?get_img_path()?>efqm.png" alt="" class="footer__img">
+              <img src="<? get_img_path() ?>efqm.png" alt="" class="footer__img">
               <p class="footer__text">Этому стандарту следуют более 50 000 организаций по всему миру. Наличие
                 сертификата EFQM означает, что процессы обслуживания, лечения, развития, планирования и управления
                 инновациями в клинике организованы совершенно и соответствуют образу идеальной модели Европейского фонда
@@ -56,7 +56,7 @@
             </div>
             <!-- /.footer-wrap -->
             <div class="footer-wrap">
-              <img src="<?get_img_path()?>coin.jpg" alt="" class="footer__img">
+              <img src="<? get_img_path() ?>coin.jpg" alt="" class="footer__img">
               <p class="footer__text">Cерия универсальных стандартов, разработанных американской компанией Joint
                 Commission International, которая стандартизировала качество услуг, оказываемых в медицинской отрасли,
                 по всему миру. Аккредитация по этим стандартам указывает на высший уровень здравоохранения, принятый в
@@ -71,14 +71,14 @@
       <!-- /.footer-wrap -->
       <div class="footer-wrapper mobile footer-wrapper-mobile">
         <div class="footer-wrap">
-          <img src="<?get_img_path()?>efqm.png" alt="" class="footer__img">
+          <img src="<? get_img_path() ?>efqm.png" alt="" class="footer__img">
           <p class="footer__text">Этому стандарту следуют более 50 000 организаций по всему миру. Наличие сертификата
             EFQM означает, что процессы обслуживания, лечения, развития, планирования и управления инновациями в клинике
             организованы совершенно и соответствуют образу идеальной модели Европейского фонда управления качеством.</p>
         </div>
         <!-- /.footer-wrap -->
         <div class="footer-wrap">
-          <img src="<?get_img_path()?>coin.jpg" alt="" class="footer__img">
+          <img src="<? get_img_path() ?>coin.jpg" alt="" class="footer__img">
           <p class="footer__text">Cерия универсальных стандартов, разработанных американской компанией Joint Commission
             International, которая стандартизировала качество услуг, оказываемых в медицинской отрасли, по всему миру.
             Аккредитация по этим стандартам указывает на высший уровень здравоохранения, принятый в данном медицинском
@@ -92,9 +92,10 @@
 
   </footer>
   <!-- /.footer -->
-  <script src="/assets/js/swiper.min.js"></script>
-  <script src="/assets/js/validation.js"></script>
+  <!-- <script src="https://unpkg.com/@tsparticles/all/"></script> -->
   <script type="module" src="/assets/js/js.js"></script>
+  <script src="/assets/js/swiper.min.js"></script>
+  <!-- <script src="/assets/js/validation.js"></script> -->
   <!-- <script type="module" src="assets/js/menu.js"></script> -->
   <!-- <script type="module" src="assets/js/navigation.js"></script> -->
   <!-- <script type="module" src="assets/js/footer.js"></script> -->

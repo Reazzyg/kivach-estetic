@@ -25,38 +25,21 @@ $result = sqlQuery($query);
 <section class="hero hero-comments">
   <div class="container">
     <h1 class="title">Отзывы</h1>
-
+    <navigation class="navigation"></navigation>
     <div class="comments-container">
       <div class="comments">
         <?php if ($result && sqlNumRows($result) > 0) : ?>
-        <?php while ($comment = mysqli_fetch_assoc($result)) : ?>
-        <div class="comment">
-          <div class="comment-rating">
-            <?php
-                $img = '<img src="/assets/img/Star-filled.svg" alt="" class="comment-rating__star">';
-                $final_str = str_repeat($img, intval($comment['rating']));
-                echo $final_str;
-                ?>
-          </div>
-          <p class="comment__text"><?php echo $comment['message'] ?></p>
-          <div class="comment-profile">
-            <p class="comment-profile__name"><?php 
-            echo $comment['name'];
-            echo $comment['id'];
-            
-            ?></p>
-          </div>
-          <!-- <img src="<?get_img_path()?>quote.svg" alt="" class="comment__quote"> -->
-        </div>
-        <?php endwhile; ?>
+          <?php while ($comment = mysqli_fetch_assoc($result)) : ?>
+            <? include '../components/comment.php' ?>
+          <?php endwhile; ?>
         <?php else : ?>
-        <p>Нет комментариев для отображения.</p>
+          <p>Нет комментариев для отображения.</p>
         <?php endif; ?>
       </div>
       <!-- /.comments -->
 
       <!-- Отправка комментария -->
-      <sendForm></sendForm>
+      <? include $_SERVER['DOCUMENT_ROOT'] . '/components/comments_form.php' ?>
     </div>
     <!-- /.comments-container -->
 
@@ -69,17 +52,17 @@ $result = sqlQuery($query);
       </div>
 
       <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
-      <div class="pagination-page <?php echo ($i == $current_page) ? 'pagination-page-active' : ''; ?>">
-        <a href="?page=<?php echo $i ?>"><?php echo $i ?></a>
-      </div>
+        <div class="pagination-page <?php echo ($i == $current_page) ? 'pagination-page-active' : ''; ?>">
+          <a href="?page=<?php echo $i ?>"><?php echo $i ?></a>
+        </div>
       <?php endfor; ?>
 
       <?php if ($current_page < $total_pages) : ?>
-      <div class="pagination-next">
-        <a href="?page=<?php echo $current_page + 1 ?>">
-          <img src="<?php get_img_path() ?>arrow-next.svg" alt="" class="pagination__img">
-        </a>
-      </div>
+        <div class="pagination-next">
+          <a href="?page=<?php echo $current_page + 1 ?>">
+            <img src="<?php get_img_path() ?>arrow-next.svg" alt="" class="pagination__img">
+          </a>
+        </div>
       <?php endif; ?>
     </section>
     <!-- /.pagination -->

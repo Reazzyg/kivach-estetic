@@ -1,11 +1,12 @@
 import {createMenu} from './menu.js'
 import {createNavigation} from './navigation.js'
-import {createForm} from './form.js'
+import createForm from './form.js'
 import {createFooter} from './footer.js'
 import { createDOMElement } from './utils.js';
 import { doModal } from './modal.js';
 import { doSlider } from './slider.js';
 import {toggleQuestion} from './utils.js'
+import validation from './validation.js';
 createMenu();
 
 createNavigation()
@@ -19,6 +20,9 @@ doModal()
 doSlider()
 
 toggleQuestion()
+
+// validation()
+
 
 
 

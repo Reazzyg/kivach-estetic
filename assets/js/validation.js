@@ -1,123 +1,140 @@
-const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-const errorUrl  = '../img/error.svg'
-const validUrl  = '../img/done.svg'
-const errorText = 'Введены некорректные данные'
+class FormValidator {
+  constructor(form) {
+    const self = this;
 
-function createIcon(url,elem){
-  
-  const label = elem.closest('label')
+    this.form = form;
 
-  let icon = document.createElement('img')
+    this.submitButton = this.form.querySelector(".form-button");
 
-    if(label.querySelector('input').value.trim() !== ''){
-        
-        icon.src = url
-        
-        label.querySelector('.form-img').appendChild(icon)
-      }
-}
+    this.stars = this.form.querySelectorAll(".form-rating__star");
 
+    this.ratingInput = this.form.querySelector("#ratingInput");
 
-function deleteIcon(elem){
+    this.emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-  elem.closest('label').querySelector('img') ? elem.closest('label').querySelector('img').remove() : null;
+    this.errorUrl = "/assets/img/error.svg";
 
- deleteMessage(elem)
-}
+    this.validUrl = "/assets/img/done.svg";
 
+    this.errorText = "Введены некорректные данные";
 
-function createMessage(elem){
+    this.emptyText = "Поле обязательно для заполнения";
 
-  const label = elem.closest('label')
+    this.inputEmail = this.form.querySelector('input[type="email"]');
 
-    if(label.querySelector('input').value.trim() !== ''){
-      
-      elem.closest('label').querySelector('.error').textContent = errorText
+    this.inputTel = this.form.querySelector('input[type="tel"]');
 
-      }
+    this.inputEmail.onblur = () => this.validateEmail();
 
-}
+    this.inputTel.addEventListener("input", () => this.validateTel(this.inputTel));
 
+    this.stars.forEach((star) => {
+      star.addEventListener("click", () => this.highlightStars(star.getAttribute("data-value")));
+      star.addEventListener("mouseover", () => this.highlightStars(star.getAttribute("data-value")));
+    });
 
-function deleteMessage(elem){
+    this.submitButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      console.log(this);
+      self.checkIfValidated();
+    });
+  }
 
-    if
-        (elem.closest('label').querySelector('.error').textContent.trim() !== '')
-          {
-            elem.closest('label').querySelector('.error').textContent = ''
-          }  
-}
-
-
-
-
-
-function validate(inputItem){
-
-  inputItem.forEach(input =>{
-
-    input.onblur = function(){
-
-       if (!emailPattern.test(input.value)) {
-         
-          deleteIcon(input)
-
-          createIcon(errorUrl, input)
-
-          createMessage(input)
-
-          return false
-          // event.preventDefault(); // Отмена отправки формы, если email некорректный
-          } 
-            else {
-
-            deleteIcon(input)
-
-            createIcon(validUrl,input)
-
-            return true
-          }
-        }
-  })
-}
-
-function preventSending(){
-
-  const emailInputs = document.querySelectorAll('.form-email')
-  
-    validate(emailInputs)
-
-  const forms = document.querySelectorAll('.form')
-
-    forms.forEach(form =>{
-
-      form.onsubmit = function(event)
-
-      {
-
-        let isValid = true; // Изначально считаем, что форма валидна
-
-      emailInputs.forEach(input => {
-
-        if ( !validate(input)) {
-
-          isValid = false; // Если хотя бы одно поле не валидно, считаем форму не валидной
-        }
-
-      })
-
-      if (!isValid) {
-
-        event.preventDefault(); // Отмена отправки формы, если хотя бы одно поле не валидно
-        console.log('Form submission prevented');
-
+  highlightStars(value) {
+    this.stars.forEach((star) => {
+      if (star.getAttribute("data-value") <= value) {
+        star.classList.add("selected");
+        ratingInput.value = value;
       } else {
-
-        console.log('Form submitted successfully');
-
+        star.classList.remove("selected");
       }
-      }
-    })
+    });
+  }
+
+  createIcon(url, elem) {
+    const label = elem.closest("label");
+    let icon = document.createElement("img");
+    if (label.querySelector("input").value.trim() !== "") {
+      icon.src = url;
+      label.querySelector(".form-img").appendChild(icon);
+    }
+  }
+
+  deleteIcon(elem) {
+    const icon = elem.closest("label").querySelector("img");
+    if (icon) {
+      icon.remove();
+      this.deleteMessage(elem);
+    }
+  }
+
+  createMessage(elem, text) {
+    const label = elem.closest("label");
+
+    label.querySelector(".error").textContent = text;
+  }
+
+  deleteMessage(elem) {
+    const error = elem.closest("label").querySelector(".error");
+    if (error.textContent.trim() !== "") {
+      error.textContent = "";
+    }
+  }
+
+  validateEmail() {
+    const value = this.inputEmail.value.trim();
+    if (value === "") {
+      this.createMessage(this.inputEmail, this.emptyText);
+      return false;
+    }
+
+    const isValid = this.emailPattern.test(value);
+
+    const iconUrl = isValid ? this.validUrl : this.errorUrl;
+
+    this.deleteIcon(this.inputEmail);
+
+    this.createIcon(iconUrl, this.inputEmail);
+
+    isValid ? this.deleteMessage(this.inputEmail) : this.createMessage(this.inputEmail, this.errorText);
+
+    return isValid;
+  }
+
+  validateTel(el) {
+    el.value = "+" + el.value.trim().replace(/\D/g, ""); // Удаляем все нецифровые символы
+
+    const maxLength = 12;
+
+    if (el.value.length > maxLength) {
+      el.value = el.value.slice(0, maxLength);
+    }
+  }
+
+  checkIfValidated() {
+    this.validateEmail() ? console.log("+") : console.log("-");
+  }
+
+  // preventSending() {
+  //     this.form.addEventListener('submit', event => {
+  //       let isValid = true;
+  //       const emailInputs = form.querySelectorAll('.form-email');
+  //       emailInputs.forEach(input => {
+  //         if (!this.validate(input)) {
+  //           isValid = false;
+  //         }
+
+  //       if (!isValid) {
+  //         event.preventDefault();
+  //         console.log('Form submission prevented');
+  //       } else {
+  //         console.log('Form submitted successfully');
+  //       }
+  //     });
+  //   });
+  // }
 }
 
-
+export default function validate(form) {
+  const validator = new FormValidator(form);
+}
