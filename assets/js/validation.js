@@ -2,6 +2,8 @@ class FormValidator {
   constructor(form) {
     const self = this;
 
+    const pathToSendFile = "/system/send.php";
+
     this.form = form;
 
     this.submitButton = this.form.querySelector(".form-button");
@@ -10,7 +12,7 @@ class FormValidator {
 
     this.ratingInput = this.form.querySelector("#ratingInput");
 
-    this.emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    this.emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
     this.errorUrl = "/assets/img/error.svg";
 
@@ -20,9 +22,15 @@ class FormValidator {
 
     this.emptyText = "Поле обязательно для заполнения";
 
-    this.inputEmail = this.form.querySelector('input[type="email"]');
+    this.inputName = this.form.querySelector('input[name="name"]');
 
-    this.inputTel = this.form.querySelector('input[type="tel"]');
+    this.inputEmail = this.form.querySelector('input[name="email"]');
+
+    this.inputTel = this.form.querySelector('input[name="phone"]');
+
+    this.inputName.onblur = () => this.validateName();
+
+    this.inputTel.onblur = () => this.validateTel();
 
     this.inputEmail.onblur = () => this.validateEmail();
 
@@ -35,7 +43,7 @@ class FormValidator {
 
     this.submitButton.addEventListener("click", function (event) {
       event.preventDefault();
-      console.log(this);
+
       self.checkIfValidated();
     });
   }
@@ -80,6 +88,16 @@ class FormValidator {
       error.textContent = "";
     }
   }
+  validateName() {
+    const value = this.inputName.value.trim();
+    if (value === "") {
+      this.createMessage(this.inputName, this.emptyText);
+      return false;
+    } else {
+      this.deleteMessage(this.inputName);
+      return true;
+    }
+  }
 
   validateEmail() {
     const value = this.inputEmail.value.trim();
@@ -87,6 +105,8 @@ class FormValidator {
       this.createMessage(this.inputEmail, this.emptyText);
       return false;
     }
+
+    // const isEmpty = this.checkIfEmpty(value, this.inputEmail);
 
     const isValid = this.emailPattern.test(value);
 
@@ -101,18 +121,47 @@ class FormValidator {
     return isValid;
   }
 
-  validateTel(el) {
-    el.value = "+" + el.value.trim().replace(/\D/g, ""); // Удаляем все нецифровые символы
+  validateTel() {
+    const value = this.inputTel.value.trim();
+
+    this.inputTel.value = "+" + value.replace(/\D/g, ""); // Удаляем все нецифровые символы
 
     const maxLength = 12;
 
-    if (el.value.length > maxLength) {
-      el.value = el.value.slice(0, maxLength);
+    if (this.inputTel.value.length > maxLength) {
+      this.inputTel.value = this.inputTel.value.slice(0, maxLength);
     }
+
+    if (value === "" || value === "+") {
+      this.createMessage(this.inputTel, this.emptyText);
+      return false;
+    }
+    this.deleteMessage(this.inputTel);
+    return true;
   }
 
   checkIfValidated() {
-    this.validateEmail() ? console.log("+") : console.log("-");
+    this.validateName();
+    this.validateTel();
+    this.validateEmail();
+
+    if (this.validateName() && this.validateTel() && this.validateEmail()) {
+      const formData = new FormData(this.form);
+      fetch("/system/send.php", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          if (response.ok) {
+            console.log("success");
+          } else {
+            console.log("err");
+          }
+        })
+        .catch((err) => {
+          console.log("error:".err);
+        });
+    }
   }
 
   // preventSending() {

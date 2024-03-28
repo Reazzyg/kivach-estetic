@@ -1,30 +1,30 @@
 <?
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['submit_comment'])) {
-        $name = $_POST['name'];
-        $rating = isset($_POST['rating']) ? intval($_POST['rating']) : null;
-        $comment = $_POST['comment'];
+  if (isset($_POST['submit_comment'])) {
+    $name = $_POST['name'];
+    $rating = isset($_POST['rating']) ? intval($_POST['rating']) : null;
+    $comment = $_POST['comment'];
 
-        if (!validateInput($name)) {
-            showError('ФИО');
-        } elseif (!validateInput($comment)) {
-            showError('Отзыв');
-        } else {
-            $sqlComment = "INSERT INTO comments (name, rating, message) VALUES ('$name', '$rating', '$comment')";
-            
-            $res = customSqlQuery($connect, $sqlComment);
+    if (!validateInput($name)) {
+      showError('ФИО');
+    } elseif (!validateInput($comment)) {
+      showError('Отзыв');
+    } else {
+      $sqlComment = "INSERT INTO comments (name, rating, message) VALUES ('$name', '$rating', '$comment')";
 
-            if ($res === TRUE) {
-                echo "Отзыв успешно добавлен";
-                header("Location: {$_SERVER['PHP_SELF']}");
-                exit();
-            } else {
-                echo "Ошибка при добавлении отзыва: " . $connect->error;
-            }
-        }
+      $res = customSqlQuery($connect, $sqlComment);
+
+      if ($res === TRUE) {
+        echo "Отзыв успешно добавлен";
+        header("Location: {$_SERVER['PHP_SELF']}");
+        exit();
+      } else {
+        echo "Ошибка при добавлении отзыва: " . $connect->error;
+      }
     }
   }
-  $url = $_SERVER['REQUEST_URI'];
+}
+$url = $_SERVER['REQUEST_URI'];
 ?>
 <div class="content-container">
 
@@ -63,20 +63,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </table>
   <?
 
-  if(isset($_GET['tab'])){
+  if (isset($_GET['tab'])) {
 
-    function all_comments(){
+    function all_comments()
+    {
       $res = sqlQuery("SELECT * FROM comments ORDER BY id DESC");
-      while($row = mysqli_fetch_assoc($res)){
+      while ($row = mysqli_fetch_assoc($res)) {
         $active = 'active';
-        if($row['active'] !== 'yes') $active = '';
-
+        if ($row['active'] !== 'yes') $active = '';
       }
-
-      
     }
-
-
   }
   ?>
 
@@ -101,35 +97,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <!-- /.form -->
 </div>
 <script>
-document.querySelector('.content-container').style.marginLeft = document.querySelector('.admin-menu').offsetWidth +
-  'px'
+  document.querySelector('.content-container').style.marginLeft = document.querySelector('.admin-menu').offsetWidth +
+    'px'
 
 
-function valid() {
-  let buttons = document.querySelectorAll('.form-button');
+  function valid() {
+    let buttons = document.querySelectorAll('.form-button');
 
-  buttons.forEach(button => {
-    button.addEventListener('click', function(event) {
-      let form = this.closest('form');
-      let inputs = form.querySelectorAll('input, textarea');
-      let isValid = true;
+    buttons.forEach(button => {
+      button.addEventListener('click', function(event) {
+        let form = this.closest('form');
+        let inputs = form.querySelectorAll('input, textarea');
+        let isValid = true;
 
-      inputs.forEach(input => {
-        if (input.value.trim() === '') {
-          isValid = false;
-          let error = document.createElement('p');
-          error.classList.add('error');
-          error.textContent = 'Заполните поле';
-          input.insertAdjacentElement('afterend', error);
+        inputs.forEach(input => {
+          if (input.value.trim() === '') {
+            isValid = false;
+            let error = document.createElement('p');
+            error.classList.add('error');
+            error.textContent = 'Заполните поле';
+            input.insertAdjacentElement('afterend', error);
+          }
+        });
+
+        if (!isValid) {
+          event.preventDefault();
         }
       });
-
-      if (!isValid) {
-        event.preventDefault();
-      }
     });
-  });
-}
+  }
 
-valid();
+  valid();
 </script>
