@@ -12,7 +12,7 @@ class FormValidator {
     this.inputName = this.form.querySelector('input[name="name"]');
     this.inputEmail = this.form.querySelector('input[name="email"]');
     this.inputTel = this.form.querySelector('input[name="phone"]');
-
+    this.inputFile = this.form.querySelector('input[name="file"');
     this.setupEventListeners();
   }
 
@@ -111,11 +111,57 @@ class FormValidator {
     return true;
   }
 
+  validateFileInput() {
+    const files = this.inputFile.files;
+    if (files.length === 0) {
+      // Если пользователь не выбрал файл, возвращаем true, чтобы форма могла быть отправлена без файла
+      return true;
+    }
+
+    const allowedExtensions = ["jpg", "jpeg", "png", "gif", "doc", "docx", "txt", "pdf"];
+    const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const fileNameParts = file.name.split(".");
+      const fileExtension = fileNameParts[fileNameParts.length - 1].toLowerCase();
+      const fileSize = file.size;
+
+      if (!allowedExtensions.includes(fileExtension)) {
+        // Проверка разрешенных расширений
+        console.log(this.inputFile);
+        throw new Error("Недопустимый формат файла. Разрешенные форматы: " + allowedExtensions.join(", "));
+      }
+
+      if (fileSize > maxSizeInBytes) {
+        // Проверка максимального размера файла
+        throw new Error("Размер файла превышает максимально допустимый размер (5MB).");
+      }
+    }
+
+    // Если все файлы прошли проверку, возвращаем true
+    return true;
+  }
+
   checkIfValidated() {
     const isValidName = this.validateName();
     const isValidTel = this.validateTel();
     const isValidEmail = this.validateEmail();
-    return isValidName && isValidTel && isValidEmail;
+    let isValidFile = true; // По умолчанию файлы валидны, если их нет или их проверка прошла успешно
+
+    const inputFile = this.inputFile;
+
+    try {
+      isValidFile = this.validateFileInput();
+    } catch (error) {
+      this.createMessage(inputFile, error.message);
+
+      console.error("Ошибка при проверке файла: ", error.message);
+
+      isValidFile = false; // Если возникла ошибка, файлы не валидны
+    }
+
+    return isValidName && isValidTel && isValidEmail && isValidFile;
   }
 
   async sendForm(formData) {
@@ -130,32 +176,40 @@ class FormValidator {
         }
       } catch (error) {
         console.error("Error sending form: ", error);
+        throw new Error("Ошибка при отправке формы: " + error.message);
       }
     } else {
+      // throw new Error("Форма не прошла валидацию");
       return false;
     }
   }
 
   handleSubmit(event) {
     event.preventDefault();
+
     const formData = new FormData(this.form);
+
     this.sendForm(formData)
       .then((response) => {
         if (response.success === "Success") {
-          console.log("asd");
+          console.log("form sent");
+
+          this.form.parentNode.classList.add("form-hidden");
+
+          setTimeout(() => {
+            this.form.parentNode.classList.add("success");
+          }, 500);
         }
-        // if ((a = 1)) {
-        //   console.log("Form submitted successfully");
-        //   // Показать блок с галочкой
-        //   // Пример: document.getElementById("success").style.display = "block";
-        // } else {
-        //   console.log("Form submission failed");
-        //   // Показать блок с крестиком
-        //   // Пример: document.getElementById("error").style.display = "block";
-        // }
       })
+
       .catch((error) => {
         console.error("Error sending form: ", error);
+
+        this.form.parentNode.classList.add("form-hidden");
+
+        setTimeout(() => {
+          this.form.parentNode.classList.add("errored");
+        }, 500);
       });
   }
 }

@@ -244,6 +244,38 @@ h3.subtitle {
   background-color: #fff;
   border-radius: 30px;
   max-width: 603px;
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.3s;
+  width: 100%;
+}
+.form form {
+  min-height: 0;
+}
+.form-hidden {
+  grid-template-rows: 0fr;
+  min-width: 530px;
+}
+.form-hidden form {
+  animation: hideFrom 0.3s ease forwards;
+}
+.form-hidden.success {
+  grid-template-rows: 1fr;
+}
+.form-hidden.success .title, .form-hidden.success .text {
+  display: block;
+}
+.form-hidden.success .form-success {
+  display: flex;
+}
+.form-hidden.errored {
+  grid-template-rows: 1fr;
+}
+.form-hidden.errored .title, .form-hidden.errored .text {
+  display: block;
+}
+.form-hidden.errored .form-error {
+  display: flex;
 }
 .form-title {
   font-family: "Philosopher-Bold", sans-serif;
@@ -298,6 +330,17 @@ h3.subtitle {
 }
 .form-rating__star.selected svg {
   fill: #F7DB52;
+}
+.form-success, .form-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+  min-height: 0;
+}
+.form-success .title, .form-success .text, .form-error .title, .form-error .text {
+  margin-bottom: 15px;
 }
 
 input, textarea {
@@ -382,6 +425,70 @@ input:focus-visible, textarea:focus-visible {
   outline: none;
 }
 
+@keyframes hideFrom {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes showIcon {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  10% {
+    display: block;
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.path-animate-error {
+  opacity: 1;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: drawPath 2s ease forwards;
+}
+
+.path-animate-success {
+  opacity: 1;
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  animation: drawPath 2s ease forwards;
+}
+
+.path-animate {
+  opacity: 1;
+  stroke-dasharray: 350;
+  stroke-dashoffset: 350;
+  animation: drawPath 2s ease forwards;
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
 .header {
   padding-top: 30px;
   background-color: #DCE4EF;
@@ -595,6 +702,7 @@ input:focus-visible, textarea:focus-visible {
   background-repeat: no-repeat;
   background-position: left bottom;
   overflow: hidden;
+  min-height: 820px;
 }
 .feedback__img {
   position: absolute;
@@ -2642,6 +2750,9 @@ td {
   sendForm .form-button {
     width: 100%;
     margin-right: 0;
+  }
+  .form-hidden {
+    min-width: 90vw;
   }
   .about__img {
     max-height: 250px;

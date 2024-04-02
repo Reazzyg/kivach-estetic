@@ -11,7 +11,7 @@ export default function createForm() {
 
       formAction();
 
-      const forms = document.querySelectorAll(".form");
+      const forms = document.querySelectorAll("form");
 
       forms.forEach((form) => validate(form));
     });
@@ -35,7 +35,6 @@ export default function createForm() {
       fileInput.addEventListener("drop", removeClassFromInput);
 
       fileInput.addEventListener("change", function () {
-        console.log(this);
         let filesCount = this.files.length;
         let textContainer = this.previousElementSibling;
 

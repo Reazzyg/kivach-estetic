@@ -1,4 +1,4 @@
-<?php 
+<?php
 $title = 'Контакты';
 include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 
