@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $comment = htmlspecialchars($_POST["comment"]);
 
-  $files = isset($_POST["file"]) ? $_POST["file"] : null;
 
   // Проверяем, что все поля, кроме комментария и рейтинга, заполнены
   if (!empty($name) && !empty($tel) && !empty($email)) {

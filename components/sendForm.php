@@ -4,19 +4,22 @@
      <p class="text">Мы свяжмеся с Вами в ближайшее время!</p>
      <svg width="83" height="83" viewBox="0 0 83 83" fill="none" xmlns="http://www.w3.org/2000/svg">
        <circle class="path-animate" cx="41.5" cy="41.5" r="39.425" stroke="#83C9B6" stroke-width="4.15" />
-       <path class="path-animate-success" d="M29.5496 42.2479L39.9246 52.6229L56.5246 29.7979" stroke="#83C9B6" stroke-width="4.15" stroke-linecap="round" />
+       <path class="path-animate-success" d="M29.5496 42.2479L39.9246 52.6229L56.5246 29.7979" stroke="#83C9B6"
+         stroke-width="4.15" stroke-linecap="round" />
      </svg>
    </div>
    <div class="form-error">
      <p class="title">Возникла ошибка при отправке отзыва</p>
      <svg width="83" height="83" viewBox="0 0 83 83" fill="none" xmlns="http://www.w3.org/2000/svg">
-       <path class="path-animate-error" d="M30.0879 53.0879L37.0344 46.2731L53.0764 30.0879" stroke="#C74545" stroke-width="4.15" stroke-linecap="round" />
-       <path class="path-animate-error" d="M30 30L36.8114 36.95L52.9885 53" stroke="#C74545" stroke-width="4.15" stroke-linecap="round" />
+       <path class="path-animate-error" d="M30.0879 53.0879L37.0344 46.2731L53.0764 30.0879" stroke="#C74545"
+         stroke-width="4.15" stroke-linecap="round" />
+       <path class="path-animate-error" d="M30 30L36.8114 36.95L52.9885 53" stroke="#C74545" stroke-width="4.15"
+         stroke-linecap="round" />
        <circle class="path-animate" cx="41.5" cy="41.5" r="39.425" stroke="#C74545" stroke-width="4.15" />
      </svg>
    </div>
 
-   <form action="" class="">
+   <form data-action="files" class="">
      <h3 class="title form-title">Напишите нам</h3>
      <p class="form-subtitle form-subtitle-top">Сотрудник клиники свяжется с вами в течение рабочего дня</p>
 
@@ -44,14 +47,16 @@
 
      </div>
 
-     <textarea class="form-input form-comment" placeholder="Поле для комментария. Например, можете указать удобное для вас время для связи" name="comment" cols="30" rows="5"></textarea>
+     <textarea class="form-input form-comment"
+       placeholder="Поле для комментария. Например, можете указать удобное для вас время для связи" name="comment"
+       cols="30" rows="5"></textarea>
 
      <p class=" form-subtitle">Можете прикрепить копии медицинских документов:</p>
 
      <label class="file-drop-area">
        <span class="fake-btn">Выберите файл</span>
        <span class="file-msg">или перетащите сюда</span>
-       <input class="file-input" name="file" type="file" multiple>
+       <input class="file-input" name="uploaded_files[]" type="file" multiple>
        <div class="error"></div>
        <span class="error"></span>
      </label>

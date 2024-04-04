@@ -12,7 +12,7 @@ class FormValidator {
     this.inputName = this.form.querySelector('input[name="name"]');
     this.inputEmail = this.form.querySelector('input[name="email"]');
     this.inputTel = this.form.querySelector('input[name="phone"]');
-    this.inputFile = this.form.querySelector('input[name="file"');
+    this.inputFile = this.form.querySelector('input[type="file"');
     this.setupEventListeners();
   }
 
@@ -167,7 +167,11 @@ class FormValidator {
   async sendForm(formData) {
     if (this.checkIfValidated()) {
       try {
-        const response = await fetch("/system/send.php", {
+        let url = "/system/send_comment.php";
+        if (this.form.getAttribute("data-action") === "files") {
+          url = "/system/send_form_w_files.php";
+        }
+        const response = await fetch(url, {
           method: "POST",
           body: formData,
         });

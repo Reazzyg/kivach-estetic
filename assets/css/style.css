@@ -287,10 +287,24 @@ h3.subtitle {
 .form-subtitle-top {
   margin-bottom: 20px;
 }
+.form label {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
 .form-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+.form-wrapper label {
+  width: 45%;
+}
+.form label.file-drop-area {
+  display: flex;
+}
+.form label a {
+  color: #1F25AB;
 }
 .form-rating__wrapper {
   width: 100%;
@@ -345,6 +359,7 @@ h3.subtitle {
 
 input, textarea {
   padding: 13px;
+  padding-right: 25px;
   outline: none;
   border: none;
   border-bottom: 1px solid #DEDEDA;
@@ -365,38 +380,6 @@ input:focus-visible, textarea:focus-visible {
   color: #C74545;
 }
 
-.form label {
-  position: relative;
-  display: block;
-  margin-bottom: 20px;
-}
-
-.form-wrapper label {
-  width: 45%;
-}
-
-.form-wrapper a {
-  color: #1F25AB;
-}
-
-.file-drop-area {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 25px;
-  border: 1px dashed #DEDEDA;
-  background-color: #FBFBFB;
-  border-radius: 3px;
-  transition: 0.2s;
-  color: #71716B;
-  margin-top: 5px;
-}
-.file-drop-area.is-active {
-  background-color: rgba(32, 25, 25, 0.05);
-}
-
 .fake-btn {
   flex-shrink: 0;
   padding: 8px 3px;
@@ -411,7 +394,6 @@ input:focus-visible, textarea:focus-visible {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .file-input {
   position: absolute;
   left: 0;
@@ -423,6 +405,23 @@ input:focus-visible, textarea:focus-visible {
 }
 .file-input:focus {
   outline: none;
+}
+.file-drop-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 25px;
+  border: 1px dashed #DEDEDA;
+  background-color: #FBFBFB;
+  border-radius: 3px;
+  transition: 0.2s;
+  color: #71716B;
+  margin-top: 5px;
+}
+.file.is-active {
+  background-color: rgba(32, 25, 25, 0.05);
 }
 
 @keyframes hideFrom {
