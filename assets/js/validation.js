@@ -113,6 +113,7 @@ class FormValidator {
 
   validateFileInput() {
     const files = this.inputFile.files;
+    console.log(this.inputFile);
     if (files.length === 0) {
       // Если пользователь не выбрал файл, возвращаем true, чтобы форма могла быть отправлена без файла
       return true;
@@ -150,15 +151,17 @@ class FormValidator {
     let isValidFile = true; // По умолчанию файлы валидны, если их нет или их проверка прошла успешно
 
     const inputFile = this.inputFile;
+    console.log(inputFile, isValidFile);
+    if (inputFile) {
+      try {
+        isValidFile = this.validateFileInput();
+      } catch (error) {
+        this.createMessage(inputFile, error.message);
 
-    try {
-      isValidFile = this.validateFileInput();
-    } catch (error) {
-      this.createMessage(inputFile, error.message);
+        console.error("Ошибка при проверке файла: ", error.message);
 
-      console.error("Ошибка при проверке файла: ", error.message);
-
-      isValidFile = false; // Если возникла ошибка, файлы не валидны
+        isValidFile = false; // Если возникла ошибка, файлы не валидны
+      }
     }
 
     return isValidName && isValidTel && isValidEmail && isValidFile;
@@ -166,6 +169,7 @@ class FormValidator {
 
   async sendForm(formData) {
     if (this.checkIfValidated()) {
+      console.log("check");
       try {
         let url = "/system/send_comment.php";
         if (this.form.getAttribute("data-action") === "files") {

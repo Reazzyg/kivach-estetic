@@ -571,7 +571,6 @@ input:focus-visible, textarea:focus-visible {
   display: none;
 }
 .menu-list-item {
-  padding: 5px 20px;
   transition: background-color 0.1s;
   text-align: center;
 }
@@ -582,6 +581,9 @@ input:focus-visible, textarea:focus-visible {
   color: #fff;
 }
 .menu-list-item__link {
+  display: inline-block;
+  padding: 5px 20px;
+  width: 100%;
   color: #83C9B6;
   transition: color 0.2s;
 }
