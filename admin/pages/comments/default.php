@@ -1,131 +1,73 @@
 <?
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (isset($_POST['submit_comment'])) {
-    $name = $_POST['name'];
-    $rating = isset($_POST['rating']) ? intval($_POST['rating']) : null;
-    $comment = $_POST['comment'];
+require_once 'settings/show_comments.php';
+require_once 'settings/add_comment.php';
+require_once 'settings/rewrite_comment.php';
 
-    if (!validateInput($name)) {
-      showError('ФИО');
-    } elseif (!validateInput($comment)) {
-      showError('Отзыв');
-    } else {
-      $sqlComment = "INSERT INTO comments (name, rating, message) VALUES ('$name', '$rating', '$comment')";
 
-      $res = customSqlQuery($connect, $sqlComment);
-
-      if ($res === TRUE) {
-        echo "Отзыв успешно добавлен";
-        header("Location: {$_SERVER['PHP_SELF']}");
-        exit();
-      } else {
-        echo "Ошибка при добавлении отзыва: " . $connect->error;
-      }
-    }
-  }
-}
-$url = $_SERVER['REQUEST_URI'];
+// $url = $_SERVER['REQUEST_URI'];
 ?>
-<div class="content-container">
 
-  <nav class="nav">
-    <ul class="nav-list">
-      <li class="nav-list__item">
-        <a href="/admin/?page=comments&tab=all" class="nav-list__link">Все отзывы</a>
-      </li>
-      <li class="nav-list__item">
-        <a href="/admin/?page=comments&tab=insert" class="nav-list__link">Создать отзыв</a>
-      </li>
-    </ul>
-  </nav>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Номер</th>
-        <th>Рейтинг</th>
-        <th>Имя</th>
-        <th>Отзыв</th>
-        <th>Активность</th>
-        <th>Изменить</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>5</td>
-        <td>asd</td>
-        <td>asasdasd</td>
-        <td>да</td>
-        <td>ИЗменить</td>
-      </tr>
-    </tbody>
-  </table>
-  <?
+<!-- обработка табов (nav tabs) происходит по последнему гет параметру ссылки -->
+<nav class="nav tabs">
+  <ul class="nav-list">
+    <li class="nav-list__item">
+      <a href="/admin/?page=comments&tab=all" class="nav-list__link">Все отзывы</a>
+    </li>
+    <li class="nav-list__item">
+      <a href="/admin/?page=comments&tab=insert" class="nav-list__link">Создать отзыв</a>
+    </li>
+  </ul>
+</nav>
 
-  if (isset($_GET['tab'])) {
 
-    function all_comments()
-    {
-      $res = sqlQuery("SELECT * FROM comments ORDER BY id DESC");
-      while ($row = mysqli_fetch_assoc($res)) {
-        $active = 'active';
-        if ($row['active'] !== 'yes') $active = '';
-      }
-    }
-  }
-  ?>
 
-  <div class="form">
-    <h3 class="title form-title">Создать отзыв</h3>
+<!-- к классу добавляется имя гет параметра + show показывает по умолчанию  -->
+<?php
+show_all_comments();
+?>
 
-    <form method="post">
-      <label>
-        <input type="text" name="name" class="form-input" placeholder="ФИО*">
+
+
+
+<?
+add_comment();
+?>
+
+
+
+<!-- HTML для модального окна -->
+<div id="myModal" class="modal admin-modal">
+  <div class="modal-content">
+
+    <h2>Отзыв</h2>
+    <form id="reviewContent" method="POST">
+      <label class="active" for="">
+        Активность
+        <input id="active" type="checkbox">
+        <input type="hidden" name="active">
       </label>
+      <label for="">
+        Рейтинг
+        <input name="rating" id="rating" type="text">
 
-      <label>
-        <input type="number" name="rating" class="form-input" placeholder="Рейтинг">
       </label>
+      <label for="">
+        Имя
+        <input name="name" id="name" type="text">
 
-      <textarea class="form-input form-comment" placeholder="Отзыв" name="comment" id="" cols="30" rows="5"></textarea>
+      </label>
+      <label for="">
+        Комментарий
+        <textarea name="comment" id="comment" cols="80" rows="10"></textarea>
 
-      <button class="button form-button" name="submit_comment">Отправить отзыв</button>
+      </label>
+      <input id="id" name="id" type="hidden">
+      <div class="admin-modal-wrapper">
+        <button type="button" class="button warning exit">Выйти без сохранения</button>
+        <button type="submit" class="button save">Сохранить</button>
+      </div>
     </form>
 
   </div>
-  <!-- /.form -->
 </div>
-<script>
-  document.querySelector('.content-container').style.marginLeft = document.querySelector('.admin-menu').offsetWidth +
-    'px'
-
-
-  function valid() {
-    let buttons = document.querySelectorAll('.form-button');
-
-    buttons.forEach(button => {
-      button.addEventListener('click', function(event) {
-        let form = this.closest('form');
-        let inputs = form.querySelectorAll('input, textarea');
-        let isValid = true;
-
-        inputs.forEach(input => {
-          if (input.value.trim() === '') {
-            isValid = false;
-            let error = document.createElement('p');
-            error.classList.add('error');
-            error.textContent = 'Заполните поле';
-            input.insertAdjacentElement('afterend', error);
-          }
-        });
-
-        if (!isValid) {
-          event.preventDefault();
-        }
-      });
-    });
-  }
-
-  valid();
-</script>

@@ -2,6 +2,9 @@
   position: relative
   background-size: cover
   background-position-y: -150px
+  // &:has( .login)
+  //   background-size: cover
+
   &-menu
     padding: 30px 0
     display: grid
@@ -54,7 +57,30 @@
     right: 0
     bottom: 0
     left: 0
-
+  &-modal
+    max-width: unset
+    display: none
+    &-wrapper
+      display: flex
+      align-items: center
+      justify-content: space-between
+      gap: 30px
+    & label
+      padding: 15px 0px
+      display: flex
+      flex-direction: column
+      justify-content: start
+      &.active
+        flex-direction: row
+        gap: 30px
+    & [type="checkbox"]
+      width: fit-content
+      cursor: pointer
+    & input, textarea
+      border: 1px solid #DEDEDA
+      padding: 13px 20px 10px 10px
+      width: 100%
+      border-radius: 3px
 .nav
   display: flex
   align-items: center
@@ -82,14 +108,12 @@
     padding-left: 10px
     margin-bottom: 10px
 table
-  border-collapse: collapse
-
+  border-collapse: separate
   width: 100%
-  & thead
-    background-color: $white
 th
-  padding: 10px 0
-  border: 1px solid $blue
+  padding: 20px 10px
+  border-radius: 20px
+  background-color: $white
   &:first-child
     width: 100px
   &:nth-child(2)
@@ -101,6 +125,24 @@ th
   &:last-child
     width: 120px
 td
-  padding: 5px
+  padding: 20px 10px
   text-align: center
-  border: 1px solid $button
+  word-break: break-all
+  border-radius: 20px
+
+  & a
+    color: $blue-dark
+tr
+  &:nth-last-child(1)
+    border-radius: 20px
+  &:nth-child(odd)
+
+    background-color: #dcebffc4
+  &:nth-child(even)
+    background-color: #c8d2e194
+
+.tabs
+  &-content
+    display: none
+    &.show
+      display: block

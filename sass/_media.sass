@@ -1,6 +1,9 @@
 @media screen and ( min-width: 992px)
 .button:hover
   background-color: darken($button,30% )
+  &.warning
+    &:hover
+      background-color: darken($red, 25% )
 @media  ( max-width: 1500px)
   body
     overflow-x: hidden
