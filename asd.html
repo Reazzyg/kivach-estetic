@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      width: 100%;
+      height: 500px;
+      background-color: grey;
+      margin: auto;
+      position: relative;
+    }
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<style>
-  .container {
-    width: 100%;
-    height: 500px;
-    background-color: grey;
-    margin: auto;
-    position: relative;
-  }
+    .card {
+      width: 150px;
+      height: 150px;
+      background-color: red;
+      position: absolute;
+    }
 
-  .card {
-    width: 150px;
-    height: 150px;
-    background-color: red;
-    position: absolute;
-  }
+    .card2 {
+      right: -100px;
+    }
+  </style>
 
-  .card2 {
-    right: -100px;
-  }
-</style>
+  <body>
+    <!-- вот так правильно -->
+    <img src="home.jpg" alt="" />
 
-<body>
+    <!-- вот так не правильно -->
+    <img src="0eb8fd9d28fad11a96a5fdfe21e0c388.jpg" alt="" />
 
-  <div class="container">
-    <div class="card card1"></div>
-  </div>
-  <div class="card card2"></div>
-
-
-</body>
-
+    <div class="container">
+      <div class="card card1"></div>
+    </div>
+    <div class="card card2"></div>
+  </body>
 </html>

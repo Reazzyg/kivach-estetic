@@ -6,11 +6,16 @@
       grid-column-gap: 30px
       grid-row-gap: 30px
       justify-items: center
+    &.contraindications
+      & .container
+        grid-template-columns: repeat(2,1fr)
+
   & .container
     display: flex
     justify-content: space-between
   & .subtitle
     margin-bottom: 30px
+
   &-wrapper
     flex-basis: 60%
   &__text

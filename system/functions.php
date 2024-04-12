@@ -3,6 +3,47 @@
 define("SEND_PHP_PATH", "/system/send.php");
 include('db_con.php');
 
+// Функция для загрузки и отображения шаблона
+function load_template($template_name, $data, $echo = true)
+{
+    // Проверяем существование файла шаблона
+    $template_path = $_SERVER['DOCUMENT_ROOT'] . "/templates/{$template_name}.php";
+    if (file_exists($template_path)) {
+        // Если файл существует, загружаем его
+        ob_start(); // Включаем буферизацию вывода
+        include $template_path; // Подключаем шаблон
+        $content = ob_get_clean(); // Получаем содержимое буфера и очищаем его
+
+        // Заменяем динамические значения на переданные данные
+        $content = replace_dynamic_values($content, $data);
+
+        // Если нужно вывести содержимое на экран, делаем это
+        if ($echo) {
+            echo $content;
+        }
+        // Возвращаем сформированный HTML-код
+        return $content;
+    } else {
+        // Если файл шаблона не найден, возвращаем ошибку
+        return "<p>Шаблон '{$template_name}' не найден</p>";
+    }
+}
+
+function replace_dynamic_values($content, $data)
+{
+    foreach ($data as $key => $value) {
+        if (is_array($value)) {
+            // Если значение является массивом, рекурсивно вызываем эту же функцию
+            $content = replace_dynamic_values($content, $value);
+        } else {
+            // В противном случае заменяем значение в шаблоне
+            $content = str_replace("{{{$key}}}", $value, $content);
+        }
+    }
+    return $content;
+}
+
+
 if (isset($_GET['exit']) && $_GET['exit'] == 1) // Разлогин пользователя
 {
 

@@ -1,53 +1,47 @@
-export {createMenu}
+export { createMenu };
 
-function createMenu(){
+function createMenu() {
+  fetch("/json/navigation.json")
+    .then((response) => response.json())
+    .then((data) => appendMenu(data));
 
-fetch('../json/navigation.json').then(response => response.json()).then(data => appendMenu(data));
+  function appendMenu(data) {
+    const container = document.querySelector(".menu-list"); // Получаем контейнер для меню
 
-function appendMenu(data) {
+    data.menu.forEach((item) => {
+      const name = item.name;
+      const link = item.link;
 
-  const container = document.querySelector('.menu-list'); // Получаем контейнер для меню
+      // Создаем элементы HTML
+      const liElement = document.createElement("li");
 
-  data.menu.forEach(item => {
+      liElement.className = "menu-list-item";
 
-    const name = item.name;
-    const link = item.link;
+      const aElement = document.createElement("a");
 
-    // Создаем элементы HTML
-    const liElement = document.createElement('li');
+      aElement.className = "menu-list-item__link";
 
-    liElement.className = 'menu-list-item';
+      aElement.href = link; // Устанавливаем атрибут href для ссылки
 
-    const aElement = document.createElement('a');
+      aElement.textContent = name;
 
-    aElement.className = 'menu-list-item__link'
+      liElement.appendChild(aElement);
 
-    aElement.href = link; // Устанавливаем атрибут href для ссылки
+      container.appendChild(liElement);
+    });
+  }
 
-    aElement.textContent = name;
+  menuAction();
+}
 
-    liElement.appendChild(aElement);
+function menuAction() {
+  const menu = document.querySelector(".menu");
 
-    container.appendChild(liElement);
+  const openClose = document.querySelector(".menu-burger__line");
 
+  menu.addEventListener("click", () => {
+    menu.classList.toggle("menu-active");
+
+    openClose.classList.toggle;
   });
-}
-
-menuAction()
-
-}
-
-function menuAction(){
-
-const menu = document.querySelector('.menu')
-
-const openClose = document.querySelector('.menu-burger__line')
-
-menu.addEventListener('click', ()=>{
-
-menu.classList.toggle('menu-active')
-
-openClose.classList.toggle
-
-})
 }

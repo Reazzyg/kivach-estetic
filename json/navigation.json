@@ -1,7 +1,9 @@
 {
-  "navigation": [{
+  "navigation": [
+    {
       "listName": "Пластические операции",
-      "listItems": [{
+      "listItems": [
+        {
           "name": "Абдоминопластика",
           "link": "asdasda"
         },
@@ -21,71 +23,92 @@
     },
     {
       "listName": "Общая хирургия",
-      "listItems": [{
-        "name": "Глютеопластика",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }, {
-        "name": "Общая хирургия",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }]
+      "listItems": [
+        {
+          "name": "Глютеопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "Общая хирургия",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
     },
     {
       "listName": "Эндоскопия",
-      "listItems": [{
-        "name": "Кантопексия",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }, {
-        "name": "asd",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }]
+      "listItems": [
+        {
+          "name": "Кантопексия",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "asd",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
     },
     {
       "listName": "Интимная пластика",
-      "listItems": [{
-        "name": "Коррекция шрамов и рубцов",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }, {
-        "name": "ewqeq",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }]
+      "listItems": [
+        {
+          "name": "Коррекция шрамов и рубцов",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "ewqeq",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
     },
     {
       "listName": "Пластика для мужчин",
-      "listItems": [{
-        "name": "Коррекция шрамов и рубцов",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }, {
-        "name": "gegf",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }]
+      "listItems": [
+        {
+          "name": "Коррекция шрамов и рубцов",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "gegf",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
     }
   ],
 
-  "menu": [{
+  "menu": [
+    {
       "name": "Главная",
       "link": "/"
     },
@@ -96,6 +119,10 @@
     {
       "name": "Ринопластика",
       "link": "/rino/"
+    },
+    {
+      "name": "Абдоминопластика",
+      "link": "/plastic-surgery/abdominoplastic/"
     },
 
     {
@@ -111,9 +138,11 @@
       "link": "/admin/"
     }
   ],
-  "footerNavigation": [{
+  "footerNavigation": [
+    {
       "listName": "Пластические операции",
-      "listItems": [{
+      "listItems": [
+        {
           "name": "Абдоминопластика",
           "link": "asdasda"
         },
@@ -133,67 +162,87 @@
     },
     {
       "listName": "Общая хирургия",
-      "listItems": [{
-        "name": "Глютеопластика",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }, {
-        "name": "Общая хирургия",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }]
+      "listItems": [
+        {
+          "name": "Глютеопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "Общая хирургия",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
     },
     {
       "listName": "Хирургия",
-      "listItems": [{
-        "name": "Кантопексия",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }, {
-        "name": "asd",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }]
+      "listItems": [
+        {
+          "name": "Кантопексия",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "asd",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
     },
     {
       "listName": "Интимная пластика",
-      "listItems": [{
-        "name": "Коррекция шрамов и рубцов",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }, {
-        "name": "ewqeq",
-        "link": "asdasda"
-      }, {
-        "name": "Абдоминопластика",
-        "link": "asdasda"
-      }]
+      "listItems": [
+        {
+          "name": "Коррекция шрамов и рубцов",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "ewqeq",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
     },
     {
       "listName": "Информация",
-      "listItems": [{
-        "name": "Главная",
-        "link": "asdasda"
-      }, {
-        "name": "О клинике",
-        "link": "asdasda"
-      }, {
-        "name": "Стандарты",
-        "link": "asdasda"
-      }, {
-        "name": "Хирурги",
-        "link": "asdasda"
-      }]
+      "listItems": [
+        {
+          "name": "Главная",
+          "link": "asdasda"
+        },
+        {
+          "name": "О клинике",
+          "link": "asdasda"
+        },
+        {
+          "name": "Стандарты",
+          "link": "asdasda"
+        },
+        {
+          "name": "Хирурги",
+          "link": "asdasda"
+        }
+      ]
     }
   ]
 }
