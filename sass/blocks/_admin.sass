@@ -1,0 +1,169 @@
+.admin
+  position: relative
+  background-size: cover
+  background-position-y: -150px
+  &-menu
+    padding: 30px 0
+    display: grid
+    align-content: space-between
+    justify-items: center
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    background-color: $white
+    border-top-right-radius: 30px
+    border-bottom-right-radius: 30px
+    &-list
+      display: flex
+      flex-direction: column
+      &__item
+        border-bottom: 1px solid $blue
+        transition: background-color .3s
+        &:hover
+          background-color: $green
+          // border-top: 1px solid $green
+
+          & a
+            color: $white
+
+        &.active
+          background-color: $button
+          & a
+            color: $white
+      &__link
+        padding: 10px 50px
+        display: inline-block
+        width: 100%
+        text-align: center
+  & .login
+    height: 100vh
+    width: 100vw
+    display: flex
+    align-items: center
+    justify-content: center
+  & .error
+    padding: 20px
+    width: 100%
+    display: block
+    background-color: red
+    text-align: center
+    font-size: 24px
+    color: #fff
+    position: fixed
+    right: 0
+    bottom: 0
+    left: 0
+  &-modal
+    max-width: unset
+    display: none
+    &-wrapper
+      display: flex
+      align-items: center
+      justify-content: space-between
+      gap: 30px
+    & label
+      padding: 15px 0px
+      display: flex
+      flex-direction: column
+      justify-content: start
+      &.active
+        flex-direction: row
+        gap: 30px
+    & [type="checkbox"]
+      width: fit-content
+      cursor: pointer
+    & input, textarea
+      border: 1px solid #DEDEDA
+      padding: 13px 20px 10px 10px
+      width: 100%
+      border-radius: 3px
+  & .navigation
+    &-button
+      margin-bottom: 30px
+      &-wrapper
+        width: unset
+        justify-content: space-between
+      &__name
+        width: fit-content
+
+    &-list
+      position: static
+      &-item
+        display: flex
+        justify-content: space-around
+        padding: 0 20px
+        gap: 20px
+        &:after
+          display: none
+        &:hover
+          border-top: 1px solid transparent
+          border-bottom: 1px solid transparent
+        & input
+          border: 1px solid #c1bdbd
+          border-radius: 15px
+.nav
+  display: flex
+  align-items: center
+  // justify-content: center
+  width: 100%
+  margin-bottom: 100px
+
+  &-list
+    display: flex
+    background-color: $white
+
+    &__item
+      border-right: 1px solid $grey-light
+    &__link
+      display: inline-block
+      padding: 15px 20px
+
+.content
+  &-container
+    padding: 20px
+.form-group
+  margin-bottom: 20px
+  & label
+    display: inline-block
+    padding-left: 10px
+    margin-bottom: 10px
+table
+  border-collapse: separate
+  width: 100%
+th
+  padding: 20px 10px
+  border-radius: 20px
+  background-color: $white
+  &:first-child
+    width: 100px
+  &:nth-child(2)
+    width: 100px
+  &:nth-child(3)
+    width: 200px
+  &:nth-child(5)
+    width: 100px
+  &:last-child
+    width: 120px
+td
+  padding: 20px 10px
+  text-align: center
+  word-break: break-all
+  border-radius: 20px
+
+  & a
+    color: $blue-dark
+tr
+  &:nth-last-child(1)
+    border-radius: 20px
+  &:nth-child(odd)
+
+    background-color: #dcebffc4
+  &:nth-child(even)
+    background-color: #c8d2e194
+
+.tabs
+  &-content
+    display: none
+    &.show
+      display: block

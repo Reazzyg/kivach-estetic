@@ -1,0 +1,2 @@
+<?
+echo 'start settings page';

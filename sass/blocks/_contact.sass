@@ -1,0 +1,28 @@
+.hero
+  &-contact
+    display: flex
+.contact
+  margin-top: 100px
+  margin-bottom: 100px
+  position: relative
+  padding: 50px 70px
+  background-color: $white
+  border-radius: 30px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  &::after
+    content: ''
+    position: absolute
+    top: 50px
+    right: 50%
+    bottom: 50px
+    width: 1px
+    background-color: $blue
+  &-wrapper
+    position: relative
+    display: flex
+    gap: 20px
+    width: 45%
+    flex-direction: column
+    justify-content: space-between

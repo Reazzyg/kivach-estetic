@@ -1,0 +1,11 @@
+<svg width="88" height="87" viewBox="0 0 88 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 84">
+<rect x="0.833328" width="87" height="87" rx="43.5" fill="#83C9B6"/>
+<g id="Group 5">
+<circle id="Ellipse 3" cx="44.8333" cy="30" r="14" fill="white"/>
+<path id="Rectangle 6" d="M71.8333 63.7758C71.8333 64.4519 71.2852 65 70.6091 65L44.8333 65L19.0576 65C18.3814 65 17.8333 64.4519 17.8333 63.7758C17.8333 53.9585 25.7918 46 35.6091 46L54.0576 46C63.8748 46 71.8333 53.9585 71.8333 63.7758Z" fill="white"/>
+<circle id="Ellipse 4" cx="62.8333" cy="59" r="12.5" fill="white" stroke="#83C9B6"/>
+<path id="Union" fill-rule="evenodd" clip-rule="evenodd" d="M61.8333 65H64.8333L64.8333 61H68.8333V58L64.8333 58L64.8333 54H61.8333L61.8333 58L57.8333 58V61H61.8333L61.8333 65Z" fill="#83C9B6"/>
+</g>
+</g>
+</svg>

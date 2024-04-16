@@ -1,0 +1,109 @@
+{
+  "navigation": [
+    {
+      "listName": "Пластические операции",
+      "listItems": [
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "link",
+          "link": "asdasda"
+        },
+        {
+          "name": "555",
+          "link": "111"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
+    },
+    {
+      "listName": "Общая хирургия",
+      "listItems": [
+        {
+          "name": "Глютеопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "Общая хирургия",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
+    },
+    {
+      "listName": "Эндоскопия",
+      "listItems": [
+        {
+          "name": "Кантопексия",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "asd",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
+    },
+    {
+      "listName": "Интимная пластика",
+      "listItems": [
+        {
+          "name": "Коррекция шрамов и рубцов",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "ewqeq",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
+    },
+    {
+      "listName": "Пластика для мужчин",
+      "listItems": [
+        {
+          "name": "Коррекция шрамов и рубцов",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        },
+        {
+          "name": "gegf",
+          "link": "asdasda"
+        },
+        {
+          "name": "Абдоминопластика",
+          "link": "asdasda"
+        }
+      ]
+    }
+  ]
+}

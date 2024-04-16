@@ -1,0 +1,33 @@
+{
+  "menu": [
+    {
+      "name": "Главная",
+      "link": "/"
+    },
+    {
+      "name": "О клинике",
+      "link": "/about/"
+    },
+    {
+      "name": "Ринопластика",
+      "link": "/rino/"
+    },
+    {
+      "name": "Абдоминопластика",
+      "link": "/plastic-surgery/abdominoplastic/"
+    },
+
+    {
+      "name": "Отзывы",
+      "link": "/comments/"
+    },
+    {
+      "name": "Контакты",
+      "link": "/contacts/"
+    },
+    {
+      "name": "Админ",
+      "link": "/admin/"
+    }
+  ]
+}
