@@ -26,21 +26,21 @@
 
       msg($err, 'error');
   ?>
-     <div class="login">
-       <form class="form-inline" method='POST'>
-         <div class="form-group">
-           <label class="sr-only" for="inputEmail">Email</label>
-           <input type="text" class="form-control brs30" id="inputLogin" name='login' placeholder="Логин">
-         </div>
-         <div class="form-group">
-           <label class="sr-only" for="inputPassword">Пароль</label>
-           <input type="password" class="form-control brs30" id="inputPassword" name='pass' placeholder="Пароль">
-         </div>
-         <button type="submit" onClick='submit();' class="button form-button">Войти</button>
-       </form>
+ <div class="login">
+   <form class="form-inline" method='POST'>
+     <div class="form-group">
+       <label class="sr-only" for="inputEmail">Email</label>
+       <input type="text" class="form-control brs30" id="inputLogin" name='login' placeholder="Логин">
      </div>
-     <!-- /.login -->
-   <?php
+     <div class="form-group">
+       <label class="sr-only" for="inputPassword">Пароль</label>
+       <input type="password" class="form-control brs30" id="inputPassword" name='pass' placeholder="Пароль">
+     </div>
+     <button type="submit" onClick='submit();' class="button form-button">Войти</button>
+   </form>
+ </div>
+ <!-- /.login -->
+ <?php
 
       exit;
     }
@@ -58,11 +58,11 @@
 
     if (isset($_GET['view'])) $view = $_GET['view'];
     ?>
-   <div class="content-container">
-     <?
+ <div class="content-container">
+   <?
       require_once('../admin/pages/' . $page . '/' . $view . '.php');
       ?>
-   </div>
+ </div>
  <?
   }
   ?>
@@ -82,12 +82,12 @@
     if (isset($_GET['page'])) $page = $_GET['page'];
   ?>
 
-   <aside class="admin-menu">
-     <h2 class="subtitle">
-       <? echo  isset($link_names[$page]) ? $link_names[$page] : 'Главная'; ?>
-     </h2>
-     <ul class="admin-menu-list">
-       <?
+ <aside class="admin-menu">
+   <h2 class="subtitle">
+     <? echo  isset($link_names[$page]) ? $link_names[$page] : 'Главная'; ?>
+   </h2>
+   <ul class="admin-menu-list">
+     <?
 
         mysqli_data_seek($res, 0);
         while ($row = mysqli_fetch_assoc($res)) {
@@ -98,18 +98,18 @@
           if ($row['name'] == 'Отзывы') $add = '&tab=all'
         ?>
 
-         <li class="admin-menu-list__item <? echo $active ?>">
-           <a href="/admin/?page=<? echo $row['link'] . $add ?>" class="admin-menu-list__link">
-             <? echo $row['name'] ?>
-           </a>
-         </li>
-       <?
+     <li class="admin-menu-list__item <? echo $active ?>">
+       <a href="/admin/?page=<? echo $row['link'] . $add ?>" class="admin-menu-list__link">
+         <? echo $row['name'] ?>
+       </a>
+     </li>
+     <?
         }
         ?>
-     </ul>
-     <a href="/?exit=1" class="admin-menu__exit button">Выход</a>
-   </aside>
-   <!-- /.menu -->
+   </ul>
+   <a href="/?exit=1" class="admin-menu__exit button">Выход</a>
+ </aside>
+ <!-- /.menu -->
  <?
   }
   ?>

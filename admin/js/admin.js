@@ -1,5 +1,4 @@
 //отступ от меню
-
 document.querySelector(".content-container").style.marginLeft =
   document.querySelector(".admin-menu").offsetWidth + "px";
 
