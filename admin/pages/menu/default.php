@@ -1,51 +1,125 @@
 <?
 $parentItemsResult = sqlQuery("SELECT * FROM menu_items_new WHERE parent_id IS NULL");
 
+
+$parentItems = [];
+while ($parentItem = mysqli_fetch_assoc($parentItemsResult)) {
+  $parentItems[] = $parentItem;
+}
 ?>
 
-<style>
-button[data-action="save"] {
-  display: none;
-}
-</style>
-<div style="width: 50%;" class="">
-  <?
-  while ($parentItem = mysqli_fetch_assoc($parentItemsResult)) {
+<div class="">
+  <!-- обработка табов (nav tabs) происходит по последнему гет параметру ссылки в admin.js tabs() -->
+  <nav class="nav tabs">
+    <ul class="nav-list">
+      <?
+      foreach ($parentItems as $parentItem) {
+      ?>
+      <li class="nav-list__item">
 
+        <a href="/admin/?page=menu&tab=<? echo $parentItem['alias'] ?>" class="nav-list__link menu">
+          <? echo $parentItem['name'] ?>
+        </a>
+
+      </li>
+
+      <?
+      }
+      ?>
+    </ul>
+  </nav>
+
+  <?
+  foreach ($parentItems as $parentItem) {
   ?>
-  <form data-id="<? $parentItem['id']; ?>" class="navigation-button noselect navigation-button-active">
+
+  <form data-parent="<? echo $parentItem['id']; ?>"
+    class="navigation-button noselect navigation-button-active tabs-content <? echo $parentItem['alias'] ?>">
+
     <div class="navigation-button-wrapper">
+
       <p class="navigation-button__name">
         <? echo $parentItem['name']; ?>
       </p>
-      <button data-action="save" data-parent="<? echo $parentItem['id']; ?>" class="button" type="button">Сохранить
+
+      <button data-action="save" data-parent="<? echo $parentItem['id']; ?>" class="button" style="display: none;"
+        type="button">Сохранить
         изменения</button>
+
       <button data-action="add" data-parent="<? echo $parentItem['id']; ?>" class="button" type="button">Добавить
         ссылку</button>
-      <input type="hidden" name="parent_id" value="<? echo $parentItem['id']; ?>">
+
+      <input type="hidden" name="parent-id" value="<? echo $parentItem['id']; ?>">
+
     </div>
-    <ul class="navigation-list">
-      <li class="navigation-list-item">
-        <span>Название</span>
-        <span>Ссылка</span>
-      </li>
-      <?
-        $subItemsQuery = "SELECT * FROM menu_items_new WHERE parent_id = " . $parentItem['id'];
-        $subItemsResult = sqlQuery($subItemsQuery);
 
-        while ($subItem = mysqli_fetch_assoc($subItemsResult)) {
-        ?>
+    <table>
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>Название</th>
+          <th>Ссылка</th>
+          <th>Активность</th>
+          <!-- <th>Изменить</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <?
 
-      <li class="navigation-list-item">
-        <input type="text" name="name" class="navigation-list-item__link" value="<? echo $subItem['name'] ?>" />
-        <input type="text" name="link" value="<? echo $subItem['link'] ?>" />
-        <a>Изменить</a>
-      </li>
-      <?
-        }
-        ?>
+          $subItemsQuery = "SELECT * FROM menu_items_new WHERE parent_id = " . $parentItem['id'];
 
-    </ul>
+          $subItemsResult = sqlQuery($subItemsQuery);
+
+          $i = 0;
+
+          while ($subItem = mysqli_fetch_assoc($subItemsResult)) {
+          ?>
+
+        <tr class="link" data-id="<? echo $subItem['id'];  ?>">
+
+          <td>
+            <? echo $i + 1 ?>
+          </td>
+
+          <td>
+            <!-- <span data-name="name">
+                  <? echo  $subItem['name'] ?>
+                </span> -->
+            <input type="text" name="name_<? echo $subItem['id'] ?>" class="navigation-list-item__link"
+              value="<? echo  $subItem['name'] ?>" />
+          </td>
+
+          <td>
+            <!-- <span data-name="link">
+                  <? echo $subItem['link'] ?>
+                </span> -->
+            <input type="text" name="link_<? echo $subItem['id'] ?>" value="<? echo $subItem['link'] ?>" />
+          </td>
+
+          <td>
+            <? $active = '<input data-name="active_toggle" type="checkbox" checked />';
+                $inactive = '<input  data-name="active_toggle" type="checkbox"/>';
+                echo $subItem['active'] == 'yes' ?  $active : $inactive;
+                ?>
+            <input type="hidden" name="active_<? echo $subItem['id'] ?>"
+              value="<? echo $subItem['active'] == 'yes' ? 'yes' : 'no' ?>">
+          </td>
+
+          <!-- <td>
+                <a class="change-link">Изменить</a>
+              </td> -->
+
+        </tr>
+
+        <?
+            $i++;
+          }
+          ?>
+
+      </tbody>
+    </table>
+
+    <!-- </ul> -->
   </form>
   <?
   }
@@ -53,96 +127,8 @@ button[data-action="save"] {
 </div>
 
 <script>
-class MenuFormHandler {
-  constructor() {
-    this.forms = document.querySelectorAll('.navigation-button');
-    this.changedFields = {};
-    this.attachEventListeners();
-  }
-
-  attachEventListeners() {
-    this.forms.forEach(form => {
-      const saveButton = form.querySelector('button[data-action="save"]');
-      const addButton = form.querySelector('button[data-action="add"]');
-      const linkInputs = form.querySelectorAll('.navigation-list-item__link');
-
-      let changedFields = {}; // Объект для хранения измененных полей
-
-      // Слушаем изменения в полях ввода
-      linkInputs.forEach(input => {
-        input.addEventListener('input', () => {
-          this.handleInputChange(input);
-        });
-      });
-
-      saveButton.addEventListener('click', () => {
-        this.saveChanges(form, changedFields);
-      });
-
-      addButton.addEventListener('click', () => {
-        this.addLink(form);
-      });
-    });
-  }
-
-  handleInputChange(input) {
-    // Помечаем измененное поле в объекте changedFields
-    const fieldName = input.getAttribute('name');
-    const formId = input.closest('.navigation-button').getAttribute('data-id');
-    this.changedFields[formId] = this.changedFields[formId] || {};
-    this.changedFields[formId][fieldName] = input.value;
-
-    // Показываем кнопку "Сохранить"
-    const saveButton = input.closest('.navigation-button').querySelector('button[data-action="save"]');
-    console.log(saveButton);
-    saveButton.style.display = 'block';
-  }
-
-  saveChanges(form, changedFields) {
-    // Получаем данные формы и отправляем на сервер только измененные поля
-    const formData = new FormData(form);
-    const formId = form.getAttribute('data-id');
-    const changedData = changedFields[formId] || {};
-    for (const key in changedData) {
-      if (changedData.hasOwnProperty(key)) {
-        formData.set(key, changedData[key]);
-      }
-    }
-
-    // Здесь можно отправить данные на сервер с использованием fetch или других методов
-    fetch('/admin/pages/menu/settings/save_menu.php', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        // Добавьте здесь обработку успешного сохранения или ошибки
-      })
-      .catch(error => {
-        console.error('Ошибка:', error);
-      });
-    console.log('Сохранение изменений:', formData);
-
-    // После отправки данных сбрасываем состояние changedFields
-    changedFields[formId] = {};
-  }
-
-  addLink(form) {
-    // Добавляем новое поле для ссылки
-    const ul = form.querySelector('.navigation-list');
-    const newItem = document.createElement('li');
-    newItem.classList.add('navigation-list-item');
-    newItem.innerHTML = `
-      <input type="text" class="navigation-list-item__link" placeholder="Название" />
-      <input type="text" placeholder="Ссылка" />
-    `;
-    ul.appendChild(newItem);
-  }
-}
-
 // Создаем экземпляр класса при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-  const menuFormHandler = new MenuFormHandler();
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//   const menuFormHandler = new MenuFormHandler();
+// });
 </script>

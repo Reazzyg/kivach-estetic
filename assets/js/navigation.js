@@ -2,7 +2,7 @@ import { createDOMElement, addNavigationEventListeners } from "./utils.js";
 export { createNavigation };
 
 function createNavigation() {
-  fetch("/json/navigation.json")
+  fetch("/system/load_menus/navigation_menu.php")
     .then((response) => response.json())
     .then((data) => appendData(data));
 }

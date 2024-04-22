@@ -37,25 +37,25 @@ function show_all_comments()
     }
   }
 ?>
-  <!-- к классу добавляется имя гет параметра + show показывает по умолчанию  -->
-  <div class="tabs-content show all">
-    <table>
-      <thead>
-        <tr>
-          <th>№</th>
-          <th>Рейтинг</th>
-          <th>Имя</th>
-          <th>Отзыв</th>
-          <th>Активность</th>
-          <th>Изменить</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php echo all_comments(); // Выводим HTML-код таблицы с комментариями 
+<!-- к классу добавляется имя гет параметра(all) + show показывает по умолчанию  -->
+<div class="tabs-content tabs-content-comments show all">
+  <table>
+    <thead>
+      <tr>
+        <th>№</th>
+        <th>Рейтинг</th>
+        <th>Имя</th>
+        <th>Отзыв</th>
+        <th>Активность</th>
+        <th>Изменить</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php echo all_comments(); // Выводим HTML-код таблицы с комментариями 
         ?>
-      </tbody>
-    </table>
-  </div>
+    </tbody>
+  </table>
+</div>
 
 <?
 }

@@ -1,53 +1,81 @@
 <?php
-// Проверяем, был ли отправлен POST-запрос
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  // Проверяем наличие необходимых данных в POST-запросе
-  if (isset($_POST['parent_id'], $_POST['name'], $_POST['link'])) {
-    // Получаем данные из POST-запроса
-    $parent_id = $_POST['parent_id'];
-    $name = $_POST['name'];
-    $link = $_POST['link'];
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/functions.php';
 
-    // Подключаемся к базе данных
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/system/functions.php';
+// Проверяем, была ли отправлена форма
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Создаем пустой массив для хранения данных из формы
+  $formData = array();
+  $parent_id = $_POST['parent-id'];
 
-    // Проверяем, является ли элемент новым или существующим
-    if (isset($_POST['id'])) {
-      // Обновляем существующий элемент
-      $id = $_POST['id'];
-      // Подготавливаем SQL-запрос для обновления данных в базе данных
-      $sql = "UPDATE menu_items_new SET name=?, link=?, parent_id=? WHERE id=?";
-      // Подготавливаем выражение для выполнения SQL-запроса
-      $stmt = $connect->prepare($sql);
-      // Привязываем параметры к подготовленному выражению
-      $stmt->bind_param("ssii", $name, $link, $parent_id, $id);
+  // Перебираем все переданные значения формы
+  foreach ($_POST as $key => $value) {
+
+
+    // Разделяем параметр name по символу "_"
+    $parts = explode("_", $key);
+    // Если параметр name был разделен на две части
+    if (count($parts) == 2) {
+      // Первая часть будет идентификатором записи (например, id)
+      $id = $parts[1];
+      // Вторая часть будет именем поля
+      $field = $parts[0];
+      // Создаем или обновляем запись в массиве данных формы
+      if (!isset($formData[$id])) {
+        $formData[$id] = array();
+      }
+      $formData[$id][$field] = $value;
     } else {
-      // Добавляем новый элемент
-      // Подготавливаем SQL-запрос для вставки данных в базу данных
-      $sql = "INSERT INTO menu_items_new (name, link, parent_id) VALUES (?, ?, ?)";
-      // Подготавливаем выражение для выполнения SQL-запроса
-      $stmt = $connect->prepare($sql);
-      // Привязываем параметры к подготовленному выражению
-      $stmt->bind_param("ssi", $name, $link, $parent_id);
+      // Если параметр name не был разделен на две части, он может быть полем для записи без идентификатора
+      // В этом случае используем значение null в качестве идентификатора
+      $id = null;
+      $field = $key;
+      // Проверяем, если это переменная parent-id, пропускаем ее
+      if ($field == 'parent-id') {
+        continue;
+      }
+      // Создаем запись в массиве данных формы
+      if (!isset($formData[$id])) {
+        $formData[$id] = array();
+      }
+      $formData[$id][$field] = $value;
     }
+  }
+  // var_dump($formData);
+  // Теперь у вас есть массив $formData, содержащий данные из формы с разделением по идентификатору записи
+  // Вы можете использовать этот массив для записи или обновления данных в базе данных
+  // Например, вы можете выполнить цикл по массиву $formData и выполнить операции с базой данных для каждой записи
+
+  $success_flag = true;
+  // Выполнение SQL-запроса для каждой записи в массиве $formData
+  foreach ($formData as $id => $data) {
+    // Формируем SQL-запрос с использованием данных из массива $data
+    $sql = "INSERT INTO menu_items_new (id, name, link, active, parent_id) 
+            VALUES (?, ?, ?, ?, ?) 
+            ON DUPLICATE KEY UPDATE 
+                name = VALUES(name), 
+                link = VALUES(link), 
+                active = VALUES(active)";
+
+    // Подготавливаем выражение для выполнения SQL-запроса
+    $stmt = $connect->prepare($sql);
+
+    // Привязываем параметры к подготовленному выражению
+    $stmt->bind_param("isssi", $id, $data['name'], $data['link'], $data['active'], $parent_id);
 
     // Выполняем SQL-запрос
-    if ($stmt->execute()) {
-      // Если запрос выполнен успешно, возвращаем успешный ответ
-      echo json_encode(array("success" => true));
-    } else {
-      // Если возникла ошибка при выполнении запроса, возвращаем сообщение об ошибке
-      echo json_encode(array("error" => "Ошибка при обновлении/добавлении данных в базу данных"));
+    if (!$stmt->execute()) {
+      // Если возникла ошибка при выполнении запроса, устанавливаем флаг ошибки
+      $success_flag = false;
     }
 
-    // Закрываем подготовленное выражение и соединение с базой данных
+    // Закрываем подготовленное выражение
     $stmt->close();
-    $connect->close();
-  } else {
-    // Если не хватает данных в POST-запросе, возвращаем сообщение об ошибке
-    echo json_encode(array("error" => "Недостаточно данных для обновления/добавления"));
   }
-} else {
-  // Если запрос не является POST-запросом, возвращаем сообщение об ошибке
-  echo json_encode(array("error" => "Метод запроса должен быть POST"));
+  if ($success_flag) {
+    // Если все запросы выполнены успешно, выводим один раз сообщение об успешном выполнении
+    echo json_encode(array("success" => true));
+  } else {
+    // Если хотя бы один запрос завершился ошибкой, выводим один раз сообщение об ошибке
+    echo json_encode(array("error" => "Ошибка при обновлении данных в базе данных"));
+  }
 }

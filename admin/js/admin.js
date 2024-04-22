@@ -106,6 +106,10 @@ function tabs() {
       showTab(tabId[tabId.length - 1]);
 
       history.pushState(null, null, this.getAttribute("href"));
+
+      if (link.classList.contains("menu")) {
+        const menuFormHandler = new MenuFormHandler();
+      }
     });
   });
 
@@ -120,30 +124,187 @@ function tabs() {
   }
 }
 
-//  function valid() {
-//     let buttons = document.querySelectorAll('.form-button');
+class MenuFormHandler {
+  constructor() {
+    this.forms = document.querySelectorAll(".navigation-button.show");
 
-//     buttons.forEach(button => {
-//       button.addEventListener('click', function(event) {
-//         let form = this.closest('form');
-//         let inputs = form.querySelectorAll('input, textarea');
-//         let isValid = true;
+    this.changedFields = {};
 
-//         inputs.forEach(input => {
-//           if (input.value.trim() === '') {
-//             isValid = false;
-//             let error = document.createElement('p');
-//             error.classList.add('error');
-//             error.textContent = 'Заполните поле';
-//             input.insertAdjacentElement('afterend', error);
-//           }
-//         });
+    this.attachEventListeners();
+  }
 
-//         if (!isValid) {
-//           event.preventDefault();
-//         }
-//       });
-//     });
-//   }
+  attachEventListeners() {
+    this.forms.forEach((form) => {
+      const saveButton = form.querySelector('button[data-action="save"]');
 
-//   valid();
+      const addButton = form.querySelector('button[data-action="add"]');
+
+      const linkInputs = form.querySelectorAll('input[type="text"]');
+
+      const activeInputs = form.querySelectorAll('input[type="checkbox"]');
+
+      const editLinks = form.querySelectorAll(".change-link");
+
+      const activityBtn = form.querySelectorAll('[data-name="active_toggle"]');
+
+      // Слушаем изменения в полях ввода
+      activeInputs.forEach((input) => {
+        input.addEventListener("input", () => {
+          this.showSaveBtn(form);
+          // this.handleInputChange(input);
+        });
+      });
+
+      linkInputs.forEach((input) => {
+        input.addEventListener("input", () => {
+          this.showSaveBtn(form);
+          // this.handleInputChange(input);
+        });
+      });
+
+      addButton.addEventListener("click", () => {
+        this.addLink(form);
+        this.deleteLink(form);
+        this.showSaveBtn(form);
+      });
+
+      saveButton ? this.handleSave(saveButton, form) : null;
+
+      editLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          this.hadleChangeEvent(link);
+        });
+      });
+
+      activityBtn.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          this.handleActivity(btn);
+        });
+      });
+    });
+  }
+
+  handleSave(saveButton, form) {
+    let changedFields = {};
+
+    saveButton.addEventListener("click", () => {
+      this.saveChanges(form);
+    });
+  }
+
+  handleActivity(elem) {
+    console.log(123);
+    const saveInput = elem.closest("tr").querySelector('input[type="hidden"]');
+
+    elem.checked ? (saveInput.value = "yes") : (saveInput.value = "no");
+
+    return saveInput.value;
+  }
+
+  showSaveBtn(form) {
+    const saveBtn = form.querySelector('[data-action="save"]');
+
+    saveBtn.style.display = "inline-block";
+  }
+
+  addLink(form) {
+    // Добавляем новое поле для ссылки
+    const table = form.querySelector("table");
+
+    const tbody = form.querySelector("tbody");
+
+    const newItem = document.createElement("tr");
+
+    newItem.style.backgroundColor = "rgb(104 162 239 / 77%)";
+
+    newItem.innerHTML = `
+      
+          <td>
+          </td>
+
+          <td>
+          <input type="text" name="name" class="navigation-list-item__link" placeholder="Название страницы">
+          </td>
+
+          <td>
+          <input type="text" name="link" placeholder="Ссылка">
+          </td>
+
+          <td>
+            <input type="checkbox" name="active" value="yes" checked/>
+            
+          </td>
+
+          <td> 
+          <button data-action="delete" style="background: #ff6464;" type="button" class="button">Удалить</button>
+          </td>
+        
+    `;
+
+    tbody.insertAdjacentElement("afterbegin", newItem);
+
+    if (!form.querySelector(".menu-save-button")) {
+      const saveButton = document.createElement("tr");
+
+      saveButton.innerHTML = `
+        
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+
+     <td>
+     <a data-action="save" class="button menu-save-button">Сохранить</a>
+     </td>
+    `;
+
+      // table.appendChild(saveButton);
+    }
+  }
+
+  deleteLink(form) {
+    const deleteBtns = form.querySelectorAll('[data-action="delete"]');
+    deleteBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.closest("tr").remove();
+      });
+    });
+  }
+
+  saveChanges(form) {
+    // Получаем данные формы и отправляем на сервер только измененные поля
+
+    const formData = new FormData(form);
+
+    // Здесь можно отправить данные на сервер с использованием fetch или других методов
+    fetch("/admin/pages/menu/settings/save_menu.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        // Проверяем статус ответа
+        if (!response.ok) {
+          throw new Error("Ошибка HTTP, статус " + response.status);
+        }
+        // Возвращаем JSON
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        // Проверяем, успешен ли был ответ
+        if (data.success === true) {
+          // Если ответ успешен, выполните нужные действия
+          console.log("Данные успешно сохранены");
+          setTimeout(() => {
+            location.reload();
+          }, 500);
+        } else {
+          // Если ответ содержит ошибку, обработайте это
+          console.error("Ошибка: Данные не были успешно сохранены");
+        }
+      })
+      .catch((error) => {
+        console.error("Ошибка:", error);
+      });
+  }
+}

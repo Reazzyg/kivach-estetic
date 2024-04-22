@@ -1,0 +1,75 @@
+<form data-parent="<? echo $parentItem['id']; ?>" class="navigation-button noselect navigation-button-active">
+  <div class="navigation-button-wrapper">
+    <p class="navigation-button__name">
+      <? echo $parentItem['name']; ?>
+    </p>
+    <!-- <button data-action="save" data-parent="<? echo $parentItem['id']; ?>" class="button" type="button">Сохранить
+        изменения</button> -->
+    <button data-action="add" data-parent="<? echo $parentItem['id']; ?>" class="button" type="button">Изменить</button>
+    <input type="hidden" name="parent_id" value="<? echo $parentItem['id']; ?>">
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>№</th>
+        <th>Название</th>
+        <th>Ссылка</th>
+        <th>Активность</th>
+        <th>Изменить</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?
+      $subItemsQuery = "SELECT * FROM menu_items_new WHERE parent_id = " . $parentItem['id'];
+      $subItemsResult = sqlQuery($subItemsQuery);
+      $i = 0;
+      while ($subItem = mysqli_fetch_assoc($subItemsResult)) {
+
+
+
+      ?>
+        <tr class="link" data-id="<? echo $subItem['id'];  ?>">
+
+          <td>
+            <? echo $i + 1 ?>
+          </td>
+
+          <td>
+            <!-- <span data-name="name">
+                  <? echo  $subItem['name'] ?>
+                </span> -->
+            <input type="text" name="name_<? echo $subItem['id'] ?>" class="navigation-list-item__link" value="<? echo  $subItem['name'] ?>" />
+          </td>
+
+          <td>
+            <!-- <span data-name="link">
+                  <? echo $subItem['link'] ?>
+                </span> -->
+            <input type="text" name="link_<? echo $subItem['id'] ?>" value="<? echo $subItem['link'] ?>" />
+          </td>
+
+          <td>
+            <? $active = '<input name="active" type="checkbox" checked />';
+            $inactive = '<input name="active" type="checkbox"/>';
+            echo $parentItem['active'] == 'yes' ?  $active : $inactive;
+            ?>
+            <input type="hidden" name="active_<? echo $subItem['id'] ?>">
+          </td>
+
+          <td>
+            <a class="change-link">Изменить</a>
+          </td>
+
+        </tr>
+
+      <?
+        $i++;
+      }
+      ?>
+
+    </tbody>
+  </table>
+
+  <!-- </ul> -->
+</form>

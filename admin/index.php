@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 require_once('../system/db_con.php');
 include "../system/functions.php";
-require_once('../system/admin.php');
+require_once('admin.php');
 
 ?>
 

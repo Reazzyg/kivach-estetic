@@ -22,11 +22,8 @@
         transition: background-color .3s
         &:hover
           background-color: $green
-          // border-top: 1px solid $green
-
           & a
             color: $white
-
         &.active
           background-color: $button
           & a
@@ -81,6 +78,7 @@
   & .navigation
     &-button
       margin-bottom: 30px
+      border-radius: 20px
       &-wrapper
         width: unset
         justify-content: space-between
@@ -91,7 +89,6 @@
       position: static
       &-item
         display: flex
-        justify-content: space-around
         padding: 0 20px
         gap: 20px
         &:after
@@ -102,6 +99,8 @@
         & input
           border: 1px solid #c1bdbd
           border-radius: 15px
+        & span, input
+          flex-basis: 25%
 .nav
   display: flex
   align-items: center
@@ -131,20 +130,26 @@
 table
   border-collapse: separate
   width: 100%
+  overflow: hidden
+
+  & input
+    border-radius: 15px
 th
   padding: 20px 10px
   border-radius: 20px
   background-color: $white
-  &:first-child
-    width: 100px
-  &:nth-child(2)
-    width: 100px
-  &:nth-child(3)
-    width: 200px
-  &:nth-child(5)
-    width: 100px
-  &:last-child
-    width: 120px
+.tabs-content-comments
+  & th
+    &:first-child
+      width: 100px
+    &:nth-child(2)
+      width: 100px
+    &:nth-child(3)
+      width: 200px
+    &:nth-child(5)
+      width: 100px
+    &:last-child
+      width: 120px
 td
   padding: 20px 10px
   text-align: center
