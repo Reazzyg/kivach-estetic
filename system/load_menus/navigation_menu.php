@@ -2,7 +2,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/system/functions.php';
 // Функция для получения данных из базы данных и записи их в JSON файл
 // Формируем SQL запрос для получения данных
-$sql = "SELECT * FROM menu_items_new ORDER BY parent_id, id";
+$sql = "SELECT * FROM menu_items_new WHERE active = 'yes' ORDER BY parent_id, id";
 
 $result = sqlQuery($sql);
 

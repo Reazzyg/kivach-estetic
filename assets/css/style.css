@@ -1439,6 +1439,9 @@ input:focus-visible, textarea:focus-visible {
   overflow: hidden;
   object-fit: cover;
 }
+.info-list {
+  max-width: 70%;
+}
 .info-list .subtitle {
   text-align: left;
 }

@@ -185,15 +185,12 @@ class MenuFormHandler {
   }
 
   handleSave(saveButton, form) {
-    let changedFields = {};
-
     saveButton.addEventListener("click", () => {
       this.saveChanges(form);
     });
   }
 
   handleActivity(elem) {
-    console.log(123);
     const saveInput = elem.closest("tr").querySelector('input[type="hidden"]');
 
     elem.checked ? (saveInput.value = "yes") : (saveInput.value = "no");
@@ -217,21 +214,23 @@ class MenuFormHandler {
 
     newItem.style.backgroundColor = "rgb(104 162 239 / 77%)";
 
+    const date = +new Date();
+
     newItem.innerHTML = `
       
           <td>
           </td>
 
           <td>
-          <input type="text" name="name" class="navigation-list-item__link" placeholder="Название страницы">
+          <input type="text" name="name_new_${date}" class="navigation-list-item__link" placeholder="Название страницы">
           </td>
 
           <td>
-          <input type="text" name="link" placeholder="Ссылка">
+          <input type="text" name="link_new_${date}" placeholder="Ссылка">
           </td>
 
           <td>
-            <input type="checkbox" name="active" value="yes" checked/>
+            <input type="checkbox" name="active_new_${date}" value="yes" checked/>
             
           </td>
 
@@ -295,9 +294,9 @@ class MenuFormHandler {
         if (data.success === true) {
           // Если ответ успешен, выполните нужные действия
           console.log("Данные успешно сохранены");
-          setTimeout(() => {
-            location.reload();
-          }, 500);
+          // setTimeout(() => {
+          //   location.reload();
+          // }, 500);
         } else {
           // Если ответ содержит ошибку, обработайте это
           console.error("Ошибка: Данные не были успешно сохранены");
