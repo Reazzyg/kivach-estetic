@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Если параметр name не был разделен на две части, он может быть полем для записи без идентификатора
       // В этом случае используем значение null в качестве идентификатора
       $id = null;
-      $field = $key;
+      $field = $parts[0];
       // Проверяем, если это переменная parent-id, пропускаем ее
       if ($field == 'parent-id') {
         continue;
@@ -37,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (!isset($formData[$id])) {
         $formData[$id] = array();
       }
+
       $formData[$id][$field] = $value;
     }
   }

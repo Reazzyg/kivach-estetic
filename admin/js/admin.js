@@ -294,9 +294,9 @@ class MenuFormHandler {
         if (data.success === true) {
           // Если ответ успешен, выполните нужные действия
           console.log("Данные успешно сохранены");
-          // setTimeout(() => {
-          //   location.reload();
-          // }, 500);
+          setTimeout(() => {
+            location.reload();
+          }, 500);
         } else {
           // Если ответ содержит ошибку, обработайте это
           console.error("Ошибка: Данные не были успешно сохранены");

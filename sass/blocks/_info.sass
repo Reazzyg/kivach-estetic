@@ -20,6 +20,7 @@
     flex-basis: 60%
   &__text
     margin-bottom: 20px
+
     &:nth-last-child(1)
       margin-bottom: 0
   &__img
@@ -28,7 +29,8 @@
     overflow: hidden
     object-fit: cover
   &-list
-    max-width: 70%
+    margin-bottom: 20px
+
     & .subtitle
       text-align: left
     &__item
@@ -40,7 +42,7 @@
         content: ''
         position: absolute
         left: 0
-        top: 50%
+        top: 10px
         transform: translateY(-50%)
         background-color: $black
         width: 6px
@@ -54,7 +56,5 @@
       justify-content: center
       flex-direction: row
     & .info
-      &-list
-        &__item
-          &:before
-            top: 10px
+      &-wrapper
+        max-width: 850px
