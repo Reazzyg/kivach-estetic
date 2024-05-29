@@ -37,7 +37,8 @@ require_once('admin.php');
   ?>
 
   <script type="module" src="/admin/js/admin.js?v=<?php echo time(); ?>"></script>
-  <script type="module" src="/assets/js/validation.js?v=<?php echo time(); ?>"></script>
+  <script type="module" src="/admin/js/main.js?v=<?php echo time(); ?>"></script>
+  <!-- <script type="module" src="/assets/js/validation.js?v=<?php echo time(); ?>"></script> -->
 
 </body>
 

@@ -9,7 +9,10 @@
     &.contraindications
       & .container
         grid-template-columns: repeat(2,1fr)
-
+  &.reverse
+    &.info
+      &-doctor
+        background-color: $blue
   & .container
     display: flex
     justify-content: space-between
@@ -30,7 +33,6 @@
     object-fit: cover
   &-list
     margin-bottom: 20px
-
     & .subtitle
       text-align: left
     &__item
@@ -48,6 +50,23 @@
         width: 6px
         height: 6px
         border-radius: 50%
+    &.order
+      // background-color: red
+      & .info
+        counter-reset: list-order
+        &-list
+          counter-increment: list-order
+          &__item
+            padding-left: 20px
+            &::before
+              content: counter(list-order) '.'
+              color: $black
+              padding: 0
+              background-color: unset
+              height: unset
+              width: unset
+              font-size: 18px
+
   &.reverse
     & .container
       flex-direction: row-reverse

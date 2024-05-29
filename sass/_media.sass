@@ -544,7 +544,16 @@
       display: flex
       justify-content: space-between
       width: 100%
-
+  .info
+    &.reverse
+      &.info
+        &-doctor
+          & .container
+            flex-direction: column-reverse
+            & .info
+              &-doctor
+                &__img
+                  margin-bottom: 50px
   .footer
     &-devider
       display: block
@@ -658,6 +667,9 @@
   .info
     &__img
       display: none
+    &-doctor
+      &__img
+        display: block
     &-wrapper
       flex-basis: 100%
     &.grid

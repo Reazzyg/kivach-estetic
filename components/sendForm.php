@@ -24,7 +24,7 @@
      <p class="form-subtitle form-subtitle-top">Сотрудник клиники свяжется с вами в течение рабочего дня</p>
 
      <label>
-       <input type="text" name="name" class="form-input" placeholder="ФИО*">
+       <input type="text" name="name" class="form-input" placeholder="ФИО*" autocomplete="name">
        <div class="form-img"></div>
        <span class="error"></span>
      </label>
@@ -32,14 +32,14 @@
 
      <div class="form-wrapper">
        <label>
-         <input type="tel" name="phone" class="form-input" placeholder="+7 (999) 999-99-99*">
+         <input type="tel" name="phone" class="form-input" placeholder="+7 (999) 999-99-99*" autocomplete="tel">
          <div class="form-img"></div>
          <div class="error"></div>
          <span class="error"></span>
        </label>
 
        <label>
-         <input type="email" name="email" class="form-input form-email" placeholder="Email*">
+         <input type="email" name="email" class="form-input form-email" placeholder="Email*" autocomplete="email">
          <div class="form-img"></div>
          <span class="error"></span>
        </label>

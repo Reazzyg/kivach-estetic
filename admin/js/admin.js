@@ -32,6 +32,7 @@ if (modal) {
       const td = this.parentNode.parentNode.querySelectorAll("td");
 
       const [id, rate, name, comment, active] = td;
+      console.log(td);
 
       rateArea.value = rate.textContent;
 
@@ -307,3 +308,115 @@ class MenuFormHandler {
       });
   }
 }
+
+function convertTextIntoList() {
+  const textarea = document.getElementById("description-to-convert");
+
+  const input = textarea.nextElementSibling;
+
+  const text = textarea.value;
+
+  const lines = text.split("\n").filter((line) => line.trim() !== "");
+
+  let output = '<ul class="info-list">';
+
+  lines.forEach((line) => {
+    output += '<li class="info-list__item">' + line + "</li>";
+  });
+  output += "</ul>";
+
+  input.value = output;
+}
+
+const input = document.getElementById("description-to-convert");
+
+input.addEventListener("blur", convertTextIntoList);
+
+function transliterate(word) {
+  const a = {
+    "А": "A",
+    "Б": "B",
+    "В": "V",
+    "Г": "G",
+    "Д": "D",
+    "Е": "E",
+    "Ё": "E",
+    "Ж": "ZH",
+    "З": "Z",
+    "И": "I",
+    "Й": "Y",
+    "К": "K",
+    "Л": "L",
+    "М": "M",
+    "Н": "N",
+    "О": "O",
+    "П": "P",
+    "Р": "R",
+    "С": "S",
+    "Т": "T",
+    "У": "U",
+    "Ф": "F",
+    "Х": "KH",
+    "Ц": "TS",
+    "Ч": "CH",
+    "Ш": "SH",
+    "Щ": "SHCH",
+    "Ъ": "",
+    "Ы": "Y",
+    "Ь": "",
+    "Э": "E",
+    "Ю": "YU",
+    "Я": "YA",
+    "а": "a",
+    "б": "b",
+    "в": "v",
+    "г": "g",
+    "д": "d",
+    "е": "e",
+    "ё": "e",
+    "ж": "zh",
+    "з": "z",
+    "и": "i",
+    "й": "y",
+    "к": "k",
+    "л": "l",
+    "м": "m",
+    "н": "n",
+    "о": "o",
+    "п": "p",
+    "р": "r",
+    "с": "s",
+    "т": "t",
+    "у": "u",
+    "ф": "f",
+    "х": "kh",
+    "ц": "ts",
+    "ч": "ch",
+    "ш": "sh",
+    "щ": "shch",
+    "ъ": "",
+    "ы": "y",
+    "ь": "",
+    "э": "e",
+    "ю": "yu",
+    "я": "ya",
+  };
+
+  return word
+    .split("")
+    .map((char) => a[char] || "")
+    .join("");
+}
+
+function convertName() {
+  const fullName = document.querySelector("[name='name']").value;
+  const nameParts = fullName.split(" "); // Разделить на слова
+  const transliteratedParts = nameParts.map((part) => transliterate(part.toLowerCase())); // Транслитерировать и преобразовать в нижний регистр
+  let convertedName = transliteratedParts.join("_"); // Объединить с подчеркиваниями
+  convertedName = "/doctors/" + convertedName + ".php";
+  console.log(convertedName); // Вывести результат
+
+  document.querySelector("[name='doc_link']").value = convertedName;
+}
+
+document.querySelector("[name='name']").addEventListener("blur", convertName);

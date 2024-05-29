@@ -77,6 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo json_encode(array("success" => true));
   } else {
     // Если хотя бы один запрос завершился ошибкой, выводим один раз сообщение об ошибке
-    echo json_encode(array("error" => "Ошибка при обновлении данных в базе данных"));
+    echo json_encode(array("error" => "Err 80 Ошибка при обновлении данных в базе данных"));
   }
 }

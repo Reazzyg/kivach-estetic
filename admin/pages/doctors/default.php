@@ -1,205 +1,141 @@
 <?
-function resizeImage($file, $maxWidth, $maxHeight, $quality = 90) {
-    $imageType = exif_imagetype($file);
-    list($origWidth, $origHeight) = getimagesize($file);
-
-    $width = $origWidth;
-    $height = $origHeight;
-
-    // Calculate aspect ratio
-    $ratio = max($origWidth / $maxWidth, $origHeight / $maxHeight);
-
-    if ($ratio < 1) {
-        $width = $origWidth;
-        $height = $origHeight;
-    } else {
-        $width = $maxWidth;
-        $height = $maxHeight;
-    }
-
-    // Create a new image from the original file
-    if ($imageType == IMAGETYPE_JPEG) {
-        $imageResized = imagecreatefromjpeg($file);
-    } elseif ($imageType == IMAGETYPE_PNG) {
-        $imageResized = imagecreatefrompng($file);
-        imagesavealpha($imageResized, true); // Save alpha channel
-    } else {
-        return false; // Unsupported image type
-    }
-
-    $imageResizedNew = imagecreatetruecolor($width, $height);
-
-    // Preserve transparency for PNG images
-    if ($imageType == IMAGETYPE_PNG) {
-        imagealphablending($imageResizedNew, false);
-        imagesavealpha($imageResizedNew, true);
-        $transparent = imagecolorallocatealpha($imageResizedNew, 0, 0, 0, 127);
-        imagefilledrectangle($imageResizedNew, 0, 0, $width, $height, $transparent);
-    }
-
-    imagecopyresampled($imageResizedNew, $imageResized, 0, 0, 0, 0, $width, $height, $origWidth, $origHeight);
-
-    // Save the resized image
-    if ($imageType == IMAGETYPE_JPEG) {
-        imagejpeg($imageResizedNew, $file, $quality);
-    } elseif ($imageType == IMAGETYPE_PNG) {
-        imagepng($imageResizedNew, $file, 5); // 9 is the highest compression level
-    }
-
-    // Free memory
-    imagedestroy($imageResized);
-    imagedestroy($imageResizedNew);
-
-    return $file;
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+require_once 'settings/show_doctors.php';
+require_once 'settings/rewrite_doctor.php';
+require_once 'settings/add_doctor.php';
 
 
-    if (isset($_POST['submit_doctor'])) {
-        $doctorName = $_POST['doctor-name'];
-        $doctorProfession = $_POST['doctor-prof'];
-
-        $doctorPhoto = null;
-     
-       if (isset($_FILES['doctor-photo'])) {
-          $fileTmpPath = $_FILES['doctor-photo']['tmp_name'];
-          if (file_exists($fileTmpPath)) {
-            $fileName = $_FILES['doctor-photo']['name'];
-            $fileType = $_FILES['doctor-photo']['type'];
-            $fileSize = $_FILES['doctor-photo']['size'];
-            $fileNameCmps = explode(".", $fileName);
-            $fileExtension = strtolower(end($fileNameCmps));
-              $allowedExtensions = array('jpg', 'jpeg', 'png');
-
-              if (in_array($fileExtension, $allowedExtensions) && exif_imagetype($fileTmpPath)) {
-                  $resizedFile = resizeImage($fileTmpPath, 800, 800, 90); // Resize the image to a maximum of 800x600 pixels
-                  if ($resizedFile) {
-                     $doctorPhoto = base64_encode(file_get_contents($resizedFile));
-                     unlink($resizedFile); // Remove the temporary resized file
-                  }
-              } else {
-                  echo "Неверный формат изображения. Допустимые форматы: JPG, JPEG, PNG.";
-                  exit;
-              }
-          } else {
-              echo "Файл не найден.";
-              exit;
-          }
-      }
-        
-
-        if (!validateInput($doctorName)) {
-            showError('ФИО врача');
-        } elseif (!validateInput($doctorProfession)) {
-            showError('Специальность врача');
-        } else {
-            $sqlDoctor = "INSERT INTO doctors (name, profession, photo) VALUES ('$doctorName', '$doctorProfession', '$doctorPhoto')";
-
-            $res = customSqlQuery($connect, $sqlDoctor);
-
-            if ($res === TRUE) {
-                echo "Врач успешно добавлен";
-                header("Location: {$_SERVER['PHP_SELF']}");
-                exit();
-
-            } else {
-                echo "Ошибка при добавлении врача: " . $connect->error;
-            }
-        }
-    }
-}
+// $url = $_SERVER['REQUEST_URI'];
 
 ?>
 
-<div class="form">
-  <h3 class="title form-title">Добавить врача</h3>
+<!-- обработка табов (nav tabs) происходит по последнему гет параметру ссылки -->
+<nav class="nav tabs">
+  <ul class="nav-list">
+    <li class="nav-list__item">
+      <a href="/admin/?page=doctors&tab=all" class="nav-list__link">Все врачи</a>
+    </li>
+    <li class="nav-list__item">
+      <a href="/admin/?page=doctors&tab=insert" class="nav-list__link">Добавить врача</a>
+    </li>
+  </ul>
+</nav>
 
-  <form method="post" enctype="multipart/form-data">
-    <label>
-      <input type="text" name="doctor-name" class="form-input" placeholder="ФИО*">
-    </label>
-    <label>
-      <input type="text" name="doctor-prof" class="form-input" placeholder="Специальность*">
-    </label>
-    <div class="file-drop-area">
-      <span class="fake-btn">Добавьте фото врача</span>
-      <span class="file-msg">или перетащите сюда</span>
-      <input class="file-input" name="doctor-photo" type="file" multiple>
-    </div>
 
-    <button class="button form-button" name="submit_doctor">Добавить врача</button>
-  </form>
 
+<!-- к классу добавляется имя гет параметра + show показывает по умолчанию  -->
+<?php
+show_all();
+?>
+
+
+
+
+<?
+add_doctor();
+?>
+
+
+
+<!-- HTML для модального окна -->
+<div id="myModal" class="modal admin-modal">
+  <div class="modal-content">
+
+    <h2>Врач</h2>
+    <form id="reviewContent" method="POST">
+      <label class="active" for="">
+        Активность
+        <input id="active" type="checkbox">
+        <input type="hidden" name="active">
+      </label>
+
+      <label for="">
+        Имя
+        <input name="name" id="name" type="text">
+
+      </label>
+      <label for="">
+        Должность
+        <input name="post" id="post" type="text">
+
+      </label>
+      <label for="">
+        Описание
+        <textarea name="comment" id="comment" cols="80" rows="10"></textarea>
+
+      </label>
+      <input id="id" name="id" type="hidden">
+      <div class="admin-modal-wrapper">
+        <button type="button" class="button warning exit">Выйти без сохранения</button>
+        <button type="submit" class="button save">Сохранить</button>
+      </div>
+    </form>
+
+  </div>
 </div>
-<!-- /.form -->
-  <script>
-  function valid() {
-    let buttons = document.querySelectorAll('.form-button');
 
-    buttons.forEach(button => {
-      button.addEventListener('click', function(event) {
-        let form = this.closest('form');
-        let inputs = form.querySelectorAll('input, textarea');
-        let isValid = true;
+<script>
+class FormHandler {
+  constructor(formSelector, submitButtonSelector, url) {
+    this.form = document.querySelector(formSelector);
+    this.submitButton = document.querySelector(submitButtonSelector);
+    this.url = url;
 
-        inputs.forEach(input => {
-          if (input.value.trim() === '') {
-            isValid = false;
-            let error = document.createElement('p');
-            error.classList.add('error');
-            error.textContent = 'Заполните поле';
-            input.insertAdjacentElement('afterend', error);
-          }
-        });
-
-        if (!isValid) {
-          event.preventDefault();
-        }
-      });
-    });
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.submitButton.addEventListener("click", this.handleSubmit);
   }
 
-  valid();
-
-
-  function formAction() {
-    const fileInput = document.querySelector('.file-input')
-    const dropArea = document.querySelector('.file-drop-area')
-
-    function addClassToInput() {
-      dropArea.classList.add('is-active')
-
+  async sendForm(formData) {
+    try {
+      const response = await fetch(this.url, {
+        method: "POST",
+        body: formData,
+      });
+      if (response && response.ok) {
+        const responseText = await response.text();
+        try {
+          return JSON.parse(responseText);
+        } catch (error) {
+          console.error("Error parsing JSON: ", error);
+          throw new Error("Ошибка при разборе JSON: " + error.message);
+        }
+      } else {
+        throw new Error("Ошибка ответа сервера: " + response.status);
+      }
+    } catch (error) {
+      console.error("Error sending form: ", error);
+      throw new Error("Ошибка при отправке формы: " + error.message);
     }
+  }
 
-    function removeClassFromInput() {
-      dropArea.classList.remove('is-active')
+  handleSubmit(event) {
+    event.preventDefault();
 
-    }
+    const formData = new FormData(this.form);
+    console.log([...formData.entries()]); // Логируем данные формы для проверки
 
-    if (fileInput) {
-      fileInput.addEventListener('dragenter', addClassToInput)
-      fileInput.addEventListener('focus', addClassToInput)
-      fileInput.addEventListener('click', addClassToInput)
-      fileInput.addEventListener('dragleave', removeClassFromInput)
-      fileInput.addEventListener('blur', removeClassFromInput)
-      fileInput.addEventListener('drop', removeClassFromInput)
+    this.sendForm(formData)
+      .then((response) => {
+        if (response.success) {
+          console.log("form sent");
+          window.location.replace('/admin/?page=doctors&tab=all')
 
-      fileInput.addEventListener('change', function() {
-        console.log(this);
-        let filesCount = this.files.length
-        let textContainer = this.previousElementSibling
-
-        if (filesCount === 1) {
-          let fileName = this.value.split('\\').pop()
-          textContainer.textContent = fileName
+          setTimeout(() => {
+            console.log("timeout");
+          }, 500);
         } else {
-          textContainer.textContent = filesCount + ' файлов (-а) выбрано'
+          console.error("Server error: ", response.error);
         }
       })
-    }
+      .catch((error) => {
+        console.error("Error sending form: ", error);
 
+        setTimeout(() => {
+          console.log("timeout error");
+        }, 500);
+      });
   }
+}
 
-  formAction()
-  </script>
+// Создаем экземпляр класса FormHandler
+const formHandler = new FormHandler('form', 'button[name="submit_doctor"]', '/admin/pages/doctors/settings/send.php');
+</script>

@@ -95,7 +95,7 @@
           $active = '';
           $add = '';
           if ($page == $row['link']) $active = 'active';
-          if ($row['name'] == 'Отзывы') $add = '&tab=all'
+          if ($row['name'] == 'Отзывы' || $row['name'] == 'Врачи') $add = '&tab=all'
         ?>
 
      <li class="admin-menu-list__item <? echo $active ?>">
