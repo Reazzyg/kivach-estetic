@@ -42,27 +42,28 @@ add_comment();
 
     <h2>Отзыв</h2>
     <form id="reviewContent" method="POST">
+
       <label class="active" for="">
         Активность
-        <input id="active" type="checkbox">
-        <input type="hidden" name="active">
+        <input type="hidden" name="active" value="нет">
+        <input input-name="active" name="active" id="active" type="checkbox">
       </label>
       <label for="">
         Рейтинг
-        <input name="rating" id="rating" type="text">
+        <input input-name="rating" name="rating" id="rating" type="text">
 
       </label>
       <label for="">
         Имя
-        <input name="name" id="name" type="text">
+        <input input-name="name" name="name" id="name" type="text">
 
       </label>
       <label for="">
         Комментарий
-        <textarea name="comment" id="comment" cols="80" rows="10"></textarea>
+        <textarea input-name="message" name="comment" id="comment" cols="80" rows="10"></textarea>
 
       </label>
-      <input id="id" name="id" type="hidden">
+      <input id="id" input-name="id" name="id" type="hidden">
       <div class="admin-modal-wrapper">
         <button type="button" class="button warning exit">Выйти без сохранения</button>
         <button type="submit" class="button save">Сохранить</button>

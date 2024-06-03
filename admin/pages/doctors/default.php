@@ -42,28 +42,48 @@ add_doctor();
 
     <h2>Врач</h2>
     <form id="reviewContent" method="POST">
-      <label class="active" for="">
+
+
+      <label for="photo">
+        Фото
+        <?
+        $path_to_img = '/assets/img/no-avatar.png'
+        ?>
+
+        <img class="admin-doctor__img" src="
+            <? echo $path_to_img ?>" alt="">
+        <div class="admin-doctor-file-wrapper">
+
+          <input input-name="photo" name="photo" id="photo" type="file">
+          <img class="input-file" src="/assets/img/clip.svg" alt="">
+
+        </div>
+
+      </label>
+
+
+      <label class="active" for="active">
         Активность
-        <input id="active" type="checkbox">
-        <input type="hidden" name="active">
+        <input type="hidden" name="active" value="no">
+        <input input-name="active" name="active" id="active" type="checkbox">
       </label>
 
-      <label for="">
+      <label for="name">
         Имя
-        <input name="name" id="name" type="text">
+        <input input-name="name" name="name" id="name" type="text">
 
       </label>
-      <label for="">
+      <label for="profession">
         Должность
-        <input name="post" id="post" type="text">
+        <input input-name="profession" name="post" id="post" type="text">
 
       </label>
-      <label for="">
+      <label for="comment">
         Описание
-        <textarea name="comment" id="comment" cols="80" rows="10"></textarea>
+        <textarea input-name="description" name="comment" id="comment" cols="80" rows="10"></textarea>
 
       </label>
-      <input id="id" name="id" type="hidden">
+      <input id="id" input-name="id" name="id" type="hidden">
       <div class="admin-modal-wrapper">
         <button type="button" class="button warning exit">Выйти без сохранения</button>
         <button type="submit" class="button save">Сохранить</button>
@@ -74,68 +94,68 @@ add_doctor();
 </div>
 
 <script>
-class FormHandler {
-  constructor(formSelector, submitButtonSelector, url) {
-    this.form = document.querySelector(formSelector);
-    this.submitButton = document.querySelector(submitButtonSelector);
-    this.url = url;
+  class FormHandler {
+    constructor(formSelector, submitButtonSelector, url) {
+      this.form = document.querySelector(formSelector);
+      this.submitButton = document.querySelector(submitButtonSelector);
+      this.url = url;
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.submitButton.addEventListener("click", this.handleSubmit);
-  }
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.submitButton.addEventListener("click", this.handleSubmit);
+    }
 
-  async sendForm(formData) {
-    try {
-      const response = await fetch(this.url, {
-        method: "POST",
-        body: formData,
-      });
-      if (response && response.ok) {
-        const responseText = await response.text();
-        try {
-          return JSON.parse(responseText);
-        } catch (error) {
-          console.error("Error parsing JSON: ", error);
-          throw new Error("Ошибка при разборе JSON: " + error.message);
+    async sendForm(formData) {
+      try {
+        const response = await fetch(this.url, {
+          method: "POST",
+          body: formData,
+        });
+        if (response && response.ok) {
+          const responseText = await response.text();
+          try {
+            return JSON.parse(responseText);
+          } catch (error) {
+            console.error("Error parsing JSON: ", error);
+            throw new Error("Ошибка при разборе JSON: " + error.message);
+          }
+        } else {
+          throw new Error("Ошибка ответа сервера: " + response.status);
         }
-      } else {
-        throw new Error("Ошибка ответа сервера: " + response.status);
+      } catch (error) {
+        console.error("Error sending form: ", error);
+        throw new Error("Ошибка при отправке формы: " + error.message);
       }
-    } catch (error) {
-      console.error("Error sending form: ", error);
-      throw new Error("Ошибка при отправке формы: " + error.message);
+    }
+
+    handleSubmit(event) {
+      event.preventDefault();
+
+      const formData = new FormData(this.form);
+      console.log([...formData.entries()]); // Логируем данные формы для проверки
+
+      this.sendForm(formData)
+        .then((response) => {
+          if (response.success) {
+            console.log("form sent");
+            window.location.replace('/admin/?page=doctors&tab=all')
+
+            setTimeout(() => {
+              console.log("timeout");
+            }, 500);
+          } else {
+            console.error("Server error: ", response.error);
+          }
+        })
+        .catch((error) => {
+          console.error("Error sending form: ", error);
+
+          setTimeout(() => {
+            console.log("timeout error");
+          }, 500);
+        });
     }
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-
-    const formData = new FormData(this.form);
-    console.log([...formData.entries()]); // Логируем данные формы для проверки
-
-    this.sendForm(formData)
-      .then((response) => {
-        if (response.success) {
-          console.log("form sent");
-          window.location.replace('/admin/?page=doctors&tab=all')
-
-          setTimeout(() => {
-            console.log("timeout");
-          }, 500);
-        } else {
-          console.error("Server error: ", response.error);
-        }
-      })
-      .catch((error) => {
-        console.error("Error sending form: ", error);
-
-        setTimeout(() => {
-          console.log("timeout error");
-        }, 500);
-      });
-  }
-}
-
-// Создаем экземпляр класса FormHandler
-const formHandler = new FormHandler('form', 'button[name="submit_doctor"]', '/admin/pages/doctors/settings/send.php');
+  // Создаем экземпляр класса FormHandler
+  const formHandler = new FormHandler('form', 'button[name="submit_doctor"]', '/admin/pages/doctors/settings/send.php');
 </script>

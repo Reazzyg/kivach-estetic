@@ -1,14 +1,16 @@
 <?php
 // Проверяем, был ли отправлен POST-запрос
+
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   // Проверяем наличие необходимых данных в POST-запросе
   if (isset($_POST['id'], $_POST['name'], $_POST['rating'], $_POST['comment'], $_POST['active'])) {
     // Получаем данные из POST-запроса
     $id = $_POST['id'];
-    $name = $_POST['name'];
-    $rating = $_POST['rating'];
-    $comment = $_POST['comment'];
-    $active = $_POST['active']; // Преобразуем в формат, используемый в базе данных
+    $name = isset($_POST['name']) ? $_POST['name'] : '';
+    $rating = isset($_POST['rating']) ? $_POST['rating'] : '';
+    $comment = isset($_POST['comment']) ? $_POST['comment'] : '';
+    $active =  $_POST['active'] == "on" ? "yes" : "no"; // Преобразуем в формат, используемый в базе данных
 
     // Подключаемся к базе данных
     include_once $_SERVER['DOCUMENT_ROOT'] . '/system/functions.php';

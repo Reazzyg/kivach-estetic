@@ -10,46 +10,71 @@ const modal = document.getElementById("myModal");
 const editLinks = document.querySelectorAll(".comment-change");
 if (modal) {
   const modalForm = modal.querySelector("#reviewContent");
-
   const closeButton = modal.querySelector(".exit");
 
-  const rateArea = modal.querySelector("#rating");
+  const data = {};
+  const inputValues = {};
 
-  const nameArea = modal.querySelector("#name");
-
-  const commentArea = modal.querySelector("#comment");
-
-  const activeArea = modal.querySelector("#active");
-
-  const activeInput = modal.querySelector('[name="active"]');
-
-  const idArea = modal.querySelector("#id");
+  // Получаем все инпуты в модальном окне и создаем массив inputValues
+  const modalInputs = modal.querySelectorAll("[input-name]");
+  modalInputs.forEach((modalInput) => {
+    const modalInputName = modalInput.getAttribute("input-name");
+    inputValues[modalInputName] = "";
+  });
 
   editLinks.forEach((link) => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
 
-      const td = this.parentNode.parentNode.querySelectorAll("td");
+      const tds = this.parentNode.parentNode.querySelectorAll("td");
 
-      const [id, rate, name, comment, active] = td;
-      console.log(td);
+      // Формируем массив data с данными из таблицы
+      tds.forEach((td) => {
+        const tdName = td.getAttribute("td-name");
+        let tdValue = td.textContent;
+        if (tdName === "id") {
+          tdValue = td.getAttribute("data-id");
+        }
+        if (tdName === "photo") {
+          tdValue = td.firstChild.nextElementSibling.getAttribute("src");
+        }
+        data[tdName] = tdValue;
+      });
 
-      rateArea.value = rate.textContent;
+      // Сравниваем ключи из data и inputValues и записываем значения
+      for (const key in inputValues) {
+        if (data.hasOwnProperty(key)) {
+          inputValues[key] = data[key];
+        }
+      }
 
-      nameArea.value = name.textContent;
+      // Заполняем инпуты в модальном окне значениями из inputValues
+      modalInputs.forEach((modalInput) => {
+        const modalInputName = modalInput.getAttribute("input-name");
+        if (inputValues.hasOwnProperty(modalInputName)) {
+          if (modalInputName === "active" && modalInput.type === "checkbox") {
+            modalInput.checked = inputValues[modalInputName] === "да";
+          }
+          if (modalInputName === "photo" && modalInput.type === "file") {
+            modalInput.value = "";
 
-      commentArea.value = comment.textContent;
-
-      idArea.value = id.getAttribute("data-id");
-
-      activeArea.checked = active.textContent === "да";
-
-      activeArea.addEventListener("click", function () {
-        activeArea.checked ? (this.nextElementSibling.value = "yes") : (this.nextElementSibling.value = "no");
+            const imgElement = modalInput.closest("label").querySelector(".admin-doctor__img");
+            if (imgElement) {
+              imgElement.src = inputValues[modalInputName];
+            }
+          } else {
+            modalInput.value = inputValues[modalInputName];
+          }
+        }
       });
 
       modal.style.display = "block";
     });
+  });
+
+  // Закрытие модального окна
+  closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
   });
 
   // Закрытие модального окна при клике на кнопку "Закрыть" или вне окна
@@ -59,14 +84,31 @@ if (modal) {
   modal.querySelector("form").addEventListener("submit", async function (event) {
     event.preventDefault(); // Предотвращаем отправку формы по умолчанию
 
+    let url = "";
+
+    console.log(window.location.search.split("&")[0].split("=")[1]);
+
+    let location = window.location.search.split("&")[0].split("=")[1];
+
+    switch (location) {
+      case "doctor":
+        url = "/admin/pages/doctors/settings/send.php";
+        break;
+
+      case "comments":
+        url = "/admin/pages/comments/settings/rewrite_comment.php";
+        break;
+    }
+
     try {
-      const response = await submitHandler(this);
+      const response = await submitHandler(this, url);
       console.log(response);
       if (response && response.success) {
         setTimeout(() => {
           modal.style.display = "none";
           location.reload();
         }, 500);
+        console.log(response);
       }
     } catch (error) {
       console.error(error);
@@ -74,10 +116,10 @@ if (modal) {
   });
 }
 
-async function submitHandler(form) {
+async function submitHandler(form, url) {
   const formData = new FormData(form);
   try {
-    const response = await fetch("/admin/pages/comments/settings/rewrite_comment.php", {
+    const response = await fetch(url, {
       method: "POST",
       body: formData,
     });

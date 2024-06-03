@@ -36,9 +36,9 @@ function show_all()
 
         $table_html .= '<td td-name="' . $fields[3]->name . '">' . $row['description'] . '</td>';
 
-        $table_html .= '<td td-name="' . $fields[5]->name . '">' . ($active == 'active' ? 'да' : 'нет')  . '</td>';
+        $table_html .= '<td td-name="' . $fields[6]->name . '">' . ($active == 'active' ? 'да' : 'нет')  . '</td>';
 
-        $table_html .= '<td > <a class="comment-change" href="">Изменить</a> </td>';
+        $table_html .= '<td td-name="change" > <a class="comment-change" href="">Изменить</a> </td>';
 
         $table_html .= '</tr>';
 

@@ -1852,6 +1852,11 @@ input:focus-visible, textarea:focus-visible {
   width: 100%;
   text-align: center;
 }
+.admin-modal label[for=photo] {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
 .admin-doctor__img {
   height: 100px;
   width: 100px;
