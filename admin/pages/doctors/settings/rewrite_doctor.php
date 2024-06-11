@@ -1,45 +1,59 @@
 <?php
+// Подключаемся к базе данных
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/functions.php';
+
 // Проверяем, был ли отправлен POST-запрос
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   // Проверяем наличие необходимых данных в POST-запросе
-  if (isset($_POST['id'], $_POST['name'], $_POST['rating'], $_POST['comment'], $_POST['active'])) {
-    // Получаем данные из POST-запроса
-    $id = $_POST['id'];
-    $name = $_POST['name'];
-    $rating = $_POST['rating'];
-    $comment = $_POST['comment'];
-    $active = $_POST['active']; // Преобразуем в формат, используемый в базе данных
+  $id = $_POST['id'];
 
-    // Подключаемся к базе данных
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/system/functions.php';
+  // Получаем данные из POST-запроса
+  $name = $_POST['name'];
 
+  $profession = $_POST['post'];
 
-    // Подготавливаем SQL-запрос для обновления данных в базе данных
-    $sql = "UPDATE comments SET name=?, rating=?, message=?, active=? WHERE id=?";
+  $description = isset($_POST['description']) ? $_POST['description'] : '';
 
-    // Подготавливаем выражение для выполнения SQL-запроса
-    $stmt = $connect->prepare($sql);
+  $photo = isset($_FILES['photo']['name']) ? $_FILES['photo']['name'] : null;
 
-    // Привязываем параметры к подготовленному выражению
-    $stmt->bind_param("ssssi", $name, $rating, $comment, $active, $id);
+  // Преобразуем в формат, используемый в базе данных
+  // $active =  $_POST['active'];
+  $active = isset($_POST['active']) && $_POST['active'] == "да" ? "yes" : "no";
+  // echo isset($_POST['active']);
 
-    // Выполняем SQL-запрос
-    if ($stmt->execute()) {
-      // Если запрос выполнен успешно, возвращаем успешный ответ
-      echo json_encode(array("success" => true));
-    } else {
-      // Если возникла ошибка при выполнении запроса, возвращаем сообщение об ошибке
-      echo json_encode(array("error" => "Ошибка при обновлении данных в базе данных"));
+  // $link = $_POST['doc_link'];
+
+  // Обработка файла
+  if ($photo) {
+    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/doctors/";
+    $target_file = $target_dir . basename($_FILES["photo"]["name"]);
+    if (!move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
+      echo json_encode(array("error" => "Ошибка загрузки файла."));
+      exit;
     }
-
-    // Закрываем подготовленное выражение и соединение с базой данных
-    $stmt->close();
-    $connect->close();
-  } else {
-    // Если не хватает данных в POST-запросе, возвращаем сообщение об ошибке
-    echo json_encode(array("error" => "Недостаточно данных для обновления"));
   }
-} else {
-  // Если запрос не является POST-запросом, возвращаем сообщение об ошибке
-  // echo json_encode(array("errorrr" => "Метод запроса должен быть POST"));
+
+
+
+  // Подготавливаем SQL-запрос для обновления данных в базе данных
+  $sql = "UPDATE doctors SET name=?, profession=?, description=?, photo=?, active=? WHERE id=?";
+
+  // Подготавливаем выражение для выполнения SQL-запроса
+  $stmt = $connect->prepare($sql);
+
+  // Привязываем параметры к подготовленному выражению
+  $stmt->bind_param("sssssi", $name, $profession, $description, $photo, $active, $id);
+
+  // Выполняем SQL-запрос
+  if ($stmt->execute()) {
+    // Если запрос выполнен успешно, возвращаем успешный ответ
+    echo json_encode(array("success" => true));
+  } else {
+    // Если возникла ошибка при выполнении запроса, возвращаем сообщение об ошибке
+    echo json_encode(array("error" => "Ошибка при обновлении данных в базе данных"));
+  }
+
+  // Закрываем подготовленное выражение и соединение с базой данных
+  $stmt->close();
+  $connect->close();
 }

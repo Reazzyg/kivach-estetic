@@ -7,18 +7,24 @@ document.querySelector(".content-container").style.marginLeft =
 tabs();
 
 const modal = document.getElementById("myModal");
+
 const editLinks = document.querySelectorAll(".comment-change");
+
 if (modal) {
   const modalForm = modal.querySelector("#reviewContent");
+
   const closeButton = modal.querySelector(".exit");
 
   const data = {};
+
   const inputValues = {};
 
   // Получаем все инпуты в модальном окне и создаем массив inputValues
   const modalInputs = modal.querySelectorAll("[input-name]");
+
   modalInputs.forEach((modalInput) => {
     const modalInputName = modalInput.getAttribute("input-name");
+
     inputValues[modalInputName] = "";
   });
 
@@ -51,14 +57,20 @@ if (modal) {
       // Заполняем инпуты в модальном окне значениями из inputValues
       modalInputs.forEach((modalInput) => {
         const modalInputName = modalInput.getAttribute("input-name");
+
         if (inputValues.hasOwnProperty(modalInputName)) {
           if (modalInputName === "active" && modalInput.type === "checkbox") {
             modalInput.checked = inputValues[modalInputName] === "да";
+            modalInput.addEventListener("click", function () {
+              modalInput.checked ? (modalInput.value = "да") : (modalInput.value = "no");
+            });
           }
+
           if (modalInputName === "photo" && modalInput.type === "file") {
             modalInput.value = "";
 
             const imgElement = modalInput.closest("label").querySelector(".admin-doctor__img");
+
             if (imgElement) {
               imgElement.src = inputValues[modalInputName];
             }
@@ -85,14 +97,12 @@ if (modal) {
     event.preventDefault(); // Предотвращаем отправку формы по умолчанию
 
     let url = "";
-
-    console.log(window.location.search.split("&")[0].split("=")[1]);
-
+    console.log();
     let location = window.location.search.split("&")[0].split("=")[1];
 
     switch (location) {
-      case "doctor":
-        url = "/admin/pages/doctors/settings/send.php";
+      case "doctors":
+        url = "/admin/pages/doctors/settings/rewrite_doctor.php";
         break;
 
       case "comments":
@@ -102,11 +112,10 @@ if (modal) {
 
     try {
       const response = await submitHandler(this, url);
-      console.log(response);
       if (response && response.success) {
         setTimeout(() => {
           modal.style.display = "none";
-          location.reload();
+          // location.reload();
         }, 500);
         console.log(response);
       }
@@ -351,28 +360,32 @@ class MenuFormHandler {
   }
 }
 
-function convertTextIntoList() {
-  const textarea = document.getElementById("description-to-convert");
+function convertTextIntoList(event) {
+  const textarea = event.target; // Получаем элемент, вызвавший событие
+  const input = textarea.nextElementSibling; // Предполагаем, что следующий элемент — это input
+  const text = textarea.value; // Получаем текст из textarea
 
-  const input = textarea.nextElementSibling;
-
-  const text = textarea.value;
-
+  // Разделяем текст на строки и фильтруем пустые строки
   const lines = text.split("\n").filter((line) => line.trim() !== "");
 
+  // Формируем HTML-код для списка
   let output = '<ul class="info-list">';
-
   lines.forEach((line) => {
     output += '<li class="info-list__item">' + line + "</li>";
   });
   output += "</ul>";
 
-  input.value = output;
+  console.log(output);
+  input.value = output; // Устанавливаем полученный HTML-код в значение input
 }
 
-const input = document.getElementById("description-to-convert");
+// Находим все textarea с атрибутом data-id='description-to-convert' и добавляем обработчик события blur
+const inputsToConvert = document.querySelectorAll("[data-id='description-to-convert']");
+inputsToConvert.forEach((input) => {
+  input.addEventListener("blur", convertTextIntoList);
+});
 
-input.addEventListener("blur", convertTextIntoList);
+// input.addEventListener("blur", convertTextIntoList);
 
 function transliterate(word) {
   const a = {

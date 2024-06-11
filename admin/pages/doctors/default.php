@@ -64,7 +64,7 @@ add_doctor();
 
       <label class="active" for="active">
         Активность
-        <input type="hidden" name="active" value="no">
+        <!-- <input type="hidden" name="active" value="no"> -->
         <input input-name="active" name="active" id="active" type="checkbox">
       </label>
 
@@ -78,9 +78,12 @@ add_doctor();
         <input input-name="profession" name="post" id="post" type="text">
 
       </label>
-      <label for="comment">
+      <label for="description">
         Описание
-        <textarea input-name="description" name="comment" id="comment" cols="80" rows="10"></textarea>
+        <textarea data-id="description-to-convert" input-name="description" id="description" cols="80"
+          rows="10"></textarea>
+        <input type="hidden" name="description">
+
 
       </label>
       <input id="id" input-name="id" name="id" type="hidden">
@@ -94,68 +97,68 @@ add_doctor();
 </div>
 
 <script>
-  class FormHandler {
-    constructor(formSelector, submitButtonSelector, url) {
-      this.form = document.querySelector(formSelector);
-      this.submitButton = document.querySelector(submitButtonSelector);
-      this.url = url;
+class FormHandler {
+  constructor(formSelector, submitButtonSelector, url) {
+    this.form = document.querySelector(formSelector);
+    this.submitButton = document.querySelector(submitButtonSelector);
+    this.url = url;
 
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.submitButton.addEventListener("click", this.handleSubmit);
-    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.submitButton.addEventListener("click", this.handleSubmit);
+  }
 
-    async sendForm(formData) {
-      try {
-        const response = await fetch(this.url, {
-          method: "POST",
-          body: formData,
-        });
-        if (response && response.ok) {
-          const responseText = await response.text();
-          try {
-            return JSON.parse(responseText);
-          } catch (error) {
-            console.error("Error parsing JSON: ", error);
-            throw new Error("Ошибка при разборе JSON: " + error.message);
-          }
-        } else {
-          throw new Error("Ошибка ответа сервера: " + response.status);
+  async sendForm(formData) {
+    try {
+      const response = await fetch(this.url, {
+        method: "POST",
+        body: formData,
+      });
+      if (response && response.ok) {
+        const responseText = await response.text();
+        try {
+          return JSON.parse(responseText);
+        } catch (error) {
+          console.error("Error parsing JSON: ", error);
+          throw new Error("Ошибка при разборе JSON: " + error.message);
         }
-      } catch (error) {
-        console.error("Error sending form: ", error);
-        throw new Error("Ошибка при отправке формы: " + error.message);
+      } else {
+        throw new Error("Ошибка ответа сервера: " + response.status);
       }
-    }
-
-    handleSubmit(event) {
-      event.preventDefault();
-
-      const formData = new FormData(this.form);
-      console.log([...formData.entries()]); // Логируем данные формы для проверки
-
-      this.sendForm(formData)
-        .then((response) => {
-          if (response.success) {
-            console.log("form sent");
-            window.location.replace('/admin/?page=doctors&tab=all')
-
-            setTimeout(() => {
-              console.log("timeout");
-            }, 500);
-          } else {
-            console.error("Server error: ", response.error);
-          }
-        })
-        .catch((error) => {
-          console.error("Error sending form: ", error);
-
-          setTimeout(() => {
-            console.log("timeout error");
-          }, 500);
-        });
+    } catch (error) {
+      console.error("Error sending form: ", error);
+      throw new Error("Ошибка при отправке формы: " + error.message);
     }
   }
 
-  // Создаем экземпляр класса FormHandler
-  const formHandler = new FormHandler('form', 'button[name="submit_doctor"]', '/admin/pages/doctors/settings/send.php');
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this.form);
+    console.log([...formData.entries()]); // Логируем данные формы для проверки
+
+    this.sendForm(formData)
+      .then((response) => {
+        if (response.success) {
+          console.log("form sent");
+          window.location.replace('/admin/?page=doctors&tab=all')
+
+          setTimeout(() => {
+            console.log("timeout");
+          }, 500);
+        } else {
+          console.error("Server error: ", response.error);
+        }
+      })
+      .catch((error) => {
+        console.error("Error sending form: ", error);
+
+        setTimeout(() => {
+          console.log("timeout error");
+        }, 500);
+      });
+  }
+}
+
+// Создаем экземпляр класса FormHandler
+const formHandler = new FormHandler('form', 'button[name="submit_doctor"]', '/admin/pages/doctors/settings/send.php');
 </script>

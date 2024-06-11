@@ -38,68 +38,68 @@
 {
 
 ?>
-  <!-- action="/admin/pages/doctors/settings/send.php" -->
-  <div class="tabs-content insert">
-    <div class="admin-doctor insert">
-      <div class="modal-content">
+<!-- action="/admin/pages/doctors/settings/send.php" -->
+<div class="tabs-content insert">
+  <div class="admin-doctor insert">
+    <div class="modal-content">
 
-        <h2>Врач</h2>
-        <form id="reviewContent" method="POST" enctype="multipart/form-data">
+      <h2>Врач</h2>
+      <form id="reviewContent" method="POST" enctype="multipart/form-data">
 
-          <label for="photo">
-            Фото
-            <div class="admin-doctor-file-wrapper">
+        <label for="photo">
+          Фото
+          <div class="admin-doctor-file-wrapper">
 
-              <input name="photo" id="photo" type="file">
-              <img class="input-file" src="/assets/img/clip.svg" alt="">
+            <input name="photo" id="photo" type="file">
+            <img class="input-file" src="/assets/img/clip.svg" alt="">
 
-            </div>
-            <!-- /.admin-doctor-file-wrapper -->
+          </div>
+          <!-- /.admin-doctor-file-wrapper -->
 
-            <?
+          <?
             $path_to_img = '/assets/img/no-avatar.png'
             ?>
 
-            <img class="admin-doctor__img" src="
+          <img class="admin-doctor__img" src="
             <? echo $path_to_img ?>" alt="">
 
 
 
-          </label>
+        </label>
 
-          <label class="active" for="active">
-            Активность
-            <input id="active" name="active" type="checkbox" checked>
-          </label>
+        <label class="active" for="active">
+          Активность
+          <input id="active" name="active" type="checkbox" checked>
+        </label>
 
-          <label for="name">
-            Имя
-            <input name="name" id="name" type="text">
+        <label for="name">
+          Имя
+          <input name="name" id="name" type="text">
 
-          </label>
+        </label>
 
-          <input type="hidden" name="doc_link">
+        <input type="hidden" name="doc_link">
 
-          <label for="post">
-            Должность
-            <input name="post" id="post" type="text">
+        <label for="post">
+          Должность
+          <input name="post" id="post" type="text">
 
-          </label>
-          <label for="description">
-            Описание
-            <textarea id="description-to-convert" id="description" cols="80" rows="10"></textarea>
-            <input type="hidden" name="description">
-          </label>
-          <input id="id" name="id" type="hidden">
-          <div class="admin-modal-wrapper">
-            <button type="button" class="button warning exit">Выйти без сохранения</button>
-            <button type="submit" name="submit_doctor" class="button save">Сохранить</button>
-          </div>
-        </form>
+        </label>
+        <label for="description">
+          Описание
+          <textarea data-id="description-to-convert" name="description" id="description" cols="80" rows="10"></textarea>
+          <input type="hidden" name="description">
+        </label>
+        <input id="id" name="id" type="hidden">
+        <div class="admin-modal-wrapper">
+          <button type="button" class="button warning exit">Выйти без сохранения</button>
+          <button type="submit" name="submit_doctor" class="button save">Сохранить</button>
+        </div>
+      </form>
 
-      </div>
     </div>
   </div>
+</div>
 
 <?
 }

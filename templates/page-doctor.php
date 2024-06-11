@@ -1,5 +1,9 @@
 <?
+
+$title = $data['name'];
+
 include $_SERVER['DOCUMENT_ROOT'] . '/components/header-admin.php';
+
 ?>
 
 <section class="info reverse info-doctor">

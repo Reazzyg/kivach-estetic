@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = isset($_POST['name']) ? $_POST['name'] : '';
     $rating = isset($_POST['rating']) ? $_POST['rating'] : '';
     $comment = isset($_POST['comment']) ? $_POST['comment'] : '';
-    $active =  $_POST['active'] == "on" ? "yes" : "no"; // Преобразуем в формат, используемый в базе данных
+    $active =  $_POST['active'] == "да" ? "yes" : "no"; // Преобразуем в формат, используемый в базе данных
 
     // Подключаемся к базе данных
     include_once $_SERVER['DOCUMENT_ROOT'] . '/system/functions.php';
