@@ -14,7 +14,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   $description = isset($_POST['description']) ? $_POST['description'] : '';
 
-  $photo = isset($_FILES['photo']['name']) ? $_FILES['photo']['name'] : null;
+  $photo = $_FILES["file"]["error"] = 4 ?  $_POST['photo_unchanged'] : $_FILES['photo']['name'];
+
+
+  $photoe =  $_POST['photo_unchanged'];
+
+  // echo gettype($photo);
+  // echo gettype($_POST['photo']);
+  echo $photo;
+  echo $description;
+
 
   // Преобразуем в формат, используемый в базе данных
   // $active =  $_POST['active'];
@@ -23,14 +32,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   // $link = $_POST['doc_link'];
 
-  // Обработка файла
+  // Обработка файла, если он был загружен
   if ($photo) {
+
     $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/doctors/";
     $target_file = $target_dir . basename($_FILES["photo"]["name"]);
-    if (!move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
+
+    if (!move_uploaded_file(
+      $_FILES["photo"]["tmp_name"],
+      $target_file
+    )) {
       echo json_encode(array("error" => "Ошибка загрузки файла."));
       exit;
     }
+  } else {
+    // Оставляем значение фото без изменений
+    $photo = $_POST['photo_unchanged'];
   }
 
 

@@ -234,27 +234,8 @@ load_template("page-hero", array(
 
 
 
-<section class="info">
-  <h2 class="subtitle">Операции проводит</h2>
-  <div class="container">
-    <div class="info-wrapper">
-      <p class="text info__text"><b>Александр Олегович ЗАЙЦЕВ</b> </p>
-      <p class="text info__text">Пластический хирург.</p>
-      <ul class="info-list">
-        <li class="info-list__item">Окончил Петрозаводский госуниверситет и ординатуру при нём по специальности
-          «Пластическая и реконструктивная хирургия».
-        </li>
-        <li class="info-list__item">Стажировался в BK HOSPITAL, г.Сеул, Южная Корея.
-        </li>
-        <li class="info-list__item">Постоянно принимает участие в международных симпозиумах и мастер-классах по
-          пластической и реконструктивной хирургии.
-        </li>
-
-      </ul>
-    </div>
-    <img src="<? get_img_path() ?>rino-text-1.png" alt="фото пьезот" class="info__img brs30 ">
-  </div>
-</section>
+<? getDoctorInfo('Александр Олегович ЗАЙЦЕВ');
+?>
 
 
 <section class="order">

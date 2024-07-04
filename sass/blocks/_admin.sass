@@ -35,7 +35,7 @@
         text-align: center
   &-modal
     & label
-      &[for="photo"]
+      &[for="photo"], &[for="photoe"]
         flex-direction: row
         justify-content: flex-start
         align-items: center
@@ -73,6 +73,7 @@
         position: relative
         width: 50px
         height: 50px
+        cursor: pointer
   & .login
     height: 100vh
     width: 100vw
@@ -239,7 +240,7 @@ tr
     border-radius: 50%
 
 label
-  &[for="photo"], &[for="active"]
+  &[for="photo"], &[for="active"], &[for="photoe"]
     display: flex
     align-items: center
     margin: 40px 0
@@ -255,6 +256,9 @@ label
         transform: translateY(-50%)
         background-color: red
         opacity: 0
+        cursor: pointer
+
+        z-index: 1
     & .input-file
       position: absolute
       right: 0
@@ -265,3 +269,7 @@ label
       transform: translateY(-50%)
       cursor: pointer
       opacity: 1
+      border: 2px solid $black
+      border-radius: 10px
+      box-shadow: 2px 2px 5px #353c41
+      cursor: pointer

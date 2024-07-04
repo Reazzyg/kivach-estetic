@@ -70,9 +70,13 @@ if (modal) {
             modalInput.value = "";
 
             const imgElement = modalInput.closest("label").querySelector(".admin-doctor__img");
+            const photoNotChanged = modalInput.closest("label").querySelector("[name='photo_unchanged']");
 
             if (imgElement) {
               imgElement.src = inputValues[modalInputName];
+              let fileName = inputValues[modalInputName].split("/");
+              fileName = fileName[fileName.length - 1];
+              photoNotChanged.value = fileName;
             }
           } else {
             modalInput.value = inputValues[modalInputName];

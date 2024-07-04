@@ -148,7 +148,7 @@ load_template("page-hero", array(
         <li class="info-list__item text">Сколько графтов нужно пересадить? Какова будет стоимость операции?</li>
         <li class="info-list__item text"> <a class="" href="/plastic-surgery/norwood-hamilton/">Шкала Норвуда-Гамильтона
             – подробности здесь. </a></li>
-        <li class="info-list__item text"> <a target="_blank" class="" href="/attachments/surgery_menu.pdf">Оценить
+        <li class="info-list__item text"> <a target="_blank" class="" href="hair-transplantation-memo.pdf">Оценить
             ситуацию самостоятельно – скачать
             памятку</a></li>
 
@@ -226,33 +226,8 @@ load_template("page-hero", array(
 
 
 
-
-<section class="info">
-  <h2 class="subtitle">Операции проводит</h2>
-  <div class="container">
-    <div class="info-wrapper">
-      <p class="text info__text"><b>Артём Игоревич ГОЛОДЯГИН</b> </p>
-      <p class="text info__text">Врач-хирург.</p>
-      <!-- <ul class="info-list">
-        <li class="info-list__item">Окончил Петрозаводский госуниверситет и интернатуру при нём по специальности
-          «Хирургия».
-        </li>
-        <li class="info-list__item">Прошёл профессиональную переподготовку по специальности «Онкология».
-        </li>
-        <li class="info-list__item">Более 10-ти лет проработал в онко-хирургии, из которых 7 лет занимался
-          непосредственно реконструктивно-пластической хирургией головы и шеи.
-        </li>
-        <li class="info-list__item">В год производит 250 операций.
-        </li>
-        <li class="info-list__item">Всего с начала карьеры произвёл более 3000 операций.
-        </li>
-
-
-      </ul> -->
-    </div>
-    <img src="<? get_img_path() ?>rino-text-1.png" alt="фото пьезот" class="info__img brs30 ">
-  </div>
-</section>
+<? getDoctorInfo('Артём Игоревич ГОЛОДЯГИН');
+?>
 
 
 <section class="order">

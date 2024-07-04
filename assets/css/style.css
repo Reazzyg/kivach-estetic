@@ -156,6 +156,10 @@ h3.subtitle {
   background-color: #C74545;
 }
 
+.video iframe {
+  border-radius: 30px;
+}
+
 .navigation {
   padding: 30px 0;
   width: 100%;
@@ -1852,7 +1856,7 @@ input:focus-visible, textarea:focus-visible {
   width: 100%;
   text-align: center;
 }
-.admin-modal label[for=photo] {
+.admin-modal label[for=photo], .admin-modal label[for=photoe] {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -1893,6 +1897,7 @@ input:focus-visible, textarea:focus-visible {
   position: relative;
   width: 50px;
   height: 50px;
+  cursor: pointer;
 }
 .admin .login {
   height: 100vh;
@@ -2096,13 +2101,13 @@ tr:nth-child(even) {
   border-radius: 50%;
 }
 
-label[for=photo], label[for=active] {
+label[for=photo], label[for=active], label[for=photoe] {
   display: flex;
   align-items: center;
   margin: 40px 0;
   position: relative;
 }
-label[for=photo] input[type=file], label[for=active] input[type=file] {
+label[for=photo] input[type=file], label[for=active] input[type=file], label[for=photoe] input[type=file] {
   position: absolute;
   right: 0;
   top: 50%;
@@ -2112,8 +2117,10 @@ label[for=photo] input[type=file], label[for=active] input[type=file] {
   transform: translateY(-50%);
   background-color: red;
   opacity: 0;
+  cursor: pointer;
+  z-index: 1;
 }
-label[for=photo] .input-file, label[for=active] .input-file {
+label[for=photo] .input-file, label[for=active] .input-file, label[for=photoe] .input-file {
   position: absolute;
   right: 0;
   top: 50%;
@@ -2123,6 +2130,10 @@ label[for=photo] .input-file, label[for=active] .input-file {
   transform: translateY(-50%);
   cursor: pointer;
   opacity: 1;
+  border: 2px solid #474747;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px #353c41;
+  cursor: pointer;
 }
 
 .button:hover {

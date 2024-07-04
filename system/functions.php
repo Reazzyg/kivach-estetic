@@ -103,3 +103,42 @@ function customSqlQuery($connect, $q)
     if (mysqli_error($connect)) msg($q, 'error');
     return $res;
 }
+
+
+function getDoctorInfo($doctorName)
+{
+    global $connect;
+
+    // Подготавливаем SQL-запрос для выборки данных врача по имени
+    $sql = "SELECT name, profession, description, photo FROM doctors WHERE name = ?";
+    $stmt = $connect->prepare($sql);
+    $stmt->bind_param("s", $doctorName);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Извлекаем данные врача
+        $doctor = $result->fetch_assoc();
+
+
+        // Формируем HTML-код
+        echo '<section class="info">';
+        echo '<h2 class="subtitle">Операции проводит</h2>';
+        echo '<div class="container">';
+        echo '<div class="info-wrapper">';
+        echo '<p class="text info__text"><b>' . htmlspecialchars($doctor['name']) . '</b></p>';
+        echo '<p class="text info__text">' . htmlspecialchars($doctor['profession']) . '.</p>';
+        echo $doctor['description'];
+
+        echo '</div>';
+        echo '<img src="/assets/img/doctors/' . htmlspecialchars($doctor['photo']) . '" alt="Фото врача" class="info__img brs30">';
+        echo '</div>';
+        echo '</section>';
+    } else {
+        // Если данных нет, выводим сообщение
+        echo '<p>Данные о враче не найдены.</p>';
+    }
+
+    // Закрываем подготовленное выражение
+    $stmt->close();
+}

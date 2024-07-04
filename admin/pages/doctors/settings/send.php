@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $active = isset($_POST['active']) ? 'yes' : 'no';
   $link = $_POST['doc_link'];
 
+
   // Логируем данные формы
   error_log("Name: $name, Post: $post, Description: $description, Photo: $photo, Active: $active, Link: $link");
 

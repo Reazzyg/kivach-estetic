@@ -1,42 +1,615 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Админ</title>
+    <link rel="stylesheet" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <!-- <script src="/assets/js/admin.js?v=1718889040"></script> -->
+
+    <style></style>
   </head>
-  <style>
-    .container {
-      width: 100%;
-      height: 500px;
-      background-color: grey;
-      margin: auto;
-      position: relative;
-    }
 
-    .card {
-      width: 150px;
-      height: 150px;
-      background-color: red;
-      position: absolute;
-    }
+  <body class="admin">
+    <aside class="admin-menu">
+      <h2 class="subtitle">Врачи</h2>
+      <ul class="admin-menu-list">
+        <li class="admin-menu-list__item">
+          <a href="/admin/?page=comments&amp;tab=all" class="admin-menu-list__link"> Отзывы </a>
+        </li>
 
-    .card2 {
-      right: -100px;
-    }
-  </style>
+        <li class="admin-menu-list__item active">
+          <a href="/admin/?page=doctors&amp;tab=all" class="admin-menu-list__link"> Врачи </a>
+        </li>
 
-  <body>
-    <!-- вот так правильно -->
-    <img src="home.jpg" alt="" />
+        <li class="admin-menu-list__item">
+          <a href="/admin/?page=requests" class="admin-menu-list__link"> Заявки </a>
+        </li>
 
-    <!-- вот так не правильно -->
-    <img src="0eb8fd9d28fad11a96a5fdfe21e0c388.jpg" alt="" />
+        <li class="admin-menu-list__item">
+          <a href="/admin/?page=menu" class="admin-menu-list__link"> Меню </a>
+        </li>
+      </ul>
+      <a href="/?exit=1" class="admin-menu__exit button">Выход</a>
+    </aside>
+    <!-- /.menu -->
+    <div class="content-container" style="margin-left: 163px">
+      <!--  -->
 
-    <div class="container">
-      <div class="card card1"></div>
+      <!-- обработка табов (nav tabs) происходит по последнему гет параметру ссылки -->
+      <nav class="nav tabs">
+        <ul class="nav-list">
+          <li class="nav-list__item">
+            <a href="/admin/?page=doctors&amp;tab=all" class="nav-list__link">Все врачи</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="/admin/?page=doctors&amp;tab=insert" class="nav-list__link">Добавить врача</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- к классу добавляется имя гет параметра + show показывает по умолчанию  -->
+      <!-- к классу добавляется имя гет параметра(all) + show показывает по умолчанию  -->
+      <div class="tabs-content tabs-content-comments show all">
+        <table>
+          <thead>
+            <tr>
+              <th>№</th>
+              <th th-name="photo">Фото</th>
+              <th th-name="name">Имя</th>
+              <th th-name="prof">Должность</th>
+              <th th-name="decr">Описание</th>
+              <th th-name="active">Активность</th>
+              <th th-name="change">Изменить</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td td-name="id" data-id="84">1</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/улич рбк.jpg" <="" td="" /></td>
+              <td td-name="name">asd</td>
+              <td td-name="profession">asd</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">asd</li>
+                  <li class="info-list__item">as</li>
+                  <li class="info-list__item">das</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="83">2</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/" <="" td="" /></td>
+              <td td-name="name">Зайцев Лох Пидрович23</td>
+              <td td-name="profession">dsfsd1</td>
+              <td td-name="description"></td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="82">3</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/" <="" td="" /></td>
+              <td td-name="name">Зайцев Лох Пидрович</td>
+              <td td-name="profession">Ебланолог</td>
+              <td td-name="description"></td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="81">4</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/" <="" td="" /></td>
+              <td td-name="name">Зайцев Лох Пидрович123zxc</td>
+              <td td-name="profession">Ебланологфывфzxc</td>
+              <td td-name="description">фывфывфывфывфывфывфывфывфывячсzxc</td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="80">5</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/" <="" td="" /></td>
+              <td td-name="name">Семен5</td>
+              <td td-name="profession">ййцуйцуйцуйчяап</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">asdasdasdasdadsdsa</li>
+                  <li class="info-list__item">фыв</li>
+                  <li class="info-list__item">ыфв</li>
+                  <li class="info-list__item">фыв</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="79">6</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/" <="" td="" /></td>
+              <td td-name="name">ИП Воробьев Р.В.</td>
+              <td td-name="profession">фыв</td>
+              <td td-name="description"></td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="78">7</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/IMG_9034.jpg" <="" td="" /></td>
+              <td td-name="name">Семен</td>
+              <td td-name="profession">ййцуйцуйцуйчяап</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">asdasd</li>
+                  <li class="info-list__item">as</li>
+                  <li class="info-list__item">das</li>
+                  <li class="info-list__item">d</li>
+                  <li class="info-list__item">asdasdas</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="77">8</td>
+              <td td-name="photo">
+                <img class="table__img" src="/assets/img/doctors/talasso-text-1.png" <="" td="" />
+              </td>
+              <td td-name="name">Семен</td>
+              <td td-name="profession">фывфa</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">zx</li>
+                  <li class="info-list__item">zxc</li>
+                  <li class="info-list__item">zcx</li>
+                  <li class="info-list__item">cx</li>
+                  <li class="info-list__item">zcxz</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="76">9</td>
+              <td td-name="photo">
+                <img class="table__img" src="/assets/img/doctors/talasso-text-2.png" <="" td="" />
+              </td>
+              <td td-name="name">Семен</td>
+              <td td-name="profession">фывыфв</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">ячс</li>
+                  <li class="info-list__item">ячс</li>
+                  <li class="info-list__item">ячс</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="75">10</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/conf_1.jpg" <="" td="" /></td>
+              <td td-name="name">ИП Воробьев Р</td>
+              <td td-name="profession">фыв</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">asd</li>
+                  <li class="info-list__item">asd</li>
+                  <li class="info-list__item">as</li>
+                  <li class="info-list__item">das</li>
+                  <li class="info-list__item">das</li>
+                </ul>
+              </td>
+              <td td-name="active">нет</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="74">11</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/conf_1.jpg" <="" td="" /></td>
+              <td td-name="name">ИП Воробьев Р.В.</td>
+              <td td-name="profession">фыв</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">asd</li>
+                  <li class="info-list__item">asd</li>
+                  <li class="info-list__item">as</li>
+                  <li class="info-list__item">das</li>
+                  <li class="info-list__item">das</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="73">12</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/conf_1.jpg" <="" td="" /></td>
+              <td td-name="name">ИП Воробьев Р.В.</td>
+              <td td-name="profession">апр</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">asaasd</li>
+                  <li class="info-list__item">asd</li>
+                  <li class="info-list__item">as</li>
+                  <li class="info-list__item">das</li>
+                  <li class="info-list__item">da</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="72">13</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/conf_1.jpg" <="" td="" /></td>
+              <td td-name="name">ИП Воробьев Р.В.</td>
+              <td td-name="profession">фыв</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">фывфыв</li>
+                  <li class="info-list__item">фы</li>
+                  <li class="info-list__item">вфыв</li>
+                  <li class="info-list__item">фы</li>
+                  <li class="info-list__item">в</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="71">14</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/conf_1.jpg" <="" td="" /></td>
+              <td td-name="name">ывалоывалорд</td>
+              <td td-name="profession">ывлаодрыва ывалор</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">ываор</li>
+                  <li class="info-list__item">ыва</li>
+                  <li class="info-list__item">ыва</li>
+                  <li class="info-list__item">ыва</li>
+                  <li class="info-list__item">ыва</li>
+                  <li class="info-list__item">ыва</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="70">15</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/" <="" td="" /></td>
+              <td td-name="name">ываоыдваи</td>
+              <td td-name="profession"></td>
+              <td td-name="description"></td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="69">16</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/" <="" td="" /></td>
+              <td td-name="name">виктор сергеевич чсленовсосво</td>
+              <td td-name="profession">фывлль</td>
+              <td td-name="description"></td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="68">17</td>
+              <td td-name="photo">
+                <img class="table__img" src="/assets/img/doctors/spa-uhodi-text-1.png" <="" td="" />
+              </td>
+              <td td-name="name">анатолий алексондрович хуй</td>
+              <td td-name="profession">главный еблан</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">жлдофыв</li>
+                  <li class="info-list__item">фыв</li>
+                  <li class="info-list__item">фыв</li>
+                  <li class="info-list__item">фыв</li>
+                  <li class="info-list__item">фыв</li>
+                  <li class="info-list__item">фы</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="67">18</td>
+              <td td-name="photo">
+                <img class="table__img" src="/assets/img/doctors/talasso-text-2.png" <="" td="" />
+              </td>
+              <td td-name="name">ййцуйцу</td>
+              <td td-name="profession">йцуйцуйцу</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">фыячсы</li>
+                  <li class="info-list__item">фыв</li>
+                  <li class="info-list__item">счяфыв</li>
+                  <li class="info-list__item">йцу</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="66">19</td>
+              <td td-name="photo">
+                <img class="table__img" src="/assets/img/doctors/talasso-text-1.png" <="" td="" />
+              </td>
+              <td td-name="name">дордорд</td>
+              <td td-name="profession">дордлр</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">долрдлр</li>
+                  <li class="info-list__item">выапфыв</li>
+                  <li class="info-list__item">фыв</li>
+                  <li class="info-list__item">фыв</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="65">20</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/" <="" td="" /></td>
+              <td td-name="name">дордор</td>
+              <td td-name="profession"></td>
+              <td td-name="description"></td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="64">21</td>
+              <td td-name="photo"><img class="table__img" src="/assets/img/doctors/conf_1.jpg" <="" td="" /></td>
+              <td td-name="name">апр</td>
+              <td td-name="profession">апр</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">апрапр</li>
+                  <li class="info-list__item">апр</li>
+                  <li class="info-list__item">апр</li>
+                  <li class="info-list__item">апр</li>
+                  <li class="info-list__item">апр</li>
+                  <li class="info-list__item">апр</li>
+                  <li class="info-list__item">апр</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="63">22</td>
+              <td td-name="photo">
+                <img class="table__img" src="/assets/img/doctors/photo_2024-05-28_13-19-26.jpg" <="" td="" />
+              </td>
+              <td td-name="name">фывфыв</td>
+              <td td-name="profession">фывф</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">фывыфв</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+            <tr>
+              <td td-name="id" data-id="62">23</td>
+              <td td-name="photo">
+                <img class="table__img" src="/assets/img/doctors/photo_2024-05-28_13-19-26.jpg" <="" td="" />
+              </td>
+              <td td-name="name">фывфыв</td>
+              <td td-name="profession">фывф</td>
+              <td td-name="description">
+                <ul class="info-list">
+                  <li class="info-list__item">фывыфв</li>
+                </ul>
+              </td>
+              <td td-name="active">да</td>
+              <td td-name="change"><a class="comment-change" href="">Изменить</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- action="/admin/pages/doctors/settings/send.php" -->
+      <div class="tabs-content insert">
+        <div class="admin-doctor insert">
+          <div class="modal-content">
+            <h2>Врач</h2>
+            <form id="reviewContent" method="POST" enctype="multipart/form-data">
+              <label for="photo">
+                Фото
+                <div class="admin-doctor-file-wrapper">
+                  <input name="photo" id="photo" type="file" />
+                  <img class="input-file" src="/assets/img/clip.svg" alt="" />
+                </div>
+                <!-- /.admin-doctor-file-wrapper -->
+
+                <img
+                  class="admin-doctor__img"
+                  src="
+            /assets/img/no-avatar.png"
+                  alt=""
+                />
+              </label>
+
+              <label class="active" for="active">
+                Активность
+                <input id="active" name="active" type="checkbox" checked="" />
+              </label>
+
+              <label for="name">
+                Имя
+                <input name="name" id="name" type="text" />
+              </label>
+
+              <input type="hidden" name="doc_link" />
+
+              <label for="post">
+                Должность
+                <input name="post" id="post" type="text" />
+              </label>
+              <label for="description">
+                Описание
+                <textarea
+                  data-id="description-to-convert"
+                  name="description"
+                  id="description"
+                  cols="80"
+                  rows="10"
+                ></textarea>
+                <input type="hidden" name="description" />
+              </label>
+              <input id="id" name="id" type="hidden" />
+              <div class="admin-modal-wrapper">
+                <button type="button" class="button warning exit">Выйти без сохранения</button>
+                <button type="submit" name="submit_doctor" class="button save">Сохранить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- HTML для модального окна -->
+      <div id="myModal" class="modal admin-modal" style="display: block">
+        <div class="modal-content">
+          <h2>Врач</h2>
+          <form id="reviewContent" method="POST">
+            <label for="photo">
+              Фото
+
+              <img class="admin-doctor__img" src="/assets/img/doctors/" alt="" />
+              <div class="admin-doctor-file-wrapper">
+                <input input-name="photo" name="photo" id="photoe" type="file" />
+                <img class="input-file" src="/assets/img/clip.svg" alt="" />
+              </div>
+            </label>
+
+            <label class="active" for="active">
+              Активность
+              <!-- <input type="hidden" name="active" value="no"> -->
+              <input input-name="active" name="active" id="active" type="checkbox" value="да" />
+            </label>
+
+            <label for="name">
+              Имя
+              <input input-name="name" name="name" id="name" type="text" />
+            </label>
+            <label for="profession">
+              Должность
+              <input input-name="profession" name="post" id="post" type="text" />
+            </label>
+            <label for="description">
+              Описание
+              <textarea
+                data-id="description-to-convert"
+                input-name="description"
+                id="description"
+                cols="80"
+                rows="10"
+              ></textarea>
+              <input type="hidden" name="description" />
+            </label>
+            <input id="id" input-name="id" name="id" type="hidden" value="83" />
+            <div class="admin-modal-wrapper">
+              <button type="button" class="button warning exit">Выйти без сохранения</button>
+              <button type="submit" class="button save">Сохранить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <script>
+        document.querySelectorAll('input[input-name="photo"]').forEach((photoInput) => {
+          console.log(photoInput);
+          photoInput.addEventListener("click", function (event) {
+            console.log(event.target);
+            const input = event.target;
+            const file = input.files[0];
+
+            if (file) {
+              const reader = new FileReader();
+
+              reader.onload = function (e) {
+                const img = input.closest("label").querySelector(".admin-doctor__img");
+                img.src = e.target.result;
+              };
+
+              reader.readAsDataURL(file);
+            }
+          });
+        });
+      </script>
+
+      <script>
+        class FormHandler {
+          constructor(formSelector, submitButtonSelector, url) {
+            this.form = document.querySelector(formSelector);
+            this.submitButton = document.querySelector(submitButtonSelector);
+            this.url = url;
+
+            this.handleSubmit = this.handleSubmit.bind(this);
+            this.submitButton.addEventListener("click", this.handleSubmit);
+          }
+
+          async sendForm(formData) {
+            try {
+              const response = await fetch(this.url, {
+                method: "POST",
+                body: formData,
+              });
+              if (response && response.ok) {
+                const responseText = await response.text();
+                try {
+                  return JSON.parse(responseText);
+                } catch (error) {
+                  console.error("Error parsing JSON: ", error);
+                  throw new Error("Ошибка при разборе JSON: " + error.message);
+                }
+              } else {
+                throw new Error("Ошибка ответа сервера: " + response.status);
+              }
+            } catch (error) {
+              console.error("Error sending form: ", error);
+              throw new Error("Ошибка при отправке формы: " + error.message);
+            }
+          }
+
+          handleSubmit(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this.form);
+            console.log([...formData.entries()]); // Логируем данные формы для проверки
+
+            this.sendForm(formData)
+              .then((response) => {
+                if (response.success) {
+                  console.log("form sent");
+                  window.location.replace("/admin/?page=doctors&tab=all");
+
+                  setTimeout(() => {
+                    console.log("timeout");
+                  }, 500);
+                } else {
+                  console.error("Server error: ", response.error);
+                }
+              })
+              .catch((error) => {
+                console.error("Error sending form: ", error);
+
+                setTimeout(() => {
+                  console.log("timeout error");
+                }, 500);
+              });
+          }
+        }
+
+        // Создаем экземпляр класса FormHandler
+        const formHandler = new FormHandler(
+          "form",
+          'button[name="submit_doctor"]',
+          "/admin/pages/doctors/settings/send.php"
+        );
+      </script>
     </div>
-    <div class="card card2"></div>
+
+    <script type="module" src="/admin/js/admin.js?v=1718889040"></script>
+    <script type="module" src="/admin/js/main.js?v=1718889040"></script>
+    <!-- <script type="module" src="/assets/js/validation.js?v=1718889040"></script> -->
   </body>
 </html>

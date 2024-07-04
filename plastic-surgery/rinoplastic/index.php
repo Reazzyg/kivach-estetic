@@ -57,7 +57,7 @@ load_template("page-hero", array(
 
 <section class="video">
   <div class="container">
-    <iframe class="brs30" width="100%" height="720" src="https://www.youtube.com/embed/Kvbybot2rEg" title="Kivach Aqua" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="100%" height="720" src="https://www.youtube.com/embed/Kvbybot2rEg" title="Kivach Aqua" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
   <!-- /.container -->
 </section>

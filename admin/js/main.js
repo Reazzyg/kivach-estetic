@@ -1,5 +1,3 @@
-import FormHandler from "./send_form.js";
+import update_photo_input from "./update-photo-input.js";
 
-// Использование класса
-
-// const formHandler = new FormHandler("form", 'button[type="submit"]', "/system/send_form.php");
+update_photo_input();
