@@ -31,7 +31,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 <!-- /.hero -->
 <section class="year">
   <div class="container year-container">
-    <img src="<?get_img_path()?>logo.png" alt="" class="logo">
+    <img src="<? get_img_path() ?>logo.png" alt="" class="logo">
     <p class="subtitle">начиная с 2017 года</p>
   </div>
   <!-- /.container year-container -->
@@ -41,17 +41,17 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 <section class="advantages">
   <div class="container advantages-container">
     <div class="advantages-card">
-      <img src="<?get_img_path()?>patients.svg" alt="" class="advantages-card__img">
+      <img src="<? get_img_path() ?>patients.svg" alt="" class="advantages-card__img">
       <p class="subtitle">1 000 000 000 000</p>
       <p class="advantages-card__text text">Столько пациентов приняла клиника за всё время своего существования</p>
     </div>
     <div class="advantages-card">
-      <img src="<?get_img_path()?>calendar.svg" alt="" class="advantages-card__img">
+      <img src="<? get_img_path() ?>calendar.svg" alt="" class="advantages-card__img">
       <p class="subtitle">300 000</p>
       <p class="advantages-card__text text">Столько операций проводится в клинике ежегодно</p>
     </div>
     <div class="advantages-card">
-      <img src="<?get_img_path()?>body.svg" alt="" class="advantages-card__img">
+      <img src="<? get_img_path() ?>body.svg" alt="" class="advantages-card__img">
       <p class="subtitle">2 000 000 000 000</p>
       <p class="advantages-card__text text">Столько операций провела клиника,начиная с 2017 года</p>
     </div>
@@ -61,7 +61,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 <!-- /.advantages -->
 <section class="feedback">
   <div class="container feedback-container">
-    <img class="feedback__img" src="<?get_img_path()?>form-doc.png" alt="">
+    <img class="feedback__img" src="<? get_img_path() ?>form-doc.png" alt="">
     <p class="title">Напишите нам</p>
     <p class="text">Сотрудник клиники свяжется с вами в течение рабочего дня</p>
     <sendForm></sendForm>
@@ -74,24 +74,24 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 <section class="devider">
   <!-- 5 вариантов картинок на каждое разрешение???? -->
 
-  <img src="<?get_img_path()?>body-bg-left.svg" alt="" class="devider-bg devider-bg-left devider-bg-max">
-  <img src="<?get_img_path()?>body-bg-right.svg" alt="" class="devider-bg devider-bg-right devider-bg-max">
+  <img src="<? get_img_path() ?>body-bg-left.svg" alt="" class="devider-bg devider-bg-left devider-bg-max">
+  <img src="<? get_img_path() ?>body-bg-right.svg" alt="" class="devider-bg devider-bg-right devider-bg-max">
   <!--  -->
 
-  <img src="<?get_img_path()?>body-bg-left-1500.svg" alt="" class="devider-bg devider-bg-left devider-bg-1500">
-  <img src="<?get_img_path()?>body-bg-right-1500.svg" alt="" class="devider-bg devider-bg-right devider-bg-1500">
+  <img src="<? get_img_path() ?>body-bg-left-1500.svg" alt="" class="devider-bg devider-bg-left devider-bg-1500">
+  <img src="<? get_img_path() ?>body-bg-right-1500.svg" alt="" class="devider-bg devider-bg-right devider-bg-1500">
   <!--  -->
 
-  <img src="<?get_img_path()?>body-bg-left-1200.svg" alt="" class="devider-bg devider-bg-left devider-bg-1200">
-  <img src="<?get_img_path()?>body-bg-right-1200.svg" alt="" class="devider-bg devider-bg-right devider-bg-1200">
+  <img src="<? get_img_path() ?>body-bg-left-1200.svg" alt="" class="devider-bg devider-bg-left devider-bg-1200">
+  <img src="<? get_img_path() ?>body-bg-right-1200.svg" alt="" class="devider-bg devider-bg-right devider-bg-1200">
   <!--  -->
 
-  <img src="<?get_img_path()?>body-bg-left-992.svg" alt="" class="devider-bg devider-bg-left devider-bg-992">
-  <img src="<?get_img_path()?>body-bg-right-992.svg" alt="" class="devider-bg devider-bg-right devider-bg-992">
+  <img src="<? get_img_path() ?>body-bg-left-992.svg" alt="" class="devider-bg devider-bg-left devider-bg-992">
+  <img src="<? get_img_path() ?>body-bg-right-992.svg" alt="" class="devider-bg devider-bg-right devider-bg-992">
   <!--  -->
 
-  <img src="<?get_img_path()?>body-bg-left-768.svg" alt="" class="devider-bg devider-bg-left devider-bg-768">
-  <img src="<?get_img_path()?>body-bg-right-768.svg" alt="" class="devider-bg devider-bg-right devider-bg-768">
+  <img src="<? get_img_path() ?>body-bg-left-768.svg" alt="" class="devider-bg devider-bg-left devider-bg-768">
+  <img src="<? get_img_path() ?>body-bg-right-768.svg" alt="" class="devider-bg devider-bg-right devider-bg-768">
   <!--  -->
   <div class="container devider-container">
     <h2 class="title">Пластические операции <b>премиум-класса</b> с соблюдением международных стандартов</h2>
@@ -103,7 +103,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 
 <section class="about">
   <div class="container about-container">
-    <img src="<?get_img_path()?>clinic.png" alt="" class="about__img brs30">
+    <img src="<? get_img_path() ?>clinic.png" alt="" class="about__img brs30">
     <div class="about-wrapper">
       <div class="about-card">
         <h3 class="about-card__title">Premium-класс</h3>
@@ -150,7 +150,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
     <h2 class="title standart__title">Международные стандарты, которые соблюдаются в клинике</h2>
     <div class="standart-wrapper brs30">
       <div class="standart-card">
-        <img src="<?get_img_path()?>efqm.png" alt="" class="standart-card__img">
+        <img src="<? get_img_path() ?>efqm.png" alt="" class="standart-card__img">
         <p class="text standart-card__text">Этому стандарту следуют более 50 000 организаций по всему миру. Наличие
           сертификата EFQM означает, что процессы обслуживания, лечения, развития, планирования и управления инновациями
           в клинике организованы совершенно и соответствуют образу идеальной модели Европейского фонда управления
@@ -159,7 +159,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
       </div>
       <!-- /.standart-card -->
       <div class="standart-card">
-        <img src="<?get_img_path()?>coin.png" alt="" class="standart-card__img">
+        <img src="<? get_img_path() ?>coin.png" alt="" class="standart-card__img">
         <p class="text standart-card__text">Cерия универсальных стандартов, разработанных американской компанией Joint
           Commission International, которая стандартизировала качество услуг, оказываемых в медицинской отрасли, по
           всему миру. Аккредитация по этим стандартам указывает на высший уровень здравоохранения, принятый в данном
@@ -190,7 +190,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
           тканей и снижающих риск осложнений</p>
 
         <div class="aftercare-description">
-          <img src="<?get_img_path()?>tech-bg.jpg" alt="" class="aftercare-description__img">
+          <img src="<? get_img_path() ?>tech-bg.jpg" alt="" class="aftercare-description__img">
           <p class="text aftercare-description__text brs30">Хирург А.В.Иванов, хирург В.А.Петров, медсестра
             А.А.Васильева в
             операционной клиники</p>
@@ -210,24 +210,24 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 <section class="devider devider-big">
   <!-- 5 вариантов картинок на каждое разрешение???? -->
 
-  <img src="<?get_img_path()?>body-bg-left.svg" alt="" class="devider-bg devider-bg-left devider-bg-max">
-  <img src="<?get_img_path()?>body-bg-right.svg" alt="" class="devider-bg devider-bg-right devider-bg-max">
+  <img src="<? get_img_path() ?>body-bg-left.svg" alt="" class="devider-bg devider-bg-left devider-bg-max">
+  <img src="<? get_img_path() ?>body-bg-right.svg" alt="" class="devider-bg devider-bg-right devider-bg-max">
   <!--  -->
 
-  <img src="<?get_img_path()?>body-bg-left-1500.svg" alt="" class="devider-bg devider-bg-left devider-bg-1500">
-  <img src="<?get_img_path()?>body-bg-right-1500.svg" alt="" class="devider-bg devider-bg-right devider-bg-1500">
+  <img src="<? get_img_path() ?>body-bg-left-1500.svg" alt="" class="devider-bg devider-bg-left devider-bg-1500">
+  <img src="<? get_img_path() ?>body-bg-right-1500.svg" alt="" class="devider-bg devider-bg-right devider-bg-1500">
   <!--  -->
 
-  <img src="<?get_img_path()?>body-bg-left-1200.svg" alt="" class="devider-bg devider-bg-left devider-bg-1200">
-  <img src="<?get_img_path()?>body-bg-right-1200.svg" alt="" class="devider-bg devider-bg-right devider-bg-1200">
+  <img src="<? get_img_path() ?>body-bg-left-1200.svg" alt="" class="devider-bg devider-bg-left devider-bg-1200">
+  <img src="<? get_img_path() ?>body-bg-right-1200.svg" alt="" class="devider-bg devider-bg-right devider-bg-1200">
   <!--  -->
 
-  <img src="<?get_img_path()?>body-bg-left-992.svg" alt="" class="devider-bg devider-bg-left devider-bg-992">
-  <img src="<?get_img_path()?>body-bg-right-992.svg" alt="" class="devider-bg devider-bg-right devider-bg-992">
+  <img src="<? get_img_path() ?>body-bg-left-992.svg" alt="" class="devider-bg devider-bg-left devider-bg-992">
+  <img src="<? get_img_path() ?>body-bg-right-992.svg" alt="" class="devider-bg devider-bg-right devider-bg-992">
   <!--  -->
 
-  <img src="<?get_img_path()?>body-bg-left-768.svg" alt="" class="devider-bg devider-bg-left devider-bg-768">
-  <img src="<?get_img_path()?>body-bg-right-768.svg" alt="" class="devider-bg devider-bg-right devider-bg-768">
+  <img src="<? get_img_path() ?>body-bg-left-768.svg" alt="" class="devider-bg devider-bg-left devider-bg-768">
+  <img src="<? get_img_path() ?>body-bg-right-768.svg" alt="" class="devider-bg devider-bg-right devider-bg-768">
   <!--  -->
   <div class="container devider-container">
     <h2 class="title">Новое качество жизни вместе с «Кивач Эстетик»</h2>
@@ -259,10 +259,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
     <h2 class="subtitle">Пациентам клиники, проходящим программу реабилитации, предоставляются </h2>
     <h2 class="title">комфортабельные номера категории «5 звёзд»</h2>
     <div class="rooms-wrapper">
-      <img src="<?get_img_path()?>room1.jpg" alt="" class="rooms__img">
+      <img src="<? get_img_path() ?>room1.jpg" alt="" class="rooms__img">
       <div class="rooms-wrap">
-        <img src="<?get_img_path()?>room2.jpg" alt="" class="rooms__img">
-        <img src="<?get_img_path()?>room3.jpg" alt="" class="rooms__img">
+        <img src="<? get_img_path() ?>room2.jpg" alt="" class="rooms__img">
+        <img src="<? get_img_path() ?>room3.jpg" alt="" class="rooms__img">
       </div>
       <!-- /.rooms-wrap -->
     </div>
@@ -299,16 +299,16 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
       <div class="swiper mySwiper2">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="<?get_img_path()?>diplom1.png" />
+            <img src="<? get_img_path() ?>diplom1.png" />
           </div>
           <div class="swiper-slide">
-            <img src="<?get_img_path()?>diplom2.png" />
+            <img src="<? get_img_path() ?>diplom2.png" />
           </div>
           <div class="swiper-slide">
-            <img src="<?get_img_path()?>diplom3.png" />
+            <img src="<? get_img_path() ?>diplom3.png" />
           </div>
           <div class="swiper-slide">
-            <img src="<?get_img_path()?>diplom4.png" />
+            <img src="<? get_img_path() ?>diplom4.png" />
           </div>
         </div>
       </div>
@@ -317,16 +317,16 @@ include $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
       <div thumbsSlider="" class="swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="<?get_img_path()?>diplom1.png" />
+            <img src="<? get_img_path() ?>diplom1.png" />
           </div>
           <div class="swiper-slide">
-            <img src="<?get_img_path()?>diplom2.png" />
+            <img src="<? get_img_path() ?>diplom2.png" />
           </div>
           <div class="swiper-slide">
-            <img src="<?get_img_path()?>diplom3.png" />
+            <img src="<? get_img_path() ?>diplom3.png" />
           </div>
           <div class="swiper-slide">
-            <img src="<?get_img_path()?>diplom4.png" />
+            <img src="<? get_img_path() ?>diplom4.png" />
           </div>
         </div>
         <div class="swiper-button-next swiper-button-custom"></div>

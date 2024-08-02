@@ -1,6 +1,6 @@
 <?
-$title = 'Фейслифтинг';
-$subtitle = 'Подтяжка лица и шеи';
+$title = 'Мужской бодилифтинг';
+$subtitle = 'Моделирование тела с акцентированием маскулинности силуэта';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/components/header.php';
 
 load_template("page-hero", array(
@@ -30,54 +30,109 @@ load_template("page-hero", array(
   //   )
   // )
 ));
+
 ?>
 
 
 <section class="info">
-  <h2 class="subtitle">Фейслифтинг</h2>
+  <h2 class="subtitle">Бодилифтинг</h2>
   <div class="container">
     <div class="info-wrapper">
-      <p class="text info__text">Хирургическая подтяжка лица и шеи устранит видимые признаки старения, вернув вашу
-        внешность на несколько лет назад. Но это не просто путешествие во времени. Это возможность запретить возрасту
-        диктовать свои условия.</p>
-      <p class="text info__text">Красота не должна увядать. Мы освободим её от тех наслоений, которые образуются с
-        течением лет. Сделаем это безопасно для вашего здоровья и настолько эффектно, что у окружающих возникнет вопрос:
-        «В чём секрет вашей неувядающей молодости?»</p>
-      <p class="text info__text">Операция одинаково успешно проводится для женщин и мужчин, во всех случаях придавая
-        внешности более молодой вид, повышая привлекательность и позволяя игнорировать эстетические и социальные
-        ограничения, которые накладывает возраст. </p>
+      <p class="text info__text">Операция предполагает ряд хирургических процедур для улучшения внешнего вида вашего
+        тела после значительной потери веса. Эти процедуры позволяют удалить избыточную провисающую кожу, а также
+        скорректировать другие изменения фигуры, вернув ей более привлекательную форму.</p>
+      <p class="text info__text">Значительная потеря веса часто приводит к тому, что лишняя кожа растягивается и
+        обвисает. Эта кожа собирается вокруг средней части тела. Обвисая вокруг живота и боков может вызывать дискомфорт
+        и смущение, искажая фигуру в целом. Бодилифтинг преобразит ваш внешний вид, вернув телу естественную эстетику и
+        даже омолодив его.</p>
+    </div>
+    <img src="<? get_img_path() ?>rino-text-1.png" alt="фото коррекции формы носа" class="info__img brs30 ">
+  </div>
+</section>
+
+<section class="info reverse">
+  <h2 class="subtitle">Всё в комплексе</h2>
+  <div class="container">
+    <div class="info-wrapper">
+      <p class="text info__text">Бодилифтинг выходит за рамки просто абдоминопластики или липосакции. Операция сочетает
+        в себе несколько техник для моделирования фигуры по кругу: талия, спина, живот, а также ягодицы и бёдра.</p>
+      <p class="text info__text">Являясь комплексной операцией, бодилифтинг демонстрирует превосходную эффективность.
+        Рекомендован как женщинам, так и мужчинам, предоставляя им радикальные и долгосрочные результаты, значительно
+        превосходящие по качеству безоперационные методы подтяжки.</p>
+      <a href="/plastic-surgery/abdominoplastic/">Абдоминопластика – подробности здесь. </a>
+      <a href="/plastic-surgery/liposuction/">Липосакция – подробности здесь. </a>
     </div>
     <img src="<? get_img_path() ?>rino-text-1.png" alt="фото коррекции формы носа" class="info__img brs30 ">
   </div>
 </section>
 
 
-<section class="info center">
-  <h2 class="subtitle">Станьте лучшей и более молодой версией себя. Мы знаем, как это сделать</h2>
+
+<section class="info ">
+  <h2 class="subtitle">Идеальные кандидаты для коррекции фигуры</h2>
   <div class="container">
     <div class="info-wrapper">
-      <ul class="info-list">
-        <li class="info-list__item text">Вы стесняетесь того, как выглядит ваше лицо из-за обвисающей кожи?</li>
-        <li class="info-list__item text">Вы стесняетесь того, как выглядит ваше лицо из-за обвисающей кожи?</li>
-        <li class="info-list__item text">Когда вы смотрите в зеркало, то понимаете, что выглядите намного старше, чем
-          себя ощущаете?</li>
-        <li class="info-list__item text">Вы чувствуете, что стареющий внешний вид отрицательно влияет на вашу карьеру
-          или личные отношения?</li>
-      </ul>
-      <p class="text">После фейслифтинга вы испытаете прилив уверенности в себе, потому что ваша внешность будет лучше
-        отражать ваш энергичный настрой.</p>
+      <p class="text info__text">Наиболее подходящими кандидатами на операцию по коррекции фигуры являются люди, которые
+        достигли или приближаются к своим целям по снижению веса и успешно поддерживают этот вес в течение примерно 6
+        месяцев. Эта стабильность имеет решающее значение, поскольку она гарантирует, что результаты процедуры будут
+        долговечными и более предсказуемыми.</p>
     </div>
+    <img src="<? get_img_path() ?>rino-text-1.png" alt="фото коррекции формы носа" class="info__img brs30 ">
   </div>
 </section>
 
 
 
+<section class="info reverse">
+  <h2 class="subtitle">Идея перфекционизма</h2>
+  <div class="container">
+    <div class="info-wrapper">
+      <p class="text info__text">HD Lipo разработан перфекционистами для перфекционистов, т. е. для людей, которых не
+        может устроить просто хорошее – им нужно идеальное.</p>
+      <p class="text info__text">Наивысшую эффективность и поистине впечатляющие результаты HD Lipo продемонстрирует в
+        том случае, если ваш вес приближен к оптимальному, вы придерживаетесь сбалансированного режима питания и ведёте
+        физически активный образ жизни.</p>
+      <p class="text info__text">В частности, процедуру можно рекомендовать бодибилдерам и фитнесисткам, чтобы помочь им
+        превратить свои тела в подлинные шедевры.</p>
+    </div>
+    <img src="<? get_img_path() ?>rino-text-1.png" alt="фото коррекции формы носа" class="info__img brs30 ">
+  </div>
+</section>
+
+<section class="info grid">
+  <div class="container">
+
+    <ul class="info-list">
+      <li class="subtitle">То, чего вы хотите</li>
+      <li class="info-list__item text">Если вы хотите избавиться от дряблой кожи после резкого похудения.</li>
+      <li class="info-list__item text">Имеете здоровый, устойчивый вес и ведёте здоровый образ жизни.</li>
+      <li class="info-list__item text">Хотите добиться улучшения контуров тела, стройной талии, более плоского живота,
+        подтянутых бёдер и ягодиц.</li>
+      <li class="info-list__item text">Заинтересованы в изменении вашей фигуры на длительный период.</li>
+    </ul>
+    <ul class="info-list">
+      <li class="subtitle">То, чего вы хотите</li>
+      <li class="info-list__item text">Вы избавитесь от дискомфорта и проблем с гигиеной, которые часто возникают в
+        связи со значительной потерей веса.</li>
+      <li class="info-list__item text">Вернёте способность двигаться более свободно и получите дополнительные
+        преимущества для физической активности.</li>
+      <li class="info-list__item text">Уменьшите вероятность возникновения раздражения кожи, натёртостей и даже кожных
+        инфекций.</li>
+      <li class="info-list__item text">Повысите свою мотивацию сохранять здоровье.</li>
+    </ul>
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.info grid -->
 
 <section class="page bg">
   <div class="container">
-    <h2 class="subtitle">SMAS-лифтинг</h2>
-    <p class="text">Это хирургическая процедура, корректирующая внешний вид шеи и нижних двух третей лица. Устраняет
-      такие признаки старения, как провисание кожи, избыток жира, потерю объёма щёк и двойной подбородок.</p>
+    <h2 class="subtitle">Новые возможности для полноценной самореализации</h2>
+    <p class="text">Цель бодилифтинга состоит в том, чтобы дать вам наиболее естественные результаты, вернув ощущение
+      физического и эстетического комфорта от собственного тела. Это станет мотивационным толчком поддерживать здоровый
+      образ жизни в дальнейшем.</p>
+    <p class="text">Для многих бодилифтинг выступает новым началом, открывая возможности для полноценной самореализации
+      в обыденной жизни, профессиональной карьере, спорте, сексе и в лёгком, ни к чему не обязывающем флирте.</p>
     <div class="page-wrapper">
       <img src="<? get_img_path() ?>rino-text-1.png" alt="фото сплинтов" class="page__img">
       <img src="<? get_img_path() ?>rino-text-1.png" alt="фото сплинтов" class="page__img">
@@ -88,71 +143,12 @@ load_template("page-hero", array(
   <!-- /.container -->
 </section>
 <!-- /.page -->
-
-
-
-
-<section class="page bg">
-  <div class="container">
-    <h2 class="subtitle">Deep plane facelift</h2>
-    <p class="text">Подтяжка лица в глубокой плоскости. Самая продвинутая на сегодняшний день омолаживающая операция.
-      Гарантирует более молодую внешность и более естественный вид, потому что не требует такого сильного натягивания
-      кожи, как другие виды подтяжки. Сочетается с височной подтяжкой.</p>
-    <div class="page-wrapper">
-      <img src="<? get_img_path() ?>rino-text-1.png" alt="фото сплинтов" class="page__img">
-      <img src="<? get_img_path() ?>rino-text-1.png" alt="фото сплинтов" class="page__img">
-      <img src="<? get_img_path() ?>rino-text-1.png" alt="фото сплинтов" class="page__img">
-    </div>
-    <!-- /.page-wrapper -->
-  </div>
-  <!-- /.container -->
-</section>
-<!-- /.page -->
-
-
-
-
-<section class="page bg">
-  <div class="container">
-    <h2 class="subtitle">Височная подтяжка</h2>
-    <p class="text">Операция, омолаживающая верхнюю часть лица в области наружной трети брови, внешних уголков глаз и
-      скулы.</p>
-    <div class="page-wrapper">
-      <img src="<? get_img_path() ?>rino-text-1.png" alt="фото сплинтов" class="page__img">
-      <img src="<? get_img_path() ?>rino-text-1.png" alt="фото сплинтов" class="page__img">
-      <img src="<? get_img_path() ?>rino-text-1.png" alt="фото сплинтов" class="page__img">
-    </div>
-    <!-- /.page-wrapper -->
-  </div>
-  <!-- /.container -->
-</section>
-<!-- /.page -->
-
-
-
-
-<section class="page bg">
-  <div class="container">
-    <h2 class="subtitle">Подтяжка шеи</h2>
-    <p class="text">Процедура, освобождающая шею от морщин, дряблой кожи и избыточных жировых отложений, в том числе в
-      области подбородка.</p>
-    <div class="page-wrapper">
-      <img src="<? get_img_path() ?>rino-text-1.png" alt="фото сплинтов" class="page__img">
-      <img src="<? get_img_path() ?>rino-text-1.png" alt="фото сплинтов" class="page__img">
-      <img src="<? get_img_path() ?>rino-text-1.png" alt="фото сплинтов" class="page__img">
-    </div>
-    <!-- /.page-wrapper -->
-  </div>
-  <!-- /.container -->
-</section>
-<!-- /.page -->
-
 
 
 
 <section class="info center">
-  <h2 class="subtitle">Не позволяйте процессу старения диктовать свои правила. Воспользуйтесь фейслифтингом, чтобы
-    продолжать наслаждаться молодостью. </h2>
+  <h2 class="subtitle">Преобразите себя. Воспользуйтесь бодилифтингом, чтобы вернуть своему телу привлекательность и
+    обновить всю свою жизнь.</h2>
   <div class="container">
     <div class="info-wrapper">
       <p class="text info__text">Чтобы узнать, какие результаты можно получить после операции, свяжитесь с нашим
@@ -160,7 +156,6 @@ load_template("page-hero", array(
     </div>
   </div>
 </section>
-
 
 
 <section class="feedback">
@@ -175,35 +170,31 @@ load_template("page-hero", array(
 <!-- /.feedback -->
 
 
-
-
 <section class="info grid contraindications">
   <div class="container">
-    <ul class="info-list">
-      <li class="subtitle">Показания</li>
-      <li class="info-list__item text">Выраженные возрастные изменения в верхней, средней и нижней части лица.</li>
-      <li class="info-list__item text">Глубокие носогубные складки.</li>
-      <li class="info-list__item text">Скуловые, слёзные борозды.</li>
-      <li class="info-list__item text">Формирование брылей – обвисших, дряблых щёк.</li>
-      <li class="info-list__item text">Глубокие морщины на лице.</li>
-      <li class="info-list__item text">Дефицит объёма тканей в верхней и средней части лица.</li>
-      <li class="info-list__item text">Опущение бровей.</li>
-      <li class="info-list__item text">Морщины в уголках глаз</li>
-      <li class="info-list__item text">Выраженные морщины на шее.</li>
-      <li class="info-list__item text">Дряблая кожа на шее и подбородке.</li>
 
+    <ul class="info-list">
+      <li class="subtitle">Показания:</li>
+      <li class="info-list__item text">Возрастные изменения кожи в области плеч, бёдер и ягодиц. Дряблость и
+        провисание.</li>
+      <li class="info-list__item text">Неравномерные жировые отложения на руках, бёдрах и ягодицах.</li>
+      <li class="info-list__item text">Непропорционально большой объём ягодиц.</li>
+      <li class="info-list__item text">Растяжки.</li>
+      <li class="info-list__item text">Свисающие складки кожи.</li>
+      <li class="info-list__item text">Снижение упругости и эластичности кожи на внутренней и внешней поверхностях
+        бёдер.</li>
 
     </ul>
     <ul class="info-list">
-      <li class="subtitle">Противопоказания</li>
-      <li class="info-list__item text">Нарушения свертываемости крови, заболевания крови.</li>
+      <li class="subtitle">Противопоказания:</li>
+      <li class="info-list__item text">Нарушения свертываемости крови.</li>
       <li class="info-list__item text">Онкологические заболевания в острой форме и стадии ремиссии, длящейся менее
         5-ти лет.</li>
       <li class="info-list__item text">Сахарный диабет в стадии декомпенсации.</li>
-      <li class="info-list__item text">Склонность к образованию келоидных рубцов.</li>
-      <li class="info-list__item text">Хронические заболевания в стадии обострения.</li>
-      <li class="info-list__item text">Воспалительные, инфекционные заболевания.</li>
+      <li class="info-list__item text">Инфекционные заболевания.</li>
+      <li class="info-list__item text">Обострение хронических болезней.</li>
       <li class="info-list__item text">Беременность, лактация.</li>
+
     </ul>
   </div>
   <!-- /.container -->
@@ -212,52 +203,8 @@ load_template("page-hero", array(
 
 
 
-
-<section class="price">
-  <div class="container">
-    <div class="price-card">
-      <h2 class="subtitle">Перемены после фейслифтинга</h2>
-      <ul class="info-list">
-        <li class="info-list__item text">• Разглаживаются морщины и глубокие носогубные складки.</li>
-        <li class="info-list__item text">• Исчезает второй подбородок и «брыли».</li>
-        <li class="info-list__item text">• Корректируется овал лица.</li>
-        <li class="info-list__item text">• Подтягиваются все мягкие ткани лица и шеи.</li>
-        <li class="info-list__item text">• Приподнимаются опущенные брови и уголки губ.</li>
-        <li class="info-list__item text">• Внешний вид молодеет на 5-10 лет.</li>
-        <li class="info-list__item text">• Окружающие говорят вам больше комплиментов и чаще выражают одобрение вашей
-          внешности.</li>
-      </ul>
-    </div>
-    <!-- /.price-card -->
-
-    <div class="price-card-small">
-      <div class="price-card-wrapper">
-        <h3 class="subtitle">Фейслифтинг</h3>
-        <p>«ВСЁ ВКЛЮЧЕНО»</p>
-        <p class="price-card__price">
-          <span class="price__new subtitle">140 000<span class="price__value">₽</span> </span>
-          <span class="price__old">150 000<span class="price__value">₽</span></span>
-        </p>
-      </div>
-      <!-- /.price-card-wrapper -->
-
-      <img src="<? get_img_path() ?>rino-nose.png" alt="фото ринопластики" class="price-card__bg">
-    </div>
-    <div class="price-card-small">
-      <h3 class="subtitle ">
-        Фейслифтинг ЛЮБОЙ степени сложности
-      </h3>
-    </div>
-
-  </div>
-  <!-- /.container -->
-</section>
-<!-- /.price -->
-
-
-
 <section class="info center">
-  <h2 class="subtitle">Фейслифтинг в «Кивач Эстетик» – это операция в клинике с мировым именем и безупречной репутацией
+  <h2 class="subtitle">Бодилифтинг в «Кивач Эстетик» – это операция в клинике с мировым именем и безупречной репутацией
   </h2>
   <div class="container">
     <div class="info-wrapper">
@@ -277,10 +224,8 @@ load_template("page-hero", array(
 </section>
 
 
-
 <? getDoctorInfo('Максим Александрович ПОДОЛЯК');
 ?>
-
 
 
 <section class="order">
@@ -288,8 +233,9 @@ load_template("page-hero", array(
     <ul class="info-list info-list-order">
       <li class="info-list__item">
         <h3 class="subtitle">Первичная консультация</h3>
-        Запишитесь на первичную консультацию, чтобы узнать, как с помощью фейслифтинга восстановить молодой внешний вид.
-        Врач проведёт осмотр, назначит исследования (если они необходимы) и согласует с вами дату операции.
+        Запишитесь на первичную консультацию, чтобы узнать, как с помощью бодилифтинга восстановить эстетическую
+        привлекательность вашего тела. Врач проведёт осмотр, назначит исследования (если они необходимы) и согласует с
+        вами дату операции.
       </li>
       <li class="info-list__item">
         <h3 class="subtitle">Операция</h3>

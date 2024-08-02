@@ -1,48 +1,48 @@
 //отступ от меню
-document.querySelector(".content-container").style.marginLeft =
-  document.querySelector(".admin-menu").offsetWidth + "px";
+document.querySelector('.content-container').style.marginLeft =
+  document.querySelector('.admin-menu').offsetWidth + 'px';
 
 // createCommentModal();
 
 tabs();
 
-const modal = document.getElementById("myModal");
+const modal = document.getElementById('myModal');
 
-const editLinks = document.querySelectorAll(".comment-change");
+const editLinks = document.querySelectorAll('.comment-change');
 
 if (modal) {
-  const modalForm = modal.querySelector("#reviewContent");
+  const modalForm = modal.querySelector('#reviewContent');
 
-  const closeButton = modal.querySelector(".exit");
+  const closeButton = modal.querySelector('.exit');
 
   const data = {};
 
   const inputValues = {};
 
   // Получаем все инпуты в модальном окне и создаем массив inputValues
-  const modalInputs = modal.querySelectorAll("[input-name]");
+  const modalInputs = modal.querySelectorAll('[input-name]');
 
   modalInputs.forEach((modalInput) => {
-    const modalInputName = modalInput.getAttribute("input-name");
+    const modalInputName = modalInput.getAttribute('input-name');
 
-    inputValues[modalInputName] = "";
+    inputValues[modalInputName] = '';
   });
 
   editLinks.forEach((link) => {
-    link.addEventListener("click", function (event) {
+    link.addEventListener('click', function (event) {
       event.preventDefault();
 
-      const tds = this.parentNode.parentNode.querySelectorAll("td");
+      const tds = this.parentNode.parentNode.querySelectorAll('td');
 
       // Формируем массив data с данными из таблицы
       tds.forEach((td) => {
-        const tdName = td.getAttribute("td-name");
+        const tdName = td.getAttribute('td-name');
         let tdValue = td.textContent;
-        if (tdName === "id") {
-          tdValue = td.getAttribute("data-id");
+        if (tdName === 'id') {
+          tdValue = td.getAttribute('data-id');
         }
-        if (tdName === "photo") {
-          tdValue = td.firstChild.nextElementSibling.getAttribute("src");
+        if (tdName === 'photo') {
+          tdValue = td.firstChild.nextElementSibling.getAttribute('src');
         }
         data[tdName] = tdValue;
       });
@@ -56,25 +56,25 @@ if (modal) {
 
       // Заполняем инпуты в модальном окне значениями из inputValues
       modalInputs.forEach((modalInput) => {
-        const modalInputName = modalInput.getAttribute("input-name");
+        const modalInputName = modalInput.getAttribute('input-name');
 
         if (inputValues.hasOwnProperty(modalInputName)) {
-          if (modalInputName === "active" && modalInput.type === "checkbox") {
-            modalInput.checked = inputValues[modalInputName] === "да";
-            modalInput.addEventListener("click", function () {
-              modalInput.checked ? (modalInput.value = "да") : (modalInput.value = "no");
+          if (modalInputName === 'active' && modalInput.type === 'checkbox') {
+            modalInput.checked = inputValues[modalInputName] === 'да';
+            modalInput.addEventListener('click', function () {
+              modalInput.checked ? (modalInput.value = 'да') : (modalInput.value = 'no');
             });
           }
 
-          if (modalInputName === "photo" && modalInput.type === "file") {
-            modalInput.value = "";
+          if (modalInputName === 'photo' && modalInput.type === 'file') {
+            modalInput.value = '';
 
-            const imgElement = modalInput.closest("label").querySelector(".admin-doctor__img");
-            const photoNotChanged = modalInput.closest("label").querySelector("[name='photo_unchanged']");
+            const imgElement = modalInput.closest('label').querySelector('.admin-doctor__img');
+            const photoNotChanged = modalInput.closest('label').querySelector("[name='photo_unchanged']");
 
             if (imgElement) {
               imgElement.src = inputValues[modalInputName];
-              let fileName = inputValues[modalInputName].split("/");
+              let fileName = inputValues[modalInputName].split('/');
               fileName = fileName[fileName.length - 1];
               photoNotChanged.value = fileName;
             }
@@ -84,33 +84,33 @@ if (modal) {
         }
       });
 
-      modal.style.display = "block";
+      modal.style.display = 'block';
     });
   });
 
   // Закрытие модального окна
-  closeButton.addEventListener("click", () => {
-    modal.style.display = "none";
+  closeButton.addEventListener('click', () => {
+    modal.style.display = 'none';
   });
 
   // Закрытие модального окна при клике на кнопку "Закрыть" или вне окна
-  closeButton.addEventListener("click", () => {
-    modal.style.display = "none";
+  closeButton.addEventListener('click', () => {
+    modal.style.display = 'none';
   });
-  modal.querySelector("form").addEventListener("submit", async function (event) {
+  modal.querySelector('form').addEventListener('submit', async function (event) {
     event.preventDefault(); // Предотвращаем отправку формы по умолчанию
 
-    let url = "";
-    console.log();
-    let location = window.location.search.split("&")[0].split("=")[1];
+    let url = '';
+
+    let location = window.location.search.split('&')[0].split('=')[1];
 
     switch (location) {
-      case "doctors":
-        url = "/admin/pages/doctors/settings/rewrite_doctor.php";
+      case 'doctors':
+        url = '/admin/pages/doctors/settings/rewrite_doctor.php';
         break;
 
-      case "comments":
-        url = "/admin/pages/comments/settings/rewrite_comment.php";
+      case 'comments':
+        url = '/admin/pages/comments/settings/rewrite_comment.php';
         break;
     }
 
@@ -118,7 +118,7 @@ if (modal) {
       const response = await submitHandler(this, url);
       if (response && response.success) {
         setTimeout(() => {
-          modal.style.display = "none";
+          modal.style.display = 'none';
           // location.reload();
         }, 500);
         console.log(response);
@@ -133,7 +133,7 @@ async function submitHandler(form, url) {
   const formData = new FormData(form);
   try {
     const response = await fetch(url, {
-      method: "POST",
+      method: 'POST',
       body: formData,
     });
     if (response && response.ok) {
@@ -150,20 +150,20 @@ async function submitHandler(form, url) {
 
 // tabs
 function tabs() {
-  const tabLinks = document.querySelectorAll(".tabs a");
-  const tabs = document.querySelectorAll(".tabs-content");
+  const tabLinks = document.querySelectorAll('.tabs a');
+  const tabs = document.querySelectorAll('.tabs-content');
 
   tabLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
+    link.addEventListener('click', function (e) {
       e.preventDefault();
 
-      const tabId = this.getAttribute("href").split("=");
+      const tabId = this.getAttribute('href').split('=');
 
       showTab(tabId[tabId.length - 1]);
 
-      history.pushState(null, null, this.getAttribute("href"));
+      history.pushState(null, null, this.getAttribute('href'));
 
-      if (link.classList.contains("menu")) {
+      if (link.classList.contains('menu')) {
         const menuFormHandler = new MenuFormHandler();
       }
     });
@@ -172,9 +172,9 @@ function tabs() {
   function showTab(tabId) {
     tabs.forEach((tab) => {
       if (tab.classList.contains(tabId)) {
-        tab.classList.add("show");
+        tab.classList.add('show');
       } else {
-        tab.classList.remove("show");
+        tab.classList.remove('show');
       }
     });
   }
@@ -182,7 +182,7 @@ function tabs() {
 
 class MenuFormHandler {
   constructor() {
-    this.forms = document.querySelectorAll(".navigation-button.show");
+    this.forms = document.querySelectorAll('.navigation-button.show');
 
     this.changedFields = {};
 
@@ -199,26 +199,26 @@ class MenuFormHandler {
 
       const activeInputs = form.querySelectorAll('input[type="checkbox"]');
 
-      const editLinks = form.querySelectorAll(".change-link");
+      const editLinks = form.querySelectorAll('.change-link');
 
       const activityBtn = form.querySelectorAll('[data-name="active_toggle"]');
 
       // Слушаем изменения в полях ввода
       activeInputs.forEach((input) => {
-        input.addEventListener("input", () => {
+        input.addEventListener('input', () => {
           this.showSaveBtn(form);
           // this.handleInputChange(input);
         });
       });
 
       linkInputs.forEach((input) => {
-        input.addEventListener("input", () => {
+        input.addEventListener('input', () => {
           this.showSaveBtn(form);
           // this.handleInputChange(input);
         });
       });
 
-      addButton.addEventListener("click", () => {
+      addButton.addEventListener('click', () => {
         this.addLink(form);
         this.deleteLink(form);
         this.showSaveBtn(form);
@@ -227,13 +227,13 @@ class MenuFormHandler {
       saveButton ? this.handleSave(saveButton, form) : null;
 
       editLinks.forEach((link) => {
-        link.addEventListener("click", () => {
+        link.addEventListener('click', () => {
           this.hadleChangeEvent(link);
         });
       });
 
       activityBtn.forEach((btn) => {
-        btn.addEventListener("click", () => {
+        btn.addEventListener('click', () => {
           this.handleActivity(btn);
         });
       });
@@ -241,15 +241,15 @@ class MenuFormHandler {
   }
 
   handleSave(saveButton, form) {
-    saveButton.addEventListener("click", () => {
+    saveButton.addEventListener('click', () => {
       this.saveChanges(form);
     });
   }
 
   handleActivity(elem) {
-    const saveInput = elem.closest("tr").querySelector('input[type="hidden"]');
+    const saveInput = elem.closest('tr').querySelector('input[type="hidden"]');
 
-    elem.checked ? (saveInput.value = "yes") : (saveInput.value = "no");
+    elem.checked ? (saveInput.value = 'yes') : (saveInput.value = 'no');
 
     return saveInput.value;
   }
@@ -257,18 +257,18 @@ class MenuFormHandler {
   showSaveBtn(form) {
     const saveBtn = form.querySelector('[data-action="save"]');
 
-    saveBtn.style.display = "inline-block";
+    saveBtn.style.display = 'inline-block';
   }
 
   addLink(form) {
     // Добавляем новое поле для ссылки
-    const table = form.querySelector("table");
+    const table = form.querySelector('table');
 
-    const tbody = form.querySelector("tbody");
+    const tbody = form.querySelector('tbody');
 
-    const newItem = document.createElement("tr");
+    const newItem = document.createElement('tr');
 
-    newItem.style.backgroundColor = "rgb(104 162 239 / 77%)";
+    newItem.style.backgroundColor = 'rgb(104 162 239 / 77%)';
 
     const date = +new Date();
 
@@ -296,10 +296,10 @@ class MenuFormHandler {
         
     `;
 
-    tbody.insertAdjacentElement("afterbegin", newItem);
+    tbody.insertAdjacentElement('afterbegin', newItem);
 
-    if (!form.querySelector(".menu-save-button")) {
-      const saveButton = document.createElement("tr");
+    if (!form.querySelector('.menu-save-button')) {
+      const saveButton = document.createElement('tr');
 
       saveButton.innerHTML = `
         
@@ -320,8 +320,8 @@ class MenuFormHandler {
   deleteLink(form) {
     const deleteBtns = form.querySelectorAll('[data-action="delete"]');
     deleteBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        btn.closest("tr").remove();
+      btn.addEventListener('click', () => {
+        btn.closest('tr').remove();
       });
     });
   }
@@ -332,14 +332,14 @@ class MenuFormHandler {
     const formData = new FormData(form);
 
     // Здесь можно отправить данные на сервер с использованием fetch или других методов
-    fetch("/admin/pages/menu/settings/save_menu.php", {
-      method: "POST",
+    fetch('/admin/pages/menu/settings/save_menu.php', {
+      method: 'POST',
       body: formData,
     })
       .then((response) => {
         // Проверяем статус ответа
         if (!response.ok) {
-          throw new Error("Ошибка HTTP, статус " + response.status);
+          throw new Error('Ошибка HTTP, статус ' + response.status);
         }
         // Возвращаем JSON
         console.log(response);
@@ -349,17 +349,17 @@ class MenuFormHandler {
         // Проверяем, успешен ли был ответ
         if (data.success === true) {
           // Если ответ успешен, выполните нужные действия
-          console.log("Данные успешно сохранены");
+          console.log('Данные успешно сохранены');
           setTimeout(() => {
             location.reload();
           }, 500);
         } else {
           // Если ответ содержит ошибку, обработайте это
-          console.error("Ошибка: Данные не были успешно сохранены");
+          console.error('Ошибка: Данные не были успешно сохранены');
         }
       })
       .catch((error) => {
-        console.error("Ошибка:", error);
+        console.error('Ошибка:', error);
       });
   }
 }
@@ -370,14 +370,14 @@ function convertTextIntoList(event) {
   const text = textarea.value; // Получаем текст из textarea
 
   // Разделяем текст на строки и фильтруем пустые строки
-  const lines = text.split("\n").filter((line) => line.trim() !== "");
+  const lines = text.split('\n').filter((line) => line.trim() !== '');
 
   // Формируем HTML-код для списка
   let output = '<ul class="info-list">';
   lines.forEach((line) => {
-    output += '<li class="info-list__item">' + line + "</li>";
+    output += '<li class="info-list__item">' + line + '</li>';
   });
-  output += "</ul>";
+  output += '</ul>';
 
   console.log(output);
   input.value = output; // Устанавливаем полученный HTML-код в значение input
@@ -386,96 +386,96 @@ function convertTextIntoList(event) {
 // Находим все textarea с атрибутом data-id='description-to-convert' и добавляем обработчик события blur
 const inputsToConvert = document.querySelectorAll("[data-id='description-to-convert']");
 inputsToConvert.forEach((input) => {
-  input.addEventListener("blur", convertTextIntoList);
+  input.addEventListener('blur', convertTextIntoList);
 });
 
 // input.addEventListener("blur", convertTextIntoList);
 
 function transliterate(word) {
   const a = {
-    "А": "A",
-    "Б": "B",
-    "В": "V",
-    "Г": "G",
-    "Д": "D",
-    "Е": "E",
-    "Ё": "E",
-    "Ж": "ZH",
-    "З": "Z",
-    "И": "I",
-    "Й": "Y",
-    "К": "K",
-    "Л": "L",
-    "М": "M",
-    "Н": "N",
-    "О": "O",
-    "П": "P",
-    "Р": "R",
-    "С": "S",
-    "Т": "T",
-    "У": "U",
-    "Ф": "F",
-    "Х": "KH",
-    "Ц": "TS",
-    "Ч": "CH",
-    "Ш": "SH",
-    "Щ": "SHCH",
-    "Ъ": "",
-    "Ы": "Y",
-    "Ь": "",
-    "Э": "E",
-    "Ю": "YU",
-    "Я": "YA",
-    "а": "a",
-    "б": "b",
-    "в": "v",
-    "г": "g",
-    "д": "d",
-    "е": "e",
-    "ё": "e",
-    "ж": "zh",
-    "з": "z",
-    "и": "i",
-    "й": "y",
-    "к": "k",
-    "л": "l",
-    "м": "m",
-    "н": "n",
-    "о": "o",
-    "п": "p",
-    "р": "r",
-    "с": "s",
-    "т": "t",
-    "у": "u",
-    "ф": "f",
-    "х": "kh",
-    "ц": "ts",
-    "ч": "ch",
-    "ш": "sh",
-    "щ": "shch",
-    "ъ": "",
-    "ы": "y",
-    "ь": "",
-    "э": "e",
-    "ю": "yu",
-    "я": "ya",
+    'А': 'A',
+    'Б': 'B',
+    'В': 'V',
+    'Г': 'G',
+    'Д': 'D',
+    'Е': 'E',
+    'Ё': 'E',
+    'Ж': 'ZH',
+    'З': 'Z',
+    'И': 'I',
+    'Й': 'Y',
+    'К': 'K',
+    'Л': 'L',
+    'М': 'M',
+    'Н': 'N',
+    'О': 'O',
+    'П': 'P',
+    'Р': 'R',
+    'С': 'S',
+    'Т': 'T',
+    'У': 'U',
+    'Ф': 'F',
+    'Х': 'KH',
+    'Ц': 'TS',
+    'Ч': 'CH',
+    'Ш': 'SH',
+    'Щ': 'SHCH',
+    'Ъ': '',
+    'Ы': 'Y',
+    'Ь': '',
+    'Э': 'E',
+    'Ю': 'YU',
+    'Я': 'YA',
+    'а': 'a',
+    'б': 'b',
+    'в': 'v',
+    'г': 'g',
+    'д': 'd',
+    'е': 'e',
+    'ё': 'e',
+    'ж': 'zh',
+    'з': 'z',
+    'и': 'i',
+    'й': 'y',
+    'к': 'k',
+    'л': 'l',
+    'м': 'm',
+    'н': 'n',
+    'о': 'o',
+    'п': 'p',
+    'р': 'r',
+    'с': 's',
+    'т': 't',
+    'у': 'u',
+    'ф': 'f',
+    'х': 'kh',
+    'ц': 'ts',
+    'ч': 'ch',
+    'ш': 'sh',
+    'щ': 'shch',
+    'ъ': '',
+    'ы': 'y',
+    'ь': '',
+    'э': 'e',
+    'ю': 'yu',
+    'я': 'ya',
   };
 
   return word
-    .split("")
-    .map((char) => a[char] || "")
-    .join("");
+    .split('')
+    .map((char) => a[char] || '')
+    .join('');
 }
 
 function convertName() {
   const fullName = document.querySelector("[name='name']").value;
-  const nameParts = fullName.split(" "); // Разделить на слова
+  const nameParts = fullName.split(' '); // Разделить на слова
   const transliteratedParts = nameParts.map((part) => transliterate(part.toLowerCase())); // Транслитерировать и преобразовать в нижний регистр
-  let convertedName = transliteratedParts.join("_"); // Объединить с подчеркиваниями
-  convertedName = "/doctors/" + convertedName + ".php";
+  let convertedName = transliteratedParts.join('_'); // Объединить с подчеркиваниями
+  convertedName = '/doctors/' + convertedName + '.php';
   console.log(convertedName); // Вывести результат
 
   document.querySelector("[name='doc_link']").value = convertedName;
 }
 
-document.querySelector("[name='name']").addEventListener("blur", convertName);
+document.querySelector("[name='name']").addEventListener('blur', convertName);
