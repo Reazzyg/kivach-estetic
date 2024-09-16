@@ -57,7 +57,10 @@ load_template("page-hero", array(
 
 <section class="video">
   <div class="container">
-    <iframe width="100%" height="720" src="https://www.youtube.com/embed/Kvbybot2rEg" title="Kivach Aqua" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="100%" height="720" src="https://www.youtube.com/embed/Kvbybot2rEg" title="Kivach Aqua"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
   </div>
   <!-- /.container -->
 </section>
@@ -159,7 +162,15 @@ load_template("page-hero", array(
     <!-- /.advantages -->
     <div class="swiper rinoSwiperBig">
       <div class="swiper-wrapper">
-        <img src="<? get_img_path() ?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img src="<? get_img_path() ?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img src="<? get_img_path() ?>rino2.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img src="<? get_img_path() ?>rino3.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img src="<? get_img_path() ?>rino1-1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img src="<? get_img_path() ?>rino1-2.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img src="<? get_img_path() ?>rino1-3.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img src="<? get_img_path() ?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img src="<? get_img_path() ?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img">
+        <img src="<? get_img_path() ?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<? get_img_path() ?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<? get_img_path() ?>rino2.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<? get_img_path() ?>rino3.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<? get_img_path() ?>rino1-1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<? get_img_path() ?>rino1-2.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<? get_img_path() ?>rino1-3.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<? get_img_path() ?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img"> <img
+          src="<? get_img_path() ?>rino1.png" alt="фото ринопластики" class=" swiper-slide swiper-slide__img">
       </div>
       <!--/. swiper-wraper  -->
       <div class="swiper-navigation">
@@ -355,14 +366,16 @@ load_template("page-hero", array(
     <h2 class="subtitle">Часто задаваемые вопросы</h2>
     <ul class="info-list">
       <li class="info-list__item">
-        <h3 class="subtitle question__title">Сроки лечения? <img src="<? get_img_path() ?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
+        <h3 class="subtitle question__title">Сроки лечения? <img src="<? get_img_path() ?>arrow-down-dark.svg" alt=""
+            class="question__img"> </h3>
         <div class="text question__answer">
           <p> Весь период лечения занимает достаточно времени. Первичный отёк происходит
             через 1-2 месяца. При полной реабилитации, вероятно, займётся около года.</p>
         </div>
       </li>
       <li class="info-list__item">
-        <h3 class="subtitle question__title">Когда я получу окончательный вид носа? <img src="<? get_img_path() ?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
+        <h3 class="subtitle question__title">Когда я получу окончательный вид носа? <img
+            src="<? get_img_path() ?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
         <div class="text question__answer">
           <p>Через 2-3 месяца после операции носить будет достаточно мыслительный вид. Уже
             вряд ли кто-то догадался о том, что перенесли операцию. Об этом знают только вы и хирург.</p>
@@ -372,7 +385,8 @@ load_template("page-hero", array(
         </div>
       </li>
       <li class="info-list__item">
-        <h3 class="subtitle question__title">Когда после операции можно будет выйти на работу, вернуться к учебе? <img src="<? get_img_path() ?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
+        <h3 class="subtitle question__title">Когда после операции можно будет выйти на работу, вернуться к учебе? <img
+            src="<? get_img_path() ?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
         <div class="text question__answer">
           <p>После операции предпочтение отдается 5-дневному постельному режиму. В эти дни
             вы можете провести в клинике и воспользоваться лечением, которое позволит в меньшей степени сократить время
@@ -397,7 +411,8 @@ load_template("page-hero", array(
         </div>
       </li>
       <li class="info-list__item">
-        <h3 class="subtitle question__title">Получится ли после операции света самостоятельно? <img src="<? get_img_path() ?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
+        <h3 class="subtitle question__title">Получится ли после операции света самостоятельно? <img
+            src="<? get_img_path() ?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
         <div class="text question__answer">
           <p>Сразу после операции в носке появляются поддерживающие формы полые
             силиконовые
@@ -405,7 +420,8 @@ load_template("page-hero", array(
         </div>
       </li>
       <li class="info-list__item">
-        <h3 class="subtitle question__title">Операция болезненная? Нужно ли принимать обезболивающие? <img src="<? get_img_path() ?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
+        <h3 class="subtitle question__title">Операция болезненная? Нужно ли принимать обезболивающие? <img
+            src="<? get_img_path() ?>arrow-down-dark.svg" alt="" class="question__img"> </h3>
         <div class="text question__answer">
           <p>Операция проходит под наркозом, боли вы не ощутите. В послеоперационный
             период
